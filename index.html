@@ -1,0 +1,1213 @@
+<!doctype html><html lang="en" class="no-js"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Matteo Marrale — Junior Game &amp; Narrative Designer</title>
+<!-- Meta di anteprima e descrizione (in inglese). In Astro vanno nell'<head> del layout.
+     og:image: [DA FORNIRE: immagine 1200×630] — aggiungere <meta property="og:image"> e twitter:card "summary_large_image" quando arriva. -->
+<meta name="description" content="Matteo Marrale, Junior Game &amp; Narrative Designer training at Digital Bros Game Academy in Milan. Portfolio: five academy projects, a case study of Antiques: The Last Owner, and personal prototypes.">
+<meta name="theme-color" content="#1A0A0E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matteo Marrale — Junior Game &amp; Narrative Designer">
+<meta property="og:description" content="Game systems and writing. Academy projects: Antiques: The Last Owner, One Hell of a Casino, Cosmic Chaos, What a Train, The Hunger of Nigishida. Personal prototypes: SPLITTER, Cat'n'Hell, Other Side.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Azeret+Mono:wght@400;600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Carne Viva OS — un desktop fatto di carne. Icone a sinistra, finestre trascinabili, barra in basso. Mondo unico e scuro per scelta. */
+/* Fallback per Jacquard 24 (pixel blackletter condensato): Georgia ridotta, così il layout non salta mentre il font arriva.
+   In Astro: self-host dei woff2 e metriche tarate con fontaine/capsize. */
+@font-face{font-family:'Jacquard Fallback'; src:local('Georgia'), local('Times New Roman'); size-adjust:90%; ascent-override:92%; descent-override:22%; line-gap-override:0%}
+:root{
+  color-scheme: dark;
+  --muscle-1:#5C0E1B; --muscle-2:#6D1523; --muscle-3:#4A0A15; --muscle-4:#61101E; --membrane:#3A0812;
+  --flesh:#E0806E; --flesh-raw:#C9465A; --flesh-deep:#8E2434; --fat:#F2D06B; --bile:#9DB82B; --vein:#3E5BA9; --vein-light:#6F8BD6;
+  --bone:#F1E6D6; --bone-2:#E4D5C1; --ink:#1A0A0E; --ink-soft:#4A3238; --blood:#B0081A; --blood-dry:#6E0410; --throat:#2A0006;
+  --f-black:'Jacquard 24','Jacquard Fallback',Georgia,serif;
+  --f-ui:'Azeret Mono',ui-monospace,'Courier New',monospace;
+  --f-text:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --bar-h:64px; --vh:100vh;
+  --ease-out:cubic-bezier(.165,.84,.44,1); --ease-in-out:cubic-bezier(.645,.045,.355,1);
+}
+@supports (height:100dvh){ :root{--vh:100dvh} }
+html,body{height:100%}
+.no-js #landing,.no-js #app,.no-js #classic,.no-js #boot{display:none!important}
+body{
+  margin:0; overflow:hidden; color:var(--bone); font-family:var(--f-text); font-size:16px; line-height:1.5;
+  background:var(--muscle-3);
+}
+body.is-classic{overflow:auto; background:var(--ink)}
+a{color:inherit}
+button{font:inherit; color:inherit; cursor:pointer}
+/* Focus: anello doppio (inchiostro + grasso) così si vede sia sull'avorio sia sulla carne. */
+:focus-visible{outline:3px solid var(--ink); outline-offset:0; box-shadow:0 0 0 6px var(--fat)}
+.win-body:focus-visible{outline:none; box-shadow:inset 0 0 0 3px var(--fat)}
+.ld-card:focus-visible{box-shadow:10px 12px 0 #000, 0 0 0 6px var(--fat)}
+.win:focus-visible{outline:none; box-shadow:12px 14px 0 #000, 0 0 0 6px var(--fat)}
+.skip-link{position:absolute; left:16px; top:-60px; z-index:5000; padding:10px 14px; background:var(--fat); color:var(--ink); border:3px solid var(--ink); border-radius:10px; font:600 14px var(--f-ui); text-decoration:none}
+.skip-link:focus{top:16px}
+
+/* ---------- sfondo: fibre muscolari, vene, vignettatura ---------- */
+#app{position:fixed; inset:0; height:var(--vh)}
+.bg{position:absolute; inset:0; width:100%; height:100%; pointer-events:none}
+.vignette{position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 70% 65% at 50% 45%, transparent 55%, rgba(12,2,5,.55) 100%)}
+#splats{position:absolute; inset:0; pointer-events:none; z-index:1; overflow:hidden}
+.splat{position:absolute; width:90px; height:90px; margin:-45px 0 0 -45px; fill:var(--blood); animation:splatIn .18s var(--ease-out), splatFade 9s 2.5s forwards}
+@keyframes splatIn{from{transform:var(--t) scale(.2)}to{transform:var(--t)}}
+@keyframes splatFade{to{opacity:0}}
+/* Solo due loop ambientali: la colata in alto e il battito delle vene. Entrambi in pausa quando la scheda è nascosta. */
+.ooze{transform-origin:top; animation:ooze 4s ease-in-out infinite}
+@keyframes ooze{0%,100%{transform:scaleY(.9)}50%{transform:scaleY(1.08)}}
+.veins{animation:veinPulse 1.6s ease-in-out infinite}
+@keyframes veinPulse{0%,100%{opacity:.7}12%{opacity:1}24%{opacity:.7}}
+.paused *{animation-play-state:paused !important}
+
+/* livelli di gore */
+.gore-off .blood, .gore-off .win-drip, .gore-off #splats{display:none}
+.gore-low .ooze, .gore-low #splats, .gore-low .win-drip, .gore-low #boot .blood{display:none}
+/* movimento off */
+.motion-off *, .motion-off *::before, .motion-off *::after{animation:none !important; transition:none !important}
+
+/* icone */
+#icons{position:absolute; z-index:2; left:20px; top:24px; display:grid; grid-template-columns:repeat(2,112px); gap:18px 8px}
+.icon{display:flex; flex-direction:column; align-items:center; gap:6px; padding:6px 2px; background:none; border:0; border-radius:10px; font:400 12px/1.3 var(--f-ui); color:var(--bone); text-align:center}
+.icon .lbl{background:var(--ink); padding:2px 5px; border-radius:4px}
+@media (hover:hover) and (pointer:fine){
+  .icon:hover .glyph{animation:twitch .5s steps(2) 2}
+  .icon:hover .lbl{background:var(--blood-dry)}
+}
+.icon:focus-visible .glyph{animation:twitch .5s steps(2) 2}
+@keyframes twitch{0%,100%{transform:rotate(0)}30%{transform:rotate(-7deg) scale(1.05)}60%{transform:rotate(6deg)}}
+.tip{margin:18px 0 0; padding:10px 12px; max-width:62ch; border:2px dashed var(--ink-soft); border-radius:10px 14px 8px 16px; font:400 13px/1.5 var(--f-ui); color:var(--ink-soft)}
+
+/* ---------- finestre ---------- */
+#windows{position:absolute; inset:0 0 var(--bar-h) 0; z-index:10; pointer-events:none}
+.win{
+  position:absolute; pointer-events:auto; display:flex; flex-direction:column;
+  width:min(720px,calc(100vw - 300px)); height:min(620px,calc(var(--vh) - var(--bar-h) - 60px));
+  background:var(--bone); color:var(--ink); border:4px solid var(--ink);
+  border-radius:26px 34px 22px 38px / 30px 22px 36px 26px; box-shadow:10px 12px 0 #000;
+}
+.win.wide{width:min(900px,calc(100vw - 300px))}
+.win.small{width:min(520px,calc(100vw - 300px)); height:auto; max-height:calc(var(--vh) - var(--bar-h) - 60px)}
+.win:focus{outline:none}
+.win.is-top{box-shadow:12px 14px 0 #000, 0 0 0 3px var(--fat)}
+.win-bar{display:flex; align-items:center; gap:10px; padding:8px 12px 8px 14px; background:var(--flesh-deep); color:var(--bone); border-bottom:4px solid var(--ink); border-radius:22px 30px 0 0; cursor:grab; user-select:none; touch-action:none}
+.win-bar:active{cursor:grabbing}
+.win-bar h2{flex:1; margin:0; font:600 14px var(--f-ui); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.win-btns{display:flex; gap:8px}
+.win-btns button{width:32px; height:32px; border:3px solid var(--ink); border-radius:50%; padding:0; display:grid; place-items:center; transition:transform .12s ease}
+.win-btns button:active{transform:scale(.92)}
+.win-btns .min{background:var(--fat)}
+.win-btns .close{background:var(--blood); color:var(--bone)}
+.teeth{display:block; width:100%; height:16px; flex:0 0 auto}
+.win-body{flex:1; min-height:0; overflow:auto; padding:6px 30px 26px; font-size:17px; line-height:1.6; overscroll-behavior:contain}
+.win-stitch{flex:0 0 18px; border-top:3px dashed var(--blood-dry); background:repeating-linear-gradient(135deg,transparent 0 9px,var(--ink) 9px 12px,transparent 12px 22px); border-radius:0 0 18px 34px}
+.win-drip{position:absolute; left:0; right:0; bottom:-74px; width:100%; height:76px; pointer-events:none}
+
+/* incisione all'apertura / sutura alla chiusura */
+.win.opening{animation:incise .42s var(--ease-out)}
+@keyframes incise{0%{clip-path:inset(49.6% 48% 49.6% 48%)}30%{clip-path:inset(49.2% 0 49.2% 0)}42%{clip-path:inset(47.5% 0 47.5% 0)}100%{clip-path:inset(-20px -20px -90px -20px)}}
+.win .cut{position:absolute; left:4%; right:4%; top:50%; height:5px; margin-top:-2px; background:var(--blood); border-radius:3px; transform:scaleX(0); opacity:0; pointer-events:none}
+.win.opening .cut{animation:cut .42s var(--ease-out)}
+@keyframes cut{0%{transform:scaleX(0); opacity:1}30%{transform:scaleX(1); opacity:1}100%{transform:scaleX(1); opacity:0}}
+/* chiusura: prima compaiono le suture (220 ms), poi la pelle si richiude (300 ms) */
+.win.closing{animation:sew .3s .22s var(--ease-in-out) forwards}
+@keyframes sew{0%{clip-path:inset(-20px -20px -90px -20px)}100%{clip-path:inset(50% 0 50% 0)}}
+.win .sutures{position:absolute; left:3%; right:3%; top:50%; height:22px; margin-top:-11px; opacity:0; pointer-events:none; background:repeating-linear-gradient(90deg,transparent 0 6px,var(--ink) 6px 9px,transparent 9px 26px)}
+.win.closing .sutures{animation:sutures .2s var(--ease-out) forwards}
+@keyframes sutures{0%{opacity:0; transform:scaleX(.6)}100%{opacity:1; transform:scaleX(1)}}
+
+/* ---------- contenuto delle finestre ---------- */
+.win-body h1,.cl h1{font:400 clamp(56px,7vw,92px)/.92 var(--f-black); color:var(--blood-dry); margin:10px 0 6px; text-wrap:balance}
+.win-body h2.t,.cl h2.t{font:700 clamp(28px,3.4vw,38px)/1.12 var(--f-text); color:var(--blood-dry); margin:14px 0 6px; text-wrap:balance}
+.win-body h3,.cl h3{font:700 20px/1.25 var(--f-text); color:var(--blood-dry); margin:26px 0 6px}
+.meta{font:700 17px/1.45 var(--f-text); color:var(--ink-soft); margin:0 0 14px}
+.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:8px 18px; margin:8px 0 14px; padding:12px 14px; border:3px solid var(--ink); border-radius:12px 18px 10px 20px; background:var(--bone-2)}
+.facts div{display:flex; flex-direction:column; gap:1px; min-width:0}
+.facts dt{font:400 12px/1.3 var(--f-ui); color:var(--ink-soft)}
+.facts dd{margin:0; font:700 15px/1.3 var(--f-text); color:var(--ink); overflow-wrap:anywhere}
+.strip{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; margin:6px 0 14px; border:3px solid var(--ink); border-radius:14px 20px 12px 22px; overflow:hidden; background:var(--bone)}
+.strip > div{padding:12px 14px; border-left:3px solid var(--ink); min-width:0}
+.strip > div:first-child{border-left:0}
+.strip b{display:block; font:700 17px/1.2 var(--f-text); color:var(--blood-dry); margin-bottom:6px}
+.strip p{margin:0; font-size:15px; line-height:1.45}
+.strip .r{background:var(--bone-2)}
+.lede{font-size:21px; line-height:1.45; margin:6px 0 10px; max-width:58ch}
+.prose{max-width:62ch}
+.prose p{margin:0 0 12px}
+.prose ul{margin:0 0 12px; padding-left:1.2em}
+.prose li{margin:0 0 8px}
+.problem{margin:6px 0; padding:14px 18px; border:3px solid var(--ink); border-radius:16px 22px 12px 24px; background:var(--bone-2); font-size:20px; line-height:1.4; font-style:italic; max-width:58ch}
+.loop{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:6px 0 12px; font:600 15px var(--f-ui)}
+.loop span{padding:8px 12px; border:3px solid var(--ink); border-radius:12px 16px 10px 18px; background:var(--bone)}
+.loop span.end{background:var(--blood); color:var(--bone)}
+.loop i{font-style:normal; color:var(--blood-dry)}
+.ghosts{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin:8px 0}
+.ghost{padding:12px 14px; border:3px solid var(--ink); border-radius:14px 20px 12px 22px; background:var(--bone-2)}
+.ghost b{display:block; font:700 18px/1.2 var(--f-text); color:var(--blood-dry); margin-bottom:4px}
+.ghost span{font-size:15px}
+.ph{display:grid; place-items:center; text-align:center; padding:12px; border:3px dashed var(--blood-dry); border-radius:12px; background:repeating-linear-gradient(135deg,var(--bone-2) 0 10px,var(--bone) 10px 20px); font:400 12px/1.4 var(--f-ui); color:var(--ink-soft); max-width:100%; box-sizing:border-box}
+.ph-169{aspect-ratio:16/9; width:min(100%,570px); max-height:320px}
+.ph-portrait{width:140px; aspect-ratio:4/5; float:right; margin:0 0 10px 16px}
+.gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin:8px 0}
+.gallery .ph-169{width:100%; max-height:none}
+.todo{display:inline; padding:1px 6px; background:var(--fat); color:var(--ink); border-radius:4px; font:600 13px var(--f-ui)}
+.script{margin:8px 0; padding:18px; border:3px solid var(--ink); border-radius:14px; background:#FBF6EE; font:400 15px/1.7 var(--f-ui); text-align:center}
+.script .who{font-weight:600; letter-spacing:.1em}
+.script .par{color:var(--ink-soft)}
+.btn{display:inline-flex; align-items:center; min-height:46px; padding:0 18px; border:3px solid var(--ink); background:var(--bone); color:var(--ink); font:600 14px var(--f-ui); text-decoration:none; border-radius:14px 20px 12px 22px; transition:transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn.red{background:var(--blood); color:var(--bone)}
+.btn[aria-disabled="true"]{border-style:dashed; color:var(--ink-soft); cursor:not-allowed}
+.btns{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 6px}
+.list{list-style:none; padding:0; margin:8px 0; display:grid; gap:8px}
+.list li{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; padding:12px 14px; border:3px solid var(--ink); border-radius:12px; background:var(--bone-2)}
+.list li b{font:700 19px/1.25 var(--f-text); color:var(--blood-dry)}
+.list li.sealed{border-style:dashed}
+.list li:has(.proj){padding:0}
+.proj{width:100%; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; padding:12px 40px 12px 14px; position:relative; background:none; border:0; border-radius:10px; text-align:left; color:var(--ink); font:400 15px/1.4 var(--f-text)}
+.proj > span{min-width:0}
+@media (hover:hover){ .proj:hover{background:var(--bone)} }
+.proj b{flex:1 1 100%}
+.proj .arr{position:absolute; right:14px; top:50%; transform:translateY(-50%); font:600 22px var(--f-ui); color:var(--blood-dry)}
+.email{font:600 clamp(16px,2.4vw,22px) var(--f-ui); color:var(--ink); text-decoration:underline; text-underline-offset:4px; word-break:break-all; padding:10px 12px; border:3px solid var(--ink); border-radius:12px; background:#FBF6EE; display:inline-block}
+.tools{font:400 14px/1.8 var(--f-ui)}
+
+/* ---------- barra ---------- */
+.gums{position:absolute; left:0; right:0; bottom:var(--bar-h); height:26px; z-index:900; pointer-events:none}
+#taskbar{position:absolute; left:0; right:0; bottom:0; z-index:1000; height:var(--bar-h); box-sizing:border-box; padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px)); display:flex; align-items:center; gap:10px; background:var(--ink); border-top:4px solid var(--flesh-raw); font:400 13px var(--f-ui)}
+#startBtn{display:flex; align-items:center; gap:8px; min-height:44px; padding:0 14px; background:var(--flesh-deep); color:var(--bone); border:3px solid var(--bone); border-radius:22px; font:600 14px var(--f-ui); flex:0 0 auto}
+#tabs{flex:1; min-width:0; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none}
+#tabs button{flex:0 0 auto; min-height:40px; padding:0 12px; background:var(--membrane); color:var(--bone); border:2px solid transparent; border-radius:10px; font:400 12px var(--f-ui)}
+#tabs button.active{border-color:var(--fat)}
+#tabs button.min{opacity:.7; font-style:italic}
+.settings{display:flex; gap:6px; flex:0 0 auto}
+.settings button{min-height:40px; padding:0 10px; background:transparent; color:var(--bone); border:2px solid var(--flesh); border-radius:10px; font:400 12px var(--f-ui)}
+.settings button.gore{background:var(--blood); border-color:var(--blood)}
+.settings button.classic{background:var(--fat); color:var(--ink); border-color:var(--fat); font-weight:600}
+
+#startmenu{position:absolute; z-index:1100; left:12px; bottom:calc(var(--bar-h) + 10px); width:min(320px,calc(100vw - 24px)); max-height:calc(var(--vh) - var(--bar-h) - 30px); overflow:auto; background:var(--bone); color:var(--ink); border:4px solid var(--ink); border-radius:18px 26px 14px 28px; box-shadow:8px 10px 0 #000}
+#startmenu .sm-head{padding:12px 16px; background:var(--flesh-deep); color:var(--bone); border-bottom:4px solid var(--ink); font:400 34px/1 var(--f-black)}
+#startmenu ul{list-style:none; margin:0; padding:8px}
+#startmenu li button{width:100%; display:flex; justify-content:space-between; align-items:center; min-height:42px; padding:0 10px; background:none; border:0; border-radius:8px; font:400 13px var(--f-ui); text-align:left; color:var(--ink)}
+#startmenu li button:hover,#startmenu li button:focus-visible{background:var(--bone-2)}
+#startmenu .sep{height:3px; margin:6px 8px; background:repeating-linear-gradient(90deg,var(--ink) 0 6px,transparent 6px 12px)}
+
+#toast{position:absolute; z-index:1500; left:50%; bottom:calc(var(--bar-h) + 40px); transform:translateX(-50%); padding:10px 16px; background:var(--fat); color:var(--ink); border:3px solid var(--ink); border-radius:12px; font:600 13px var(--f-ui)}
+
+/* ---------- avvio: la bocca (variante A, fauci piene) ---------- */
+#boot{position:fixed; inset:0; z-index:2000; height:var(--vh); overflow:hidden}
+#boot .hw{position:absolute; left:0; right:0; height:calc(50% - 60px)}
+#boot .top{top:0} #boot .bot{bottom:0}
+#boot .half{position:absolute; inset:0; background:#0B0406}
+#boot .throat{position:absolute; left:0; right:0; top:calc(50% - 60px); height:120px; background:linear-gradient(180deg,var(--muscle-3) 0%, #1E0208 50%, var(--muscle-3) 100%); transition:opacity .3s .35s}
+#boot .uvula{position:absolute; left:50%; top:calc(50% - 56px); width:48px; height:40px; margin-left:-22px; background:var(--flesh-deep); border:3px solid var(--ink); border-radius:50% 50% 60% 60%; box-sizing:border-box}
+#boot .uvula::after{content:""; position:absolute; left:50%; bottom:-4px; width:14px; height:16px; margin-left:-7px; background:var(--flesh-raw); border-radius:50%}
+#boot.torn .throat,#boot.torn .uvula{opacity:0}
+#boot .gum{position:absolute; left:0; width:100%; height:34px}
+#boot .top .gum{bottom:-2px} #boot .bot .gum{top:-2px}
+#boot .fangs{position:absolute; left:0; width:100%; height:90px; overflow:visible}
+#boot .top .fangs{top:calc(100% - 4px)}
+#boot .bot .fangs{bottom:calc(100% - 4px)}
+#boot .saliva{position:absolute; top:calc(50% - 40px); width:3px; height:80px; background:var(--flesh); border-radius:2px; transform-origin:top; opacity:.9}
+#boot .saliva.s1{left:31%} #boot .saliva.s2{left:66%; height:64px}
+#boot .saliva::after{content:""; position:absolute; left:-2px; bottom:-4px; width:7px; height:7px; border-radius:50%; background:var(--flesh)}
+#boot.torn .saliva{animation:saliva .55s ease-in forwards}
+@keyframes saliva{0%{transform:scaleY(1); opacity:.9}100%{transform:scaleY(6); opacity:0}}
+/* le mascelle si serrano un attimo (overshoot) e poi si spalancano */
+#boot.torn .top{animation:jawTop .8s cubic-bezier(.7,0,.3,1) forwards}
+#boot.torn .bot{animation:jawBot .8s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes jawTop{0%{transform:none}14%{transform:translateY(1.6%)}100%{transform:translateY(-104%)}}
+@keyframes jawBot{0%{transform:none}14%{transform:translateY(-1.6%)}100%{transform:translateY(104%)}}
+/* il cartellino pinzato sulla gengiva superiore: sale via con la mascella */
+#boot .txt{position:absolute; left:50%; bottom:34px; transform:translateX(-50%); width:min(640px,calc(100vw - 32px)); max-height:calc(100% - 44px); overflow:auto; box-sizing:border-box; padding:24px 26px; background:#0B0406; border:3px solid var(--flesh-raw); border-radius:6px 10px 4px 12px; box-shadow:8px 10px 0 #000; font:400 14px/1.9 var(--f-ui); color:#E8D3C8; z-index:3}
+#boot .staple{position:absolute; width:12px; height:14px; border-left:3px solid #C9C9D0; border-right:3px solid #C9C9D0; border-top:3px solid #C9C9D0; box-sizing:border-box}
+#boot .staple.tl{left:14px; top:-6px} #boot .staple.tr{right:14px; top:-6px}
+#boot .staple.bl{left:14px; bottom:-6px; transform:rotate(180deg)} #boot .staple.br{right:14px; bottom:-6px; transform:rotate(180deg)}
+#boot .logo{font:400 clamp(48px,9vw,84px)/1 var(--f-black); color:var(--flesh-raw); margin:0 0 12px}
+#boot .ln{margin:0; white-space:pre-wrap; opacity:0}
+#boot .ln.on{opacity:1}
+#boot .ok{color:var(--bile)} #boot .warn{color:var(--flesh-raw)} #boot .yel{color:var(--fat)}
+#boot .press{margin:16px 0 0; color:var(--bone)}
+#skip{position:absolute; z-index:4; right:20px; bottom:calc(20px + env(safe-area-inset-bottom,0px)); min-height:44px; padding:0 16px; background:var(--ink); color:var(--bone); border:2px solid var(--flesh); border-radius:10px; font:400 13px var(--f-ui)}
+#boot.torn #skip{display:none}
+@media (max-height:520px){ #boot .txt{padding:14px 16px; font-size:12px; line-height:1.6} #boot .logo{font-size:36px; margin-bottom:6px} }
+
+/* ---------- home: scegli come vedere ---------- */
+#landing{position:fixed; inset:0; z-index:2500; height:var(--vh); overflow:auto; display:flex; flex-direction:column; color:var(--bone); background:var(--muscle-3)}
+#landing .bg,#landing .vignette{position:fixed}
+.ld-top{position:relative; display:flex; justify-content:flex-end; padding:16px 16px 0}
+.ld-lang{display:flex; border:3px solid var(--ink); border-radius:12px; overflow:hidden; background:var(--ink)}
+.ld-lang button{min-width:64px; min-height:44px; padding:0 14px; border:0; background:transparent; color:var(--bone); font:600 14px var(--f-ui)}
+.ld-lang button[aria-pressed="true"]{background:var(--fat); color:var(--ink)}
+.ld-main{position:relative; flex:1; display:flex; flex-direction:column; justify-content:center; gap:22px; width:min(980px,100%); box-sizing:border-box; margin:0 auto; padding:24px 16px 48px}
+.ld-name{margin:0; font:400 clamp(60px,11vw,128px)/.88 var(--f-black); color:var(--bone); text-shadow:5px 5px 0 var(--ink)}
+.ld-role{margin:10px 0 0; font:700 clamp(18px,2.2vw,22px)/1.4 var(--f-text); color:var(--fat)}
+.ld-q{margin:10px 0 0; font:700 clamp(20px,2.6vw,26px)/1.3 var(--f-text); text-wrap:balance}
+.ld-choices{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:18px}
+.ld-card{display:flex; flex-direction:column; gap:10px; padding:0; text-align:left; border:4px solid var(--ink); box-shadow:10px 12px 0 #000; overflow:hidden; transition:transform .12s ease}
+@media (hover:hover) and (pointer:fine){ .ld-card:hover{transform:translate(-2px,-3px)} }
+.ld-card .bar{display:flex; align-items:center; gap:10px; padding:10px 14px; border-bottom:4px solid var(--ink); font:600 14px var(--f-ui)}
+.ld-card .in{display:flex; flex-direction:column; gap:8px; padding:6px 20px 22px}
+.ld-card b{font:700 clamp(26px,3vw,32px)/1.15 var(--f-text)}
+.ld-card p{margin:0; font-size:17px; line-height:1.5}
+.ld-card small{font:400 12px/1.5 var(--f-ui)}
+.ld-card .go{margin-top:6px; font:600 14px var(--f-ui)}
+.ld-web{background:var(--bone); color:var(--ink); border-radius:10px 14px 8px 16px}
+.ld-web .bar{background:var(--bone-2)}
+.ld-web b{color:var(--ink)}
+.ld-os{background:var(--bone); color:var(--ink); border-radius:26px 34px 22px 38px / 30px 22px 36px 26px}
+.ld-os .bar{background:var(--flesh-deep); color:var(--bone)}
+.ld-os b{color:var(--blood-dry)}
+.ld-os small{color:var(--blood-dry)}
+
+/* ---------- vista classica ---------- */
+#classic{min-height:100%; background:var(--ink); color:var(--bone)}
+.cl-top{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; display:flex; align-items:center; gap:10px 18px; padding:10px 16px; background:var(--ink); border-bottom:4px solid var(--flesh-raw)}
+.cl-top b{flex:0 0 auto; font:400 30px/1 var(--f-black); color:var(--flesh)}
+.cl-panel{flex:1; min-width:0; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:6px 14px}
+.cl-menu{display:none; margin-left:auto; min-height:44px; padding:0 14px; background:transparent; color:var(--bone); border:2px solid var(--flesh); border-radius:10px; font:600 13px var(--f-ui)}
+.cl-top nav{display:flex; flex-wrap:wrap; gap:6px 14px; font:400 13px var(--f-ui)}
+.cl-top nav a{text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+.cl-top .act{display:flex; gap:6px}
+.cl-top .act button{min-height:40px; padding:0 12px; border-radius:10px; font:600 12px var(--f-ui)}
+#clLang,#clHome{background:transparent; color:var(--bone); border:2px solid var(--flesh)}
+#clBack{background:var(--flesh-deep); color:var(--bone); border:2px solid var(--flesh-deep)}
+.cl{max-width:820px; margin:0 auto; padding:24px 16px 80px; display:grid; gap:28px}
+/* ancore: la barra fissa non copre il titolo della scheda */
+.cl section,.cl article,.cl [id]{scroll-margin-top:calc(var(--cl-top-h,64px) + 16px)}
+.cl h1:focus,.cl h2:focus{outline:none}
+.cl h1:focus-visible,.cl h2:focus-visible{outline:3px solid var(--ink); box-shadow:0 0 0 6px var(--fat)}
+.cl section,.cl article{background:var(--bone); color:var(--ink); border:4px solid var(--ink); border-radius:18px 26px 14px 28px; padding:20px clamp(16px,4vw,32px) 24px}
+
+/* ---------- schermi piccoli ---------- */
+@media (max-width:760px){
+  :root{--bar-h:58px}
+  #icons{left:16px; right:16px; top:16px; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px 6px}
+  .tip{display:none}
+  .win,.win.wide,.win.small{left:8px !important; top:8px !important; width:auto !important; right:8px; height:auto !important; bottom:14px; max-height:none; border-radius:18px 22px 16px 24px}
+  .win-bar{cursor:default}
+  .win-body{padding:4px 18px 20px; font-size:16px}
+  .win-drip{display:none}
+  /* sul telefono restano GORE e lingua; il resto è nel menu START */
+  #sMotion,#sSound,#sClassic{display:none}
+  .settings button{padding:0 8px; font-size:11px}
+  #tabs button{max-width:150px; overflow:hidden; text-overflow:ellipsis}
+  .strip{grid-template-columns:1fr}
+  .strip > div{border-left:0; border-top:3px solid var(--ink)}
+  .strip > div:first-child{border-top:0}
+  .ph-portrait{width:110px}
+  /* versione web sul telefono: una riga sola (nome + Menu), circa 64 px */
+  .cl-top{padding:8px 16px}
+  .cl-top b{font-size:26px}
+  .cl-menu{display:inline-flex; align-items:center}
+  .cl-panel{display:none; position:absolute; left:0; right:0; top:100%; flex-direction:column; align-items:stretch; gap:12px; padding:8px 16px 16px; background:var(--ink); border-bottom:4px solid var(--flesh-raw); max-height:calc(var(--vh) - 80px); overflow:auto}
+  .cl-top.open .cl-panel{display:flex}
+  .cl-top nav{flex-direction:column; gap:0}
+  .cl-top nav a{min-height:44px; font-size:15px}
+  .cl-top .act{flex-wrap:wrap}
+}
+</style>
+
+<noscript>
+<style>body{overflow:auto!important}</style>
+<div style="padding:24px 16px;font-family:system-ui,sans-serif;font-size:17px;line-height:1.55;color:#F1E6D6;background:#1A0A0E;min-height:100vh;box-sizing:border-box">
+<h1 style="font-size:40px;margin:0 0 8px">Matteo Marrale</h1>
+<p>Junior Game &amp; Narrative Designer · Digital Bros Game Academy, Milan · until summer 2027</p>
+<p>This portfolio is interactive and needs JavaScript. Contact: <a href="mailto:matteo.marrale.1998@gmail.com" style="color:#F2D06B">matteo.marrale.1998@gmail.com</a> · <a href="https://www.linkedin.com/in/matteomarrale/" rel="me" style="color:#F2D06B">LinkedIn</a> · <a href="https://github.com/matteomarrale" rel="me" style="color:#F2D06B">GitHub</a> · <a href="https://matteomarrale.itch.io" rel="me" style="color:#F2D06B">Itch.io</a></p>
+<p>Academy projects: Antiques: The Last Owner (Narrative Designer &amp; Writer) · One Hell of a Casino (Producer) · Cosmic Chaos (Game &amp; Level Designer, Balancing) · What a Train (Game &amp; Level Designer) · The Hunger of Nigishida (Game &amp; Level Designer).</p>
+<p>Personal projects: SPLITTER · Cat'n'Hell · Other Side (Unity prototypes) · Fighting Ground · All Bullets for Me (Unreal, in development).</p>
+<p lang="it">In italiano: il portfolio è interattivo e richiede JavaScript; per contattarmi usa i link qui sopra.</p>
+</div>
+</noscript>
+
+<!-- Definizioni condivise: fibre muscolari (statiche, filtro calcolato una volta) e forma dello schizzo -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="splatShape"><path d="M60 10C80 0 95 25 110 18C130 10 140 40 125 55C150 60 150 90 125 92C135 115 105 125 95 108C85 135 55 130 58 105C30 118 15 95 32 80C5 70 12 42 38 45C25 22 45 5 60 10Z"/><circle cx="150" cy="30" r="7"/><circle cx="162" cy="48" r="4"/><circle cx="12" cy="120" r="6"/><circle cx="140" cy="128" r="9"/><circle cx="-8" cy="40" r="4"/><path d="M118 92C122 120 120 160 126 172C132 160 128 120 126 92Z"/></g>
+    <filter id="fibreWarp" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.0025 0.018" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="fibrePat" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(112)">
+      <rect width="30" height="30" fill="#5C0E1B"/>
+      <rect y="9" width="30" height="4" fill="#6D1523"/>
+      <rect y="13" width="30" height="9" fill="#4A0A15"/>
+      <rect y="22" width="30" height="4" fill="#61101E"/>
+      <rect y="26" width="30" height="1.5" fill="#7A1A2B" opacity=".7"/>
+    </pattern>
+    <symbol id="fibres" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <rect width="1440" height="900" fill="#4A0A15"/>
+      <rect x="-80" y="-80" width="1600" height="1060" fill="url(#fibrePat)" filter="url(#fibreWarp)"/>
+      <g fill="#3A0812" opacity=".85"><ellipse cx="170" cy="770" rx="280" ry="130"/><ellipse cx="1280" cy="170" rx="300" ry="150"/><ellipse cx="1220" cy="780" rx="230" ry="100"/></g>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="app" class="motion-on" hidden>
+  <svg class="bg" aria-hidden="true" focusable="false"><use href="#fibres"/></svg>
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <!-- vene ramificate: ombra, corpo, luce -->
+    <g class="veins" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <g stroke="#1E2C5E" stroke-width="9" opacity=".6"><path d="M0 410 C160 390 220 470 360 450 S560 370 640 430"/><path d="M1440 520 C1320 540 1260 470 1150 500 S980 600 900 560"/><path d="M360 450 C380 520 330 590 380 660"/></g>
+      <g stroke="#3E5BA9" stroke-width="6"><path d="M0 410 C160 390 220 470 360 450 S560 370 640 430"/><path d="M1440 520 C1320 540 1260 470 1150 500 S980 600 900 560"/><path d="M360 450 C380 520 330 590 380 660"/></g>
+      <g stroke="#3E5BA9" stroke-width="3"><path d="M220 440C250 400 290 396 310 360"/><path d="M500 414C520 450 560 460 600 500"/><path d="M1150 500C1130 460 1150 420 1120 390"/><path d="M1010 540C1000 580 960 600 950 640"/><path d="M380 660C410 680 450 690 470 720"/></g>
+      <g stroke="#6F8BD6" stroke-width="1.5" opacity=".8"><path d="M10 406 C160 386 220 466 356 446"/><path d="M1430 516 C1320 536 1262 466 1152 496"/></g>
+    </g>
+    <g class="blood" fill="#B0081A"><use href="#splatShape" transform="translate(1210 300) scale(1.4)"/><use href="#splatShape" transform="translate(60 520) scale(.9) rotate(30)"/><use href="#splatShape" transform="translate(1290 640) scale(.7) rotate(-40)"/></g>
+    <g class="blood" fill="#6E0410" opacity=".9"><use href="#splatShape" transform="translate(1140 360) scale(.5) rotate(70)"/><use href="#splatShape" transform="translate(300 760) scale(.8) rotate(-20)"/></g>
+    <g class="blood ooze" fill="#B0081A"><path d="M0 0H1440V12C1390 14 1376 18 1370 34C1366 48 1364 92 1356 92C1348 92 1348 50 1342 32C1334 16 1260 16 1200 14C1120 12 1100 20 1094 46C1090 66 1088 140 1078 140C1068 140 1068 72 1062 48C1056 24 1010 16 900 16C760 16 520 12 400 18C330 22 316 28 312 50C310 70 306 110 298 110C290 110 290 66 284 44C276 22 200 16 120 14C60 12 20 12 0 12Z"/><circle cx="1078" cy="164" r="7"/><circle cx="298" cy="130" r="5"/></g>
+  </svg>
+  <div class="vignette" aria-hidden="true"></div>
+  <div id="splats" aria-hidden="true"></div>
+
+  <nav id="icons" aria-label="Desktop"></nav>
+
+  <div id="windows"></div>
+
+  <svg class="gums" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 26V16C30 12 30 2 50 2C70 2 70 16 90 16C110 16 112 4 132 4C152 4 150 16 170 16C190 16 194 2 214 2C234 2 232 16 252 16H1440V26Z" fill="#C9465A"/><path d="M252 16C272 16 274 3 294 3C314 3 312 16 332 16C352 16 354 2 374 2C394 2 392 16 412 16" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><path d="M1000 16C1020 16 1022 2 1042 2C1062 2 1060 16 1080 16C1100 16 1102 4 1122 4C1142 4 1140 16 1160 16C1180 16 1182 2 1202 2C1222 2 1220 16 1240 16" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/></svg>
+
+  <footer id="taskbar">
+    <button id="startBtn" aria-haspopup="true" aria-expanded="false" aria-controls="startmenu"><svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true" focusable="false"><ellipse cx="13" cy="11" rx="12" ry="9" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><path d="M2 9L6 10M3 14L7 12M24 8L20 10M23 14L19 12" stroke="#B0081A" stroke-width="1.3"/><circle cx="13" cy="11" r="4.5" fill="#3E5BA9"/><circle cx="13" cy="11" r="2" fill="#1A0A0E"/></svg>START</button>
+    <div id="tabs" role="toolbar" aria-label="Open windows"></div>
+    <div class="settings" role="group" aria-label="Settings">
+      <button id="sGore" class="gore"></button>
+      <button id="sMotion"></button>
+      <button id="sSound"></button>
+      <button id="sLang"></button>
+      <button id="sClassic" class="classic"></button>
+    </div>
+  </footer>
+
+  <div id="startmenu" hidden>
+    <div class="sm-head">Carne Viva OS</div>
+    <ul id="startList"></ul>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+</div>
+
+<main id="classic" hidden></main>
+
+<div id="landing" hidden>
+  <svg class="bg" aria-hidden="true" focusable="false"><use href="#fibres"/></svg>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="ld-top">
+    <div class="ld-lang" role="group" aria-label="Language / Lingua">
+      <button id="ldEn" aria-pressed="true">EN</button>
+      <button id="ldIt" aria-pressed="false">IT</button>
+    </div>
+  </div>
+  <main class="ld-main">
+    <div>
+      <h1 class="ld-name">Matteo Marrale</h1>
+      <p class="ld-role" data-i18n="ldRole"></p>
+    </div>
+    <p class="ld-q" data-i18n="ldQ"></p>
+    <div class="ld-choices">
+      <button class="ld-card ld-web" id="goWeb">
+        <span class="bar"><svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true" focusable="false"><path d="M3 2H14L19 7V22H3Z" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><path d="M7 11H15M7 15H15M7 19H12" stroke="#1A0A0E" stroke-width="1.6"/></svg><span data-i18n="ldWebBar"></span></span>
+        <span class="in"><b data-i18n="ldWebTitle"></b><p data-i18n="ldWebDesc"></p><span class="go" data-i18n="ldWebGo"></span></span>
+      </button>
+      <button class="ld-card ld-os" id="goOs">
+        <span class="bar"><svg width="38" height="24" viewBox="0 0 40 26" aria-hidden="true" focusable="false"><ellipse cx="20" cy="13" rx="18" ry="11" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3"/><path d="M4 10L10 12M5 17L11 15M34 9L29 12M35 17L30 15" stroke="#B0081A" stroke-width="1.5"/><circle cx="22" cy="13" r="7" fill="#3E5BA9"/><circle cx="22" cy="13" r="3" fill="#1A0A0E"/></svg>matteo_marrale.exe</span>
+        <span class="in"><b>Carne Viva OS</b><p data-i18n="ldOsDesc"></p><small data-i18n="ldOsWarn"></small><span class="go" data-i18n="ldOsGo"></span></span>
+      </button>
+    </div>
+  </main>
+</div>
+
+<div id="boot" hidden>
+  <div class="throat" aria-hidden="true"></div>
+  <div class="uvula" aria-hidden="true"></div>
+  <div class="saliva s1" aria-hidden="true"></div>
+  <div class="saliva s2" aria-hidden="true"></div>
+  <div class="hw top">
+    <div class="half">
+      <svg class="gum" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 0H1440V14C1400 10 1360 22 1320 18C1280 14 1240 24 1200 20C1160 16 1120 24 1080 20C1040 16 1000 24 960 20C920 16 880 22 840 18C800 14 760 24 720 20C680 16 640 24 600 20C560 16 520 24 480 20C440 16 400 22 360 18C320 14 280 24 240 20C200 16 160 24 120 20C80 16 40 22 0 18Z" fill="#8E2434" stroke="#1A0A0E" stroke-width="3"/></svg>
+      <svg class="fangs" aria-hidden="true" focusable="false"><defs><pattern id="fangDown" width="300" height="60" patternUnits="userSpaceOnUse" patternTransform="scale(1.5)"><g fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3" stroke-linejoin="round"><path d="M6 0C10 18 18 28 24 30C30 28 38 18 42 0Z" transform="rotate(-4 24 0)"/><path d="M62 0C68 26 82 48 90 52C98 48 112 26 118 0Z"/><path d="M142 0C146 14 154 20 158 20C162 20 170 14 174 0Z" transform="rotate(5 158 0)"/><path d="M194 0C198 22 212 40 220 42C228 40 240 22 246 0Z" transform="rotate(-5 220 0)"/><path d="M266 0C270 16 278 24 282 24C286 24 294 16 298 0Z" transform="rotate(4 282 0)"/></g><path class="blood" d="M84 46C87 50 89 52 90 52C91 52 93 50 96 46C93 48 87 48 84 46Z" fill="#B0081A"/></pattern></defs><rect width="100%" height="90" fill="url(#fangDown)"/></svg>
+      <div class="txt" role="status" aria-live="polite">
+        <span class="staple tl" aria-hidden="true"></span><span class="staple tr" aria-hidden="true"></span><span class="staple bl" aria-hidden="true"></span><span class="staple br" aria-hidden="true"></span>
+        <p class="logo">Carne Viva OS</p>
+        <div id="bootLines"></div>
+        <p class="press" data-i18n="press"></p>
+      </div>
+    </div>
+  </div>
+  <div class="hw bot">
+    <div class="half">
+      <svg class="gum" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 26H1440V12C1400 16 1360 4 1320 8C1280 12 1240 2 1200 6C1160 10 1120 2 1080 6C1040 10 1000 2 960 6C920 10 880 4 840 8C800 12 760 2 720 6C680 10 640 2 600 6C560 10 520 2 480 6C440 10 400 4 360 8C320 12 280 2 240 6C200 10 160 2 120 6C80 10 40 4 0 8Z" fill="#8E2434" stroke="#1A0A0E" stroke-width="3"/></svg>
+      <svg class="fangs" aria-hidden="true" focusable="false"><defs><pattern id="fangUp" width="300" height="60" patternUnits="userSpaceOnUse" x="150" patternTransform="scale(1.5)"><g fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3" stroke-linejoin="round"><path d="M10 60C14 40 24 26 30 24C36 26 46 40 50 60Z" transform="rotate(4 30 60)"/><path d="M78 60C82 46 90 40 94 40C98 40 106 46 110 60Z"/><path d="M134 60C140 36 154 18 162 16C170 18 184 36 190 60Z" transform="rotate(-4 162 60)"/><path d="M212 60C216 48 222 42 226 42C230 42 236 48 240 60Z" transform="rotate(6 226 60)"/><path d="M258 60C262 40 274 26 280 24C286 26 298 40 302 60Z" transform="rotate(-3 280 60)"/></g></pattern></defs><rect width="100%" height="90" fill="url(#fangUp)"/></svg>
+    </div>
+  </div>
+  <button id="skip" data-i18n="skip"></button>
+</div>
+
+<script>
+(function(){
+"use strict";
+document.documentElement.classList.remove("no-js");
+
+/* Flag di sviluppo: i segnaposto ([DA FORNIRE], riquadri IMG/VIDEO, pulsanti senza link) si vedono solo con ?dev=1
+   (oppure localStorage "cvos-dev" = "1"). Senza flag, un dato che manca non compare. */
+var DEV = false;
+try { DEV = /(?:^|[?&])dev(?:=1)?(?:&|$)/.test(location.search.slice(1)) || localStorage.getItem("cvos-dev") === "1"; } catch(e){}
+
+/* ---------- impostazioni ---------- */
+/* gore al primo accesso: BASSO (scelta di Matteo, 2026-10-07) */
+var S = {gore:"low", motion:true, sound:false, lang:"en", classic:false};
+var mqReduce = null, reduce = false;
+try { mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)"); reduce = mqReduce.matches; } catch(e){}
+var saved = null;
+try { saved = JSON.parse(localStorage.getItem("cvos-settings") || "null"); } catch(e){}
+if (saved) { ["gore","motion","lang"].forEach(function(k){ if (k in saved) S[k] = saved[k]; }); }
+else if (reduce) { S.motion = false; }
+S.sound = false; /* l'audio parte sempre spento */
+function save(){ try { localStorage.setItem("cvos-settings", JSON.stringify({gore:S.gore, motion:S.motion, lang:S.lang})); } catch(e){} }
+/* se l'utente cambia la preferenza di sistema e non ha mai scelto a mano, la seguiamo */
+if (mqReduce && !saved) { try { mqReduce.addEventListener("change", function(ev){ if (!saved) { S.motion = !ev.matches; apply(); } }); } catch(e){} }
+
+/* ---------- testi ---------- */
+var T = {
+ en:{
+  tip:"Click an icon to open it. Drag windows by their bar. Esc closes the top window.", menu:"Menu",
+  press:"Press any key or click to wake the flesh_",
+  skip:"Skip ›", cont:"Continue ›",
+  gore:{off:"GORE: OFF", low:"GORE: LOW", max:"GORE: MAX"},
+  motion:["MOTION: OFF","MOTION: ON"], sound:["SOUND: OFF","SOUND: ON"], lang:"EN / IT", classic:"CLASSIC VIEW",
+  back:"Back to Carne Viva OS", min:"Minimize", close:"Close", desktop:"Desktop", openWins:"Open windows", settings:"Settings", sections:"Sections", skipTo:"Skip to projects",
+  copied:"Email copied", copyFail:"Select the address and copy it",
+  ldRole:"Junior Game & Narrative Designer · Portfolio",
+  ldQ:"How do you want to view the portfolio?",
+  ldWebBar:"portfolio.html", ldWebTitle:"Web version", ldWebDesc:"A classic, readable page with every project. Best for a quick look or a phone.", ldWebGo:"Open the web version ›",
+  ldOsDesc:"An interactive desktop made of flesh: open the projects like files, drag the windows around.", ldOsWarn:"Contains cartoon blood and body horror. You can turn the gore off.", ldOsGo:"Boot Carne Viva OS ›",
+  home:"Home (choose the view)", toOs:"Carne Viva OS",
+  reboot:"Reboot (watch the start again)",
+  boot:[
+   ["Writing module (AIV, 1st year) ......... ","OK","ok"],
+   ["Game design training (DBGA, Milan) ..... ","2025–2027","yel"],
+   ["Drivers: Unity · Unreal · Arcweave ..... ","OK","ok"],
+   ["Academy projects found ................. ","5","ok"],
+   ["Personal projects ...................... ","3 prototypes + 2 in development","ok"]
+  ]
+ },
+ it:{
+  tip:"Clicca un'icona per aprirla. Trascina le finestre dalla barra. Esc chiude la finestra in primo piano.", menu:"Menu",
+  press:"Premi un tasto o clicca per svegliare la carne_",
+  skip:"Salta ›", cont:"Continua ›",
+  gore:{off:"GORE: OFF", low:"GORE: BASSO", max:"GORE: MAX"},
+  motion:["MOVIMENTO: OFF","MOVIMENTO: ON"], sound:["AUDIO: OFF","AUDIO: ON"], lang:"IT / EN", classic:"VISTA CLASSICA",
+  back:"Torna a Carne Viva OS", min:"Riduci", close:"Chiudi", desktop:"Scrivania", openWins:"Finestre aperte", settings:"Impostazioni", sections:"Sezioni", skipTo:"Vai ai progetti",
+  copied:"Email copiata", copyFail:"Seleziona l'indirizzo e copialo",
+  ldRole:"Junior Game & Narrative Designer · Portfolio",
+  ldQ:"Come vuoi vedere il portfolio?",
+  ldWebBar:"portfolio.html", ldWebTitle:"Versione web", ldWebDesc:"Una pagina classica e leggibile con tutti i progetti. Ideale per uno sguardo veloce o dal telefono.", ldWebGo:"Apri la versione web ›",
+  ldOsDesc:"Un desktop interattivo fatto di carne: apri i progetti come file, trascina le finestre.", ldOsWarn:"Contiene sangue cartoon e body horror. Puoi spegnere il gore.", ldOsGo:"Avvia Carne Viva OS ›",
+  home:"Home (scegli la modalità)", toOs:"Carne Viva OS",
+  reboot:"Riavvia (rivedi l'avvio)",
+  boot:[
+   ["Modulo scrittura (AIV, 1° anno) ........ ","OK","ok"],
+   ["Formazione game design (DBGA, Milano) .. ","2025–2027","yel"],
+   ["Driver: Unity · Unreal · Arcweave ...... ","OK","ok"],
+   ["Progetti accademici trovati ............ ","5","ok"],
+   ["Progetti personali ..................... ","3 prototipi + 2 in sviluppo","ok"]
+  ]
+ }
+};
+function t(k){ return T[S.lang][k]; }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function todo(s){ return DEV ? '<span class="todo">[DA FORNIRE: ' + s + ']</span>' : ""; }
+function ph(label, cls){ if (!DEV) return ""; return '<div class="ph ' + (cls||"") + '" role="img" aria-label="' + esc(label) + '"><span>' + esc(label) + '</span></div>'; }
+function facts(rows){ return '<dl class="facts">' + rows.map(function(r){ return '<div><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>'; }).join("") + '</dl>'; }
+
+/* ---------- icone-organo (dal canvas, tavola "Review · Icone") ---------- */
+var ICON = {
+ about:'<svg class="glyph" width="58" height="62" viewBox="0 0 58 62" aria-hidden="true" focusable="false"><g transform="rotate(-8 29 31)"><rect x="6" y="14" width="46" height="34" rx="12" fill="#E0806E" stroke="#1A0A0E" stroke-width="3"/><rect x="18" y="14" width="22" height="34" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><circle cx="29" cy="26" r="5" fill="#E0806E" stroke="#1A0A0E" stroke-width="2"/><path d="M21 42C23 35 35 35 37 42" fill="#E0806E" stroke="#1A0A0E" stroke-width="2"/><g fill="#1A0A0E"><circle cx="11" cy="24" r="1.3"/><circle cx="11" cy="31" r="1.3"/><circle cx="11" cy="38" r="1.3"/><circle cx="47" cy="24" r="1.3"/><circle cx="47" cy="31" r="1.3"/><circle cx="47" cy="38" r="1.3"/></g></g></svg>',
+ antiques:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M6 16C6 10 10 8 16 8H28L34 14H56C62 14 66 18 66 24V48C66 54 60 56 54 56H14C8 56 6 52 6 46Z" fill="#E0806E" stroke="#1A0A0E" stroke-width="3"/><path d="M8 24L64 22" stroke="#6E0410" stroke-width="3"/><path d="M14 19L18 28M26 18L30 27M38 18L42 27M50 17L54 26" stroke="#1A0A0E" stroke-width="2.5" stroke-linecap="round"/><path d="M26 50C26 36 30 30 36 30C42 30 46 36 46 50C44 47 42 50 40 48C38 50 36 47 34 50C32 47 30 50 28 48Z" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="33" cy="38" r="1.8" fill="#1A0A0E"/><circle cx="39" cy="38" r="1.8" fill="#1A0A0E"/><path d="M34 44C35 46 37 46 38 44" fill="none" stroke="#1A0A0E" stroke-width="1.5"/></svg>',
+ casino:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><g transform="rotate(-12 35 30)"><rect x="14" y="10" width="42" height="42" rx="9" fill="#C9465A" stroke="#1A0A0E" stroke-width="3"/><ellipse cx="25" cy="21" rx="6" ry="4.5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><circle cx="26" cy="21" r="2.2" fill="#3E5BA9"/><circle cx="26" cy="21" r="1" fill="#1A0A0E"/><ellipse cx="45" cy="41" rx="6" ry="4.5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><circle cx="44" cy="41" r="2.2" fill="#3E5BA9"/><circle cx="44" cy="41" r="1" fill="#1A0A0E"/><ellipse cx="35" cy="31" rx="6" ry="4.5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><circle cx="35" cy="31" r="2.2" fill="#3E5BA9"/><circle cx="35" cy="31" r="1" fill="#1A0A0E"/></g></svg>',
+ cosmic:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M14 20H20V14H26V20H44V14H50V20H56V26H62V44H56V38H50V44H44V50H38V44H32V50H26V44H20V38H14V44H8V26H14Z" fill="#E0806E" stroke="#1A0A0E" stroke-width="2.5" stroke-linejoin="round"/><rect x="24" y="26" width="8" height="8" fill="#1A0A0E"/><rect x="38" y="26" width="8" height="8" fill="#1A0A0E"/><rect x="26" y="28" width="3" height="3" fill="#F1E6D6"/><rect x="40" y="28" width="3" height="3" fill="#F1E6D6"/><path d="M28 40H42" stroke="#6E0410" stroke-width="3"/></svg>',
+ train:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><g transform="rotate(-28 35 30)"><rect x="12" y="24" width="46" height="12" rx="6" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3"/><circle cx="12" cy="24" r="5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="12" cy="36" r="5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="58" cy="24" r="5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="58" cy="36" r="5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><g fill="#1A0A0E"><circle cx="28" cy="30" r="2"/><circle cx="36" cy="30" r="2"/><circle cx="44" cy="30" r="2"/></g></g><path d="M50 10V2M50 2L56 4" fill="none" stroke="#1A0A0E" stroke-width="2.5" stroke-linecap="round"/><circle class="blood" cx="47" cy="11" r="3.2" fill="#B0081A" stroke="#1A0A0E" stroke-width="2"/></svg>',
+ nigishida:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M10 40C10 26 20 22 28 28C36 34 34 44 42 44C50 44 52 34 46 28C40 22 50 12 58 18" fill="none" stroke="#1A0A0E" stroke-width="12" stroke-linecap="round"/><path d="M10 40C10 26 20 22 28 28C36 34 34 44 42 44C50 44 52 34 46 28C40 22 50 12 58 18" fill="none" stroke="#C9465A" stroke-width="7" stroke-linecap="round"/><path d="M16 36C18 30 22 28 26 30M38 42C42 40 46 36 46 32" fill="none" stroke="#E0806E" stroke-width="2" stroke-linecap="round"/><path d="M54 14C60 10 66 14 64 20C62 24 56 24 54 22Z" fill="#C9465A" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="60" cy="17" r="1.8" fill="#F2D06B" stroke="#1A0A0E" stroke-width="1"/><path class="blood" d="M64 20L68 23" stroke="#B0081A" stroke-width="2" stroke-linecap="round"/></svg>',
+ personal:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M12 20C10 12 20 8 30 10C42 6 56 8 60 18C66 30 60 46 50 50C40 54 24 54 14 46C6 40 8 28 12 20Z" fill="#9DB82B" stroke="#1A0A0E" stroke-width="3"/><path d="M16 30C26 22 44 22 56 30C44 38 26 38 16 30Z" fill="#2A0006" stroke="#1A0A0E" stroke-width="2.5"/><g stroke="#1A0A0E" stroke-width="2" stroke-linecap="round"><path d="M22 24L20 19M30 22L29 17M42 22L43 17M50 24L52 19"/><path d="M22 36L20 41M30 38L29 43M42 38L43 43M50 36L52 41"/></g><g fill="#F1E6D6" stroke="#1A0A0E" stroke-width="1.5"><path d="M26 30L29 26L32 30L29 33Z"/><path d="M38 30L41 26L44 30L41 33Z"/></g><circle class="blood" cx="22" cy="46" r="2.5" fill="#B0081A"/></svg>',
+ eleanor:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M8 30C18 14 52 14 62 30C52 46 18 46 8 30Z" fill="#8E2434" stroke="#1A0A0E" stroke-width="3"/><path d="M12 30C20 20 50 20 58 30C50 40 20 40 12 30Z" fill="#2A0006"/><path d="M14 29L22 29L24 24L28 29L34 29L36 23L40 29L46 29L48 25L52 29L56 29" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="1.5" stroke-linejoin="round"/><path d="M22 38C26 30 44 30 48 38Z" fill="#E0806E" stroke="#1A0A0E" stroke-width="2"/><rect x="44" y="4" width="22" height="14" rx="4" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><path d="M50 18L48 23L56 18" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5" stroke-linejoin="round"/><path d="M48 11H62" stroke="#1A0A0E" stroke-width="2"/></svg>',
+ contact:'<svg class="glyph" width="58" height="62" viewBox="0 0 58 62" aria-hidden="true" focusable="false"><path d="M12 14C12 6 20 4 29 6C38 4 46 6 46 14C48 24 44 30 42 38C40 48 38 56 34 56C30 56 30 44 29 40C28 44 28 56 24 56C20 56 18 48 16 38C14 30 10 24 12 14Z" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3"/><path d="M20 18C24 14 34 14 38 18" fill="none" stroke="#1A0A0E" stroke-width="2" stroke-linecap="round"/><path d="M22 26H36" stroke="#E4D5C1" stroke-width="3" stroke-linecap="round"/><path class="blood" d="M44 50C46 44 50 44 50 50C50 54 44 54 44 50Z" fill="#B0081A" stroke="#1A0A0E" stroke-width="1.5"/><path class="blood" d="M4 30L10 32M4 38L10 36" stroke="#B0081A" stroke-width="2" stroke-linecap="round"/></svg>'
+};
+var EYE = '<svg width="38" height="24" viewBox="0 0 40 26" aria-hidden="true" focusable="false"><ellipse cx="20" cy="13" rx="18" ry="11" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3"/><path d="M4 10L10 12M5 17L11 15M34 9L29 12M35 17L30 15" stroke="#B0081A" stroke-width="1.5"/><circle cx="22" cy="13" r="7" fill="#3E5BA9"/><circle cx="22" cy="13" r="3" fill="#1A0A0E"/></svg>';
+var TEETH = '<svg class="teeth" viewBox="0 0 760 16" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 0H760V2'+(function(){var s="";for(var x=748;x>=0;x-=24){s+="L"+(x+12)+" 16L"+x+" 2";}return s;})()+'Z" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="1"/></svg>';
+var DRIP = '<svg class="win-drip" viewBox="0 0 760 76" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g fill="#B0081A"><path d="M60 0H130C126 10 124 40 118 62C114 76 106 76 104 62C100 40 98 12 92 4C84 0 70 0 60 0Z"/><path d="M420 0H470C466 8 466 26 462 38C459 46 452 46 450 38C447 26 446 8 440 2Z"/><path d="M640 0H700C696 14 694 64 688 76C685 80 676 80 674 72C670 54 668 14 662 4Z"/></g></svg>';
+var CLOSE_X = '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 2L10 10M10 2L2 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>';
+var MIN_BAR = '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 9H10" stroke="#1A0A0E" stroke-width="2.5" stroke-linecap="round"/></svg>';
+
+/* ---------- contenuti ---------- */
+var LINKEDIN = "https://www.linkedin.com/in/matteomarrale/";
+var EMAIL = "matteo.marrale.1998@gmail.com";
+var GITHUB = "https://github.com/matteomarrale";
+var ITCH = "https://matteomarrale.itch.io";
+
+var LBL = {
+ en:{context:"Context", role:"Role", when:"When", engine:"Engine", platform:"Platform", team:"Team", release:"Release", format:"Format", problem:"Problem", did:"What I did", result:"Result", learned:"What I learned", more:"Build / docs", ghosts:"The three ghosts", gallery:"Screenshots", method:"How I write", beat:"The beat chart"},
+ it:{context:"Contesto", role:"Ruolo", when:"Periodo", engine:"Motore", platform:"Piattaforma", team:"Team", release:"Uscita", format:"Formato", problem:"Problema", did:"Cosa ho fatto", result:"Risultato", learned:"Cosa ho imparato", more:"Build / documenti", ghosts:"I tre fantasmi", gallery:"Screenshot", method:"Come scrivo", beat:"Il beat chart"}
+};
+
+function projectSheet(o){
+ var h = '<h2 class="t">' + o.title + '</h2>' + facts(o.facts);
+ h += ph(o.media, "ph-169");
+ h += '<div class="prose"><h3>' + o.l.context + '</h3><p>' + o.context + '</p>';
+ h += '<h3>' + o.l.did + '</h3><ul>' + o.did.filter(Boolean).map(function(x){return "<li>"+x+"</li>";}).join("") + '</ul>';
+ if (o.learned) h += '<h3>' + o.l.learned + '</h3><p>' + o.learned + '</p>';
+ h += '</div>';
+ if (DEV) h += '<div class="btns"><span class="btn" aria-disabled="true">' + o.l.more + ' ' + todo("link") + '</span></div>';
+ return h;
+}
+
+/* blocchi di Antiques riusati dalla finestra Narrativa */
+function ghostsBlock(it){
+ return '<div class="ghosts">' +
+  '<div class="ghost"><b>Eleanor Whiteskin</b><span>' + (it?'Nobildonna vittoriana, morta di tubercolosi; il rimpianto verso la sorella Beatrix.':'Victorian noblewoman who died of tuberculosis; her regret is tied to her sister Beatrix.') + '</span></div>' +
+  '<div class="ghost"><b>Francis Clairet</b><span>' + (it?'Cuoco di corte a Versailles, impiccato per aver rubato un piatto per i figli affamati.':'Court chef at Versailles, hanged for stealing a dish for his starving children.') + '</span></div>' +
+  '<div class="ghost"><b>Anselmo da Valdagno</b><span>' + (it?'Soldato medievale.':'Medieval soldier.') + (DEV?' ':'') + todo(it?"rimpianto in una riga":"regret in one line") + '</span></div></div>';
+}
+function loopBlock(it){
+ return '<div class="loop" aria-label="Core loop"><span>' + (it?'oggetto':'object') + '</span><i>→</i><span>' + (it?'spirito':'ghost') + '</span><i>→</i><span>' + (it?'rimpianto':'regret') + '</span><i>→</i><span class="end">' + (it?'rituale':'ritual') + '</span></div>';
+}
+function scriptBlock(it){
+ if (!DEV) return "";
+ return '<div class="script"><div class="who">ELEANOR WHITESKIN</div><div class="par">(' + (it?'giorno 1':'Day 1') + ')</div><p>' + todo(it?"3–4 righe di dialogo di Eleanor, scelte da Matteo":"3–4 lines of Eleanor’s dialogue, chosen by Matteo") + '</p></div>';
+}
+
+var W = {
+ welcome:{file:"matteo_marrale.exe", size:"", body:function(ctx){
+  var it = S.lang==="it";
+  return '<h1 tabindex="-1">Matteo Marrale</h1>' +
+   '<p class="meta">Junior Game &amp; Narrative Designer · Digital Bros Game Academy, ' + (it?'Milano':'Milan') + '</p>' +
+   '<p class="lede">' + (it ? 'Unisco design e scrittura: costruisco sistemi di gioco senza perdere il filo della storia.' : 'I bridge design and writing: I build game systems without losing the thread of the story.') + '</p>' +
+   '<div class="prose"><p>' + (it ? 'Mi formo alla Digital Bros Game Academy fino all’estate 2027. Dopo cerco un ruolo da Junior Game / Narrative Designer, in Italia o da remoto.' : 'I’m training at Digital Bros Game Academy until summer 2027. After that, I’m looking for a Junior Game / Narrative Designer role in Italy or remote.') + '</p></div>' +
+   '<div class="btns"><button class="btn" data-open="about">' + (it?'Chi sono':'About me') + '</button><button class="btn red" data-open="projects">' + (it?'Progetti':'Projects') + '</button><button class="btn" data-open="eleanor">' + (it?'Narrativa':'Narrative') + '</button><button class="btn" data-open="contact">' + (it?'Contatti':'Contact') + '</button></div>' +
+   (ctx === "web" ? '' : '<p class="tip">' + t("tip") + '</p>');
+ }},
+ projects:{file:"projects/", size:"small", body:function(){
+  var it = S.lang==="it";
+  var rows = [
+   ["antiques","Antiques: The Last Owner","Narrative Designer &amp; Writer · " + (it?"mag–lug 2026":"May–Jul 2026")],
+   ["casino","One Hell of a Casino","Producer · " + (it?"mar–apr 2026":"Mar–Apr 2026")],
+   ["cosmic","Cosmic Chaos","Game &amp; Level Designer, Balancing · " + (it?"feb 2026":"Feb 2026")],
+   ["train","What a Train","Game &amp; Level Designer · " + (it?"gen 2026":"Jan 2026")],
+   ["nigishida","The Hunger of Nigishida","Game &amp; Level Designer · " + (it?"nov–dic 2025":"Nov–Dec 2025")]
+  ];
+  return '<h2 class="t">' + (it?'Progetti':'Projects') + '</h2><h3>' + (it?'Progetti accademici · Digital Bros Game Academy':'Academy projects · Digital Bros Game Academy') + '</h3>' +
+   '<ul class="list">' + rows.map(function(r){ return '<li><button class="proj" data-open="' + r[0] + '"><b>' + r[1] + '</b><span>' + r[2] + '</span><span class="arr" aria-hidden="true">›</span></button></li>'; }).join("") + '</ul>' +
+   '<h3>' + (it?'Progetti personali':'Personal projects') + '</h3>' +
+   '<ul class="list"><li><button class="proj" data-open="personal"><b>personal/</b><span>SPLITTER · Cat\'n\'Hell · Other Side · Fighting Ground · All Bullets for Me</span><span class="arr" aria-hidden="true">›</span></button></li></ul>';
+ }},
+ about:{file:"about_me.txt", size:"", body:function(){
+  var it = S.lang==="it";
+  return '<h2 class="t">' + (it?'Chi sono':'About me') + '</h2>' + ph(it?'[DA FORNIRE: foto ritratto]':'[DA FORNIRE: portrait photo]', 'ph-portrait') +
+   '<div class="prose">' + (it ?
+   '<p>Sono un Junior Game &amp; Narrative Designer in formazione alla Digital Bros Game Academy di Milano (fino all’estate 2027), dove progetto sistemi di gioco, livelli e storie per esperienze interattive.</p><p>Vengo dalla scrittura: ho completato il primo anno di Strategic Writing &amp; Screenwriting all’AIV (Accademia Italiana Videogiochi), con basi di struttura narrativa, personaggi e analisi tra giochi, cinema e TV. Alla DBGA l’ho ampliata al game design completo: meccaniche, level design, bilanciamento e produzione.</p><h3>Cosa porto</h3><ul><li>Unisco design e scrittura: costruisco sistemi di gioco senza perdere il filo della storia.</li><li>Attento allo scope: abituato a consegnare in tempo, in team e da solo.</li><li>Multidisciplinare: capisco cosa serve a programmatori, artisti e producer e progetto di conseguenza.</li></ul><h3>Obiettivo</h3><p>Dopo l’accademia (estate 2027) cerco un ruolo da Junior Game / Narrative Designer, in studi italiani indie e mid-size o da remoto, meglio se su giochi narrativi o con un’identità forte.</p>'
+   :
+   '<p>I’m a Junior Game &amp; Narrative Designer training at Digital Bros Game Academy in Milan (until summer 2027), where I design game systems, levels and stories for interactive experiences.</p><p>I come from a writing background: I completed the first year of Strategic Writing &amp; Screenwriting at AIV (Accademia Italiana Videogiochi), building foundations in story structure, character development and narrative analysis across games, film and TV. At DBGA I’ve expanded that into full game design: mechanics, level design, balancing and production.</p><h3>What I bring</h3><ul><li>I bridge design and writing: I build game systems without losing the thread of the story.</li><li>Scope-aware: comfortable shipping to deadline, in teams and on my own.</li><li>Multidisciplinary: I understand what programmers, artists and producers need, and I design with that in mind.</li></ul><h3>Goal</h3><p>After the academy (summer 2027) I’m aiming for a Junior Game / Narrative Designer role at indie and mid-size studios in Italy, or remote, ideally on narrative-driven games or games with a strong identity.</p>') +
+   '<h3>' + (it?'Strumenti':'Tools') + '</h3><p class="tools">Unity (URP, New Input System) · Unreal Engine · Arcweave · Figma · Miro · Jira · ClickUp · Notion</p>' +
+   '</div>' + (DEV ? '<h3>CV</h3><div class="btns"><span class="btn" aria-disabled="true">CV IT ' + todo("PDF") + '</span><span class="btn" aria-disabled="true">CV EN ' + todo("PDF") + '</span></div>' : '');
+ }},
+ antiques:{file:"antiques.case", size:"wide", body:function(){
+  var it = S.lang==="it", L = LBL[S.lang];
+  return '<h2 class="t">Antiques: The Last Owner</h2>' +
+  facts([[L.role,"Narrative Designer &amp; Writer"],[L.when, it?"mag–lug 2026":"May–Jul 2026"],[L.engine,"Unity (URP)"],[L.platform,"PC"],[L.team,"14"],[L.release, it?"3 luglio 2026":"3 July 2026"]]) +
+  /* prima schermata: problema → cosa ho fatto → risultato, poi il media */
+  '<div class="strip">' +
+   '<div><b>' + L.problem + '</b><p>' + (it ? 'Ogni giorno doveva insegnare una meccanica nuova dentro la scena e le battute dei fantasmi, senza pop-up di tutorial, mentre tre storie di fantasmi andavano avanti dentro un budget di parole.' : 'Each day had to teach a new mechanic through the scene and the ghosts’ lines, with no tutorial pop-ups, while three ghost stories unfolded inside a word budget.') + '</p></div>' +
+   '<div><b>' + L.did + '</b><p>' + (it ? 'Design narrativo del concept, i tre fantasmi, tutti i dialoghi in inglese, il beat chart dei sei giorni e i testi del tutorial dentro la scena (IT + EN).' : 'Narrative design of the concept, the three ghosts, all dialogue in English, the six-day beat chart and the in-scene tutorial texts (IT + EN).') + '</p></div>' +
+   '<div class="r"><b>' + L.result + '</b><p>' + (it ? 'Uscito il 3 luglio 2026: 6 giorni, 3 fantasmi, 6 oggetti.' : 'Released on 3 July 2026: 6 days, 3 ghosts, 6 objects.') + '</p></div>' +
+  '</div>' +
+  ph(it?'[VIDEO 16:9 · trailer / gameplay di Antiques · arriva il 19 ottobre]':'[VIDEO 16:9 · Antiques trailer / gameplay · arrives 19 October]', "ph-169") +
+  '<div class="prose"><h3>' + L.context + '</h3><p>' + (it ?
+   'Un simulatore in prima persona: gestisci un negozio d’antiquariato dove ogni oggetto in restauro è posseduto dallo spirito di un defunto con un rimpianto. Restauri l’oggetto, lo spirito si manifesta e blocca il lavoro finché non gli trovi una “nuova casa” tramite un rituale. 6 giorni di gioco, 3 spiriti, 6 oggetti. Tono: buffo, con un fondo umano.'
+   : 'A first-person restoration sim: you run an antique shop where every object you restore is possessed by the spirit of someone who died with a regret. You restore the object, the spirit manifests and blocks the work until you find it a “new home” through a ritual. 6 in-game days, 3 ghosts, 6 objects. Tone: funny, with a human undertone.') + '</p>' +
+  '<h3>' + L.role + '</h3><p>' + (it ?
+   'Narrative Designer &amp; Writer in un team di 14. Mi sono occupato della parte narrativa del gioco: design narrativo del concept, i tre fantasmi e le loro storie, tutti i dialoghi in inglese, il beat chart dei sei giorni e i testi del tutorial in italiano e inglese.'
+   : 'Narrative Designer &amp; Writer in a team of 14. I owned the narrative side of the game: the narrative design of the core concept, the three ghosts and their stories, all in-game dialogue in English, the beat chart of the six days and the tutorial texts in Italian and English.') + '</p>' +
+  '<h3>' + L.did + '</h3></div>' +
+  loopBlock(it) +
+  '<div class="prose"><ul>' + (it ?
+   '<li><b>Design narrativo del concept</b>: la struttura oggetto → spirito → rimpianto → rituale e come la narrativa si intreccia al gameplay loop.</li><li><b>Scrittura dei 3 spiriti e delle loro storie.</b></li><li><b>Tutti i dialoghi in inglese</b>, con trigger, word count e note di design per i programmatori.</li><li><b>Beat chart dei 6 giorni</b>: quale spirito, oggetto, materiale e step di restauro, e quale meccanica nuova introduce ogni giorno.</li><li><b>Testi del tutorial</b> integrati in modo diegetico (IT + EN).</li>'
+   : '<li><b>Narrative design of the core concept</b>: the object → ghost → regret → ritual structure, and how the story weaves into the gameplay loop.</li><li><b>Wrote the 3 ghosts and their stories.</b></li><li><b>All in-game dialogue in English</b>, with triggers, word counts and design notes for programmers.</li><li><b>Beat chart of the 6 days</b>: which ghost, object, material and restoration steps, and which new mechanic each day introduces.</li><li><b>Diegetic tutorial texts</b> (IT + EN).</li>') + '</ul></div>' +
+  '<h3>' + L.ghosts + '</h3>' + ghostsBlock(it) +
+  (DEV ? '<h3>' + L.gallery + '</h3><div class="gallery">' + ph(it?'[IMG 16:9 · banco di restauro · 19 ott]':'[IMG 16:9 · restoration bench · 19 Oct]','ph-169') + ph(it?'[IMG 16:9 · tavolo del rituale · 19 ott]':'[IMG 16:9 · ritual table · 19 Oct]','ph-169') + ph(it?'[IMG 16:9 · dialogo a schermo · 19 ott]':'[IMG 16:9 · on-screen dialogue · 19 Oct]','ph-169') + '</div>' : '') +
+  scriptBlock(it) +
+  '<div class="prose"><h3>' + L.result + '</h3><p>' + (it ?
+   'Uscito il 3 luglio 2026: 6 giorni, 3 fantasmi, 6 oggetti, dialoghi in inglese e tutorial diegetico in italiano e inglese.'
+   : 'Released on 3 July 2026: 6 days, 3 ghosts, 6 objects, dialogue in English and a diegetic tutorial in Italian and English.') + '</p>' + (DEV ? '<p>' + todo(it?"feedback reale: playtest, valutazione o commenti dei docenti":"real feedback: playtest, grade or tutors’ comments") + '</p>' : '') +
+  '<h3>' + L.learned + '</h3><p>' + (it ?
+   'A far combaciare vincoli di sistema e scrittura: ogni dialogo doveva insegnare una meccanica e raccontare un pezzo di storia, dentro un budget di parole. La narrativa come tutorial invisibile.'
+   : 'How to make system constraints and writing fit together: every line of dialogue had to teach a mechanic and tell part of a story, within a word budget. Narrative as an invisible tutorial.') + '</p></div>' +
+  (DEV ? '<div class="btns"><span class="btn" aria-disabled="true">GDD / Beat chart ' + todo("link") + '</span><span class="btn" aria-disabled="true">' + (it?'Build giocabile':'Playable build') + ' ' + todo("link") + '</span></div>' : '');
+ }},
+ casino:{file:"casino.case", size:"", body:function(){
+  var it = S.lang==="it", L = LBL[S.lang];
+  return projectSheet({ l:L, title:"One Hell of a Casino",
+   facts:[[L.role,"Producer"],[L.when, it?"mar–apr 2026":"Mar–Apr 2026"],[L.engine,"Unity"],[L.platform,"Android"],[L.team,"15"]],
+   media: it?"[IMG 16:9 · menu principale con mascotte, minigioco, shop/gacha · 19 ott]":"[IMG 16:9 · main menu with mascot, mini-game, shop/gacha · 19 Oct]",
+   context: it ? "Un casual mobile a tema infernale: una collezione di minigiochi a meccanica singola (Fiche Slider, Greed Tower, Dice Madness), sistema gacha, slot machine, monetizzazione e metriche simulate. Consegnato come APK Android con pagina store completa."
+    : "A hell-themed casual mobile game: a collection of single-mechanic mini-games (Fiche Slider, Greed Tower, Dice Madness), a gacha system, a slot machine and simulated monetization and metrics. Delivered as an Android APK with a full store page.",
+   did: it ? ["Coordinamento di un team multidisciplinare di 15 (4 designer, 5 programmatori, 5 artist) per 6 settimane, fino alla release.","Gestione delle milestone (Alpha 29/03, Beta 10/04, Release 24/04) e delle dipendenze tra reparti.","Documenti di coordinamento: lista di priorità per i programmatori e tabella di workflow degli asset per gli artist.","Triage dei feedback nel polish; consegna puntuale con APK Android, pitch, walkthrough, promo art e documentazione tecnica."]
+    : ["Coordinated a multidisciplinary team of 15 (4 designers, 5 programmers, 5 artists) over 6 weeks, through to release.","Managed milestones (Alpha 29/03, Beta 10/04, Release 24/04) and cross-discipline dependencies.","Wrote the coordination docs: a priority list for programmers and an asset workflow table for artists.","Triaged feedback during polish; delivered on time with Android APK, pitch, walkthrough, promo art and technical documentation."],
+   learned: it ? "Che il ruolo del producer è tenere il filo tra reparti che parlano lingue diverse: tradurre il “cosa serve” del design in priorità concrete per programmatori e artist, e proteggere la milestone quando il tempo stringe."
+    : "That a producer’s job is holding the thread between departments that speak different languages: turning what design needs into concrete priorities for programmers and artists, and protecting the milestone when time gets tight."
+  });
+ }},
+ cosmic:{file:"cosmic_chaos", size:"", body:function(){
+  var it = S.lang==="it", L = LBL[S.lang];
+  return projectSheet({ l:L, title:"Cosmic Chaos",
+   facts:[[L.role, it?"Game &amp; Level Designer, bilanciamento":"Game &amp; Level Designer, Balancing"],[L.when, it?"feb 2026":"Feb 2026"],[L.engine,"Unity"],[L.format, it?"“Shuffle”: team diversi ogni 5 giorni":"“Shuffle”: a new team every 5 days"]],
+   media: it?"[IMG 16:9 · gameplay con le formazioni nemiche · 19 ott]":"[IMG 16:9 · gameplay with enemy formations · 19 Oct]",
+   context: it ? "Una reinterpretazione di Space Invaders con una meccanica “twist” e pattern di spawn nemici. Formato “Shuffle”: ogni 5 giorni il progetto passa a un team diverso, che deve portarlo avanti partendo da documentazione e codice ricevuti. 4 tipi di nemico (Walker, Crab, Shooter, Shuttle) e un boss-cannone."
+    : "Space Invaders reimagined with a twist mechanic and enemy spawn patterns. “Shuffle” format: every 5 days the project moved to a different team, which had to carry it on from the documentation and code it received. 4 enemy types (Walker, Crab, Shooter, Shuttle) and a cannon boss.",
+   did: it ? ["Co-stesura del GDD con il team e design del twist e dei pattern di spawn e movimento dei nemici.","Testing, bug report e analisi di bilanciamento (curva di difficoltà, utilità degli elementi), con tuning fino alla build finale.","Ho ripreso il lavoro avviato da altri team e passato il mio in modo chiaro."]
+    : ["Co-wrote the GDD with the team and designed the twist and the enemy spawn and movement patterns.","Testing, bug reports and balancing analysis (difficulty curve, usefulness of elements), with tuning up to the final build.","Took over work started by other teams and handed off my own clearly."],
+   learned: it ? "A entrare a freddo nel lavoro di altri leggendo solo la documentazione, e quanto valga una documentazione chiara. E a guardare un gioco con occhio critico: non “funziona / non funziona”, ma “questa feature non si sta guadagnando il suo posto”."
+    : "Stepping cold into someone else’s work through documentation alone, and how much clear documentation is worth. And looking at a game critically: not “works / doesn’t work” but “this feature isn’t earning its place”."
+  });
+ }},
+ train:{file:"what_a_train", size:"", body:function(){
+  var it = S.lang==="it", L = LBL[S.lang];
+  return projectSheet({ l:L, title:"What a Train",
+   facts:[[L.role,"Game &amp; Level Designer"],[L.when, it?"gen 2026":"Jan 2026"],[L.engine,"Unity"],[L.format, it?"Game jam di 1 settimana":"1-week game jam"]],
+   media: it?"[IMG 16:9 · prototipo · 19 ott]":"[IMG 16:9 · prototype · 19 Oct]",
+   context: it ? "Game jam sul tema “origine della musica”, con vincoli stretti: camera laterale, ogni run dura esattamente 26 secondi, almeno un diversifier obbligatorio."
+    : "Game jam on the theme “origin of music”, with tight constraints: side camera, every run lasts exactly 26 seconds, at least one mandatory diversifier.",
+   did: it ? ["Dal brainstorming al prototipo giocabile in 5 giorni.","Priorità e tagli delle feature per stare dentro un’esperienza di 26 secondi: decidere cosa NON fare."]
+    : ["From brainstorm to playable prototype in 5 days.","Prioritized and cut features to fit a 26-second experience: deciding what not to make."],
+   learned: it ? "Che i vincoli sono un regalo: 26 secondi e un diversifier ti costringono a trovare subito l’idea forte."
+    : "That constraints are a gift: 26 seconds and a diversifier force you to find the strong idea right away."
+  });
+ }},
+ nigishida:{file:"nigishida", size:"", body:function(){
+  var it = S.lang==="it", L = LBL[S.lang];
+  return projectSheet({ l:L, title:"The Hunger of Nigishida",
+   facts:[[L.role,"Game &amp; Level Designer"],[L.when, it?"nov–dic 2025":"Nov–Dec 2025"],[L.engine, it?"Unity · primo progetto Unity":"Unity · first Unity project"],[L.team,"8"]],
+   media: it?"[IMG 16:9 · vista top-down di un livello · 19 ott]":"[IMG 16:9 · top-down view of a level · 19 Oct]",
+   context: it ? "Arcade “snake-like” ambientato nella mitologia sumera. Vista top-down, 3 livelli, sistema di punteggio e power-up."
+    : "A snake-like arcade game set in Sumerian mythology. Top-down view, 3 levels, scoring and power-ups.",
+   did: it ? ["Game design e level design di uno dei 3 livelli.","Co-design del sistema di punteggio, degli item (Beer, Speed Potion) e delle regole degli NPC.","Stesura del GDD in inglese (core loop, meccaniche, comportamento NPC, level design, UI/UX, audio spec)."]
+    : ["Game and level design for one of the 3 levels.","Co-designed the score system, the items (Beer, Speed Potion) and the NPC rules.","Wrote the GDD in English (core loop, mechanics, NPC behavior, level design, UI/UX, audio spec)."],
+   learned: it ? "Le basi: cos’è un GDD e come si scrive perché un team ci lavori davvero sopra. Il primo contatto con Unity e con il lavoro di squadra."
+    : "The basics: what a GDD is and how to write one a team can actually work from. My first contact with Unity and with teamwork."
+  });
+ }},
+ personal:{file:"personal/", size:"small", body:function(){
+  var it = S.lang==="it";
+  var rows = [
+   ["splitter","SPLITTER", it?"Puzzle-platformer 3D · Unity · Alpha v0.5":"3D puzzle-platformer · Unity · Alpha v0.5"],
+   ["catnhell","Cat'n'Hell", it?"Run'n'gun roguelite 2D · Unity · prototipo":"2D run'n'gun roguelite · Unity · prototype"],
+   ["otherside","Other Side", it?"Dungeon crawler a turni in prima persona · Unity · Alpha v0.5.1":"First-person turn-based dungeon crawler · Unity · Alpha v0.5.1"]
+  ];
+  function row(name, desc){ return '<li class="sealed"><b>' + name + '</b><span>' + desc + '</span></li>'; }
+  return '<h2 class="t">' + (it?'Progetti personali':'Personal projects') + '</h2><div class="prose"><p>' + (it?'Prototipi che faccio da solo, fuori dall’accademia. Grezzi, giocabili, aggiornati man mano che imparo.':'Prototypes I build on my own, outside the academy. Rough, playable, and updated as I learn.') + '</p></div>' +
+   '<h3>' + (it?'Prototipi · demo 1.0 in arrivo':'Prototypes · demo 1.0 coming') + '</h3>' +
+   '<ul class="list">' + rows.map(function(r){ return '<li><button class="proj" data-open="' + r[0] + '"><b>' + r[1] + '</b><span>' + r[2] + '</span><span class="arr" aria-hidden="true">›</span></button></li>'; }).join("") + '</ul>' +
+   '<h3>' + (it?'In sviluppo':'In development') + '</h3>' +
+   '<ul class="list">' +
+   row("Fighting Ground", (it?'Picchiaduro 3D cyberpunk: esplori una mappa del mondo a esagoni, combatti corpo a corpo e strappi nuove mosse dai crani dei nemici. Unreal Engine · prototipo del combattimento · titolo provvisorio.':'A cyberpunk 3D brawler: explore a hex world map, fight hand-to-hand, and rip new moves out of your enemies’ skulls. Unreal Engine · combat prototype · working title.')) +
+   row("All Bullets for Me", (it?'FPS single-player costruito sulla combinazione di un’arma con un potere. Unreal Engine · concept (one-sheet) · titolo provvisorio.':'A single-player FPS built on chaining one weapon with one power. Unreal Engine · concept (one-sheet) · working title.')) +
+   '</ul>' +
+   '<div class="btns"><a class="btn" href="' + ITCH + '" target="_blank" rel="me noopener">Itch.io ↗</a></div>';
+ }},
+ splitter:{file:"splitter.exe", size:"", body:function(){
+  var it = S.lang==="it", L = LBL[S.lang];
+  return projectSheet({ l:L, title:"SPLITTER",
+   facts:[[L.role, it?"Progetto personale, da solo":"Solo personal project"],[it?"Stato":"Status", "Alpha v0.5"],[L.engine,"Unity (URP)"],[L.platform,"Windows"],[it?"Genere":"Genre", it?"Puzzle-platformer 3D in terza persona":"Third-person 3D puzzle-platformer"]],
+   media: it?"[IMG 16:9 · gameplay di SPLITTER · 19 ott]":"[IMG 16:9 · SPLITTER gameplay · 19 Oct]",
+   context: it ? "<i>Muori. Rinasci. Ripeti. Risolvi.</i> Un puzzle-platformer 3D in cui farti esplodere è l’unico modo per andare avanti: ogni mossa avanzata ti costa la vita. Il tuo corpo esplode in uno schizzo e uno nuovo sbuca nella direzione che scegli. Qui la morte non è una punizione: è un verbo."
+    : "<i>Die. Respawn. Repeat. Solve.</i> A 3D puzzle-platformer where blowing yourself up is the only way forward: every advanced move costs you your life. Your body explodes in a splatter and a new one bursts out in the direction you choose. Death isn’t a punishment here: it’s a verb.",
+   did: it ? ["Game design, level design e sviluppo in Unity (URP).","Build attuale: Mondo 1, il Laboratorio, 4 stanze.","Una sola mossa, quattro verbi di puzzle: Dash, Redirect, Chain, Targeted.", DEV ? "Durata della build: " + todo("minuti") : null]
+    : ["Game design, level design and development in Unity (URP).","Current build: World 1, the Laboratory, 4 rooms.","One move, four puzzle verbs: Dash, Redirect, Chain, Targeted.", DEV ? "Playtime of the build: " + todo("minutes") : null],
+   learned: null
+  });
+ }},
+ catnhell:{file:"catnhell.exe", size:"", body:function(){
+  var it = S.lang==="it", L = LBL[S.lang];
+  return projectSheet({ l:L, title:"Cat'n'Hell",
+   facts:[[L.role, it?"Game design e programmazione":"Game design &amp; programming"],[it?"Stato":"Status", it?"Prototipo":"Prototype"],[L.engine,"Unity"],[L.platform,"Windows"],[it?"Genere":"Genre", it?"Run’n’gun roguelite 2D, pixel art":"2D run’n’gun roguelite, pixel art"]],
+   media: it?"[IMG 16:9 · gameplay di Cat’n’Hell · 19 ott]":"[IMG 16:9 · Cat’n’Hell gameplay · 19 Oct]",
+   context: it ? "<i>Prepare for your PAW-nishment.</i> Un run’n’gun roguelite 2D in cui fondi armi e anime in un arsenale che resta tuo tra una run e l’altra, attraverso i nove cerchi di un Inferno a forma di gatto. Sei un gatto demone nato nel Cat-Inferno e Lucifelix ti ha ingannato. Scendi a spirale per i nove cerchi: salta, scatta e spara in otto direzioni. I nemici che uccidi lasciano le loro anime; al rifugio, Pluto fonde armi e anime e il tuo arsenale cresce da una run all’altra."
+    : "<i>Prepare for your PAW-nishment.</i> A 2D run’n’gun roguelite where you fuse weapons and souls into an arsenal that stays yours between runs, across the nine circles of a cat-shaped Hell. You’re a demon cat born in the Cat-Inferno, and Lucifelix has tricked you. Spiral down the nine circles: jump, dash and shoot in eight directions. The enemies you kill leave their souls behind; back at the hub, Pluto fuses your weapons and souls, and your arsenal grows from one run to the next.",
+   did: it ? ["Game design e programmazione del prototipo.","Narrativa e lore: un co-autore.", DEV ? "Contenuto della build: " + todo("cosa contiene la build") : null,"Controlli: tastiera o gamepad, niente mouse."]
+    : ["Game design and programming of the prototype.","Narrative and lore: a co-author.", DEV ? "Build contents: " + todo("what the build contains") : null,"Controls: keyboard or gamepad, no mouse."],
+   learned: null
+  });
+ }},
+ otherside:{file:"otherside.exe", size:"", body:function(){
+  var it = S.lang==="it", L = LBL[S.lang];
+  return projectSheet({ l:L, title:"Other Side",
+   facts:[[L.role, it?"Progetto personale, da solo":"Solo personal project"],[it?"Stato":"Status", "Alpha v0.5.1"],[L.engine,"Unity (URP)"],[L.platform,"Windows"],[it?"Genere":"Genre", it?"Dungeon crawler a turni in prima persona, permadeath roguelike":"First-person turn-based dungeon crawler, roguelike permadeath"]],
+   media: it?"[IMG 16:9 · gameplay di Other Side · 19 ott]":"[IMG 16:9 · Other Side gameplay · 19 Oct]",
+   context: it ? "Gettato nel dungeon come sacrificio per un dio malvagio, scendi fino in fondo per scoprire cosa c’è dall’altra parte. Stanza dopo stanza: dove c’è un nemico c’è un enigma, e lo batti capendo cosa i tuoi oggetti e la stanza stessa possono fargli. Nessuno ti dà indizi. Se muori ricominci a mani vuote: ti resta solo quello che hai capito e quello che hai scritto sul tuo diario."
+    : "Thrown into the dungeon as a sacrifice for an evil god, descend to the bottom to find out what lies on the other side. Room by room: where there’s an enemy, there’s a puzzle, and you beat it by figuring out what your items and the room itself can do to it. Nobody gives you hints. Die and you start over empty-handed: all you keep is what you understood and what you wrote in your journal.",
+   did: it ? ["Game design e sviluppo in Unity (URP).","Build attuale: Piano 1, fatto a mano.","Scontri a turni risolti con oggetti e ambiente.","Un diario su cui disegni e scrivi tu stesso. Controlli: solo mouse.", DEV ? "Durata della build: " + todo("minuti") : null]
+    : ["Game design and development in Unity (URP).","Current build: Floor 1, hand-made.","Turn-based encounters solved through items and the environment.","A journal you draw and write in yourself. Controls: mouse only.", DEV ? "Playtime of the build: " + todo("minutes") : null],
+   learned: null
+  });
+ }},
+ eleanor:{file:function(){ return S.lang==="it" ? "narrativa.txt" : "narrative.txt"; }, size:"wide", body:function(){
+  var it = S.lang==="it", L = LBL[S.lang];
+  return '<h2 class="t">' + (it?'Narrativa':'Narrative') + '</h2>' +
+   '<p class="lede">' + (it ? 'La narrativa come tutorial invisibile: ogni dialogo insegna una meccanica e racconta un pezzo di storia, dentro un budget di parole.' : 'Narrative as an invisible tutorial: every line of dialogue teaches a mechanic and tells part of a story, within a word budget.') + '</p>' +
+   '<div class="prose"><p>' + (it ? 'Da <i>Antiques: The Last Owner</i> (Narrative Designer &amp; Writer, team di 14, uscito il 3 luglio 2026).' : 'From <i>Antiques: The Last Owner</i> (Narrative Designer &amp; Writer, team of 14, released 3 July 2026).') + '</p>' +
+   '<h3>' + L.method + '</h3><p>' + (it ? 'La struttura che tiene insieme gioco e storia: ogni oggetto in restauro porta uno spirito, ogni spirito un rimpianto, ogni rimpianto si chiude con un rituale. La narrativa si intreccia al gameplay loop invece di stargli sopra.' : 'The structure that holds game and story together: every object under restoration carries a ghost, every ghost a regret, every regret closes with a ritual. The story weaves into the gameplay loop instead of sitting on top of it.') + '</p></div>' +
+   loopBlock(it) +
+   '<h3>' + L.ghosts + '</h3>' + ghostsBlock(it) +
+   '<div class="prose"><h3>' + L.beat + '</h3><p>' + (it ? 'Sei giorni di gioco su una sola tabella: per ogni giorno quale spirito, quale oggetto, quale materiale e quali step di restauro, e quale meccanica nuova introduce. Ogni giorno insegna una meccanica dentro la scena e le battute dei fantasmi, senza pop-up di tutorial, mentre le tre storie vanno avanti.' : 'Six in-game days on one table: for each day, which ghost, which object, which material and restoration steps, and which new mechanic it introduces. Each day teaches a mechanic through the scene and the ghosts’ lines, with no tutorial pop-ups, while the three stories move forward.') + '</p>' +
+   '<p>' + (it ? 'Tutti i dialoghi sono in inglese, con trigger, word count e note di design per i programmatori; i testi del tutorial sono diegetici, in italiano e inglese.' : 'All dialogue is in English, with triggers, word counts and design notes for programmers; the tutorial texts are diegetic, in Italian and English.') + '</p></div>' +
+   scriptBlock(it) +
+   '<div class="btns"><button class="btn red" data-open="antiques">' + (it?'Apri il case study':'Open the case study') + '</button>' + (DEV ? '<span class="btn" aria-disabled="true">GDD / Beat chart ' + todo("link") + '</span>' : '') + '</div>';
+ }},
+ contact:{file:"contact.bin", size:"small", body:function(){
+  var it = S.lang==="it";
+  return '<h2 class="t">' + (it?'Contatti':'Contact') + '</h2><div class="prose"><p>' + (it?'Scrivimi qui:':'Write to me here:') + '</p></div>' +
+   '<p><a class="email" id="emailText" href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
+   '<div class="btns"><button class="btn red" data-copy="1">' + (it?'Copia email':'Copy email') + '</button><a class="btn" href="' + LINKEDIN + '" target="_blank" rel="me noopener">LinkedIn ↗</a></div>' +
+   '<div class="btns"><a class="btn" href="' + GITHUB + '" target="_blank" rel="me noopener">GitHub ↗</a><a class="btn" href="' + ITCH + '" target="_blank" rel="me noopener">Itch.io ↗</a></div>' +
+   (DEV ? '<div class="btns"><span class="btn" aria-disabled="true">CV IT ' + todo("PDF") + '</span><span class="btn" aria-disabled="true">CV EN ' + todo("PDF") + '</span></div>' : '');
+ }}
+};
+function fname(id){ var f = W[id].file; return typeof f === "function" ? f() : f; }
+/* link diretti: queste schede si aprono nella versione web (#antiques, #splitter, …); l'OS parte solo con #os */
+var CARDS = ["antiques","casino","cosmic","train","nigishida","splitter","catnhell","otherside"];
+var SECTION = {top:"c-top", about:"c-about", projects:"c-projects", personal:"c-personal", eleanor:"c-writing", writing:"c-writing", narrative:"c-writing", contact:"c-contact"};
+function webTarget(h){ if (!h) return null; if (CARDS.indexOf(h) >= 0) return h; if (SECTION[h]) return SECTION[h]; if (/^c-[a-z-]+$/.test(h)) return h; return null; }
+var ICON_ORDER = ["about","antiques","casino","cosmic","train","nigishida","personal","eleanor","contact"];
+
+/* ---------- elementi ---------- */
+var app = document.getElementById("app");
+var winLayer = document.getElementById("windows");
+var tabs = document.getElementById("tabs");
+var startBtn = document.getElementById("startBtn");
+var startMenu = document.getElementById("startmenu");
+var startList = document.getElementById("startList");
+var toast = document.getElementById("toast");
+var classic = document.getElementById("classic");
+var boot = document.getElementById("boot");
+var skipBtn = document.getElementById("skip");
+
+/* ---------- audio ---------- */
+var actx = null;
+function sfx(kind){
+ if (!S.sound) return;
+ try {
+  if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+  var now = actx.currentTime;
+  var len = kind==="open" ? .35 : kind==="chomp" ? .5 : .12;
+  var buf = actx.createBuffer(1, Math.floor(actx.sampleRate*len), actx.sampleRate);
+  var d = buf.getChannelData(0);
+  for (var i=0;i<d.length;i++){ var env = 1 - i/d.length; d[i] = (Math.random()*2-1) * env * env; if (kind==="chomp" && i > d.length*0.45 && i < d.length*0.55) d[i]=0; }
+  var src = actx.createBufferSource(); src.buffer = buf;
+  var f = actx.createBiquadFilter(); f.type = "lowpass";
+  f.frequency.setValueAtTime(kind==="open"?1800:kind==="close"?500:900, now);
+  f.frequency.exponentialRampToValueAtTime(kind==="open"?180:120, now+len);
+  f.Q.value = kind==="open"?9:4;
+  var g = actx.createGain(); g.gain.value = kind==="click"?.25:.5;
+  src.connect(f); f.connect(g); g.connect(actx.destination); src.start(now);
+ } catch(e){}
+}
+
+/* ---------- toast ---------- */
+var toastTimer = null;
+function say(msg){ toast.textContent = msg; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toast.hidden = true; }, 2200); }
+
+/* ---------- finestre ---------- */
+var open = {}; var zTop = 20; var cascade = 0; var lastOpener = {};
+function isSmall(){ return window.innerWidth <= 760; }
+function setHash(id){ try { history.replaceState(null, "", id ? "#" + id : location.pathname + location.search); } catch(e){} }
+
+function buildWin(id){
+ var def = W[id];
+ var el = document.createElement("section");
+ el.className = "win" + (def.size ? " " + def.size : "");
+ el.setAttribute("role","dialog");
+ el.setAttribute("aria-labelledby","wt-"+id);
+ el.tabIndex = -1;
+ el.dataset.id = id;
+ el.innerHTML =
+  '<div class="win-bar">' + EYE + '<h2 id="wt-' + id + '">' + fname(id) + '</h2><div class="win-btns"><button class="min" aria-label="' + t("min") + '">' + MIN_BAR + '</button><button class="close" aria-label="' + t("close") + '">' + CLOSE_X + '</button></div></div>' +
+  TEETH + '<div class="win-body" tabindex="0"></div><div class="win-stitch" aria-hidden="true"></div>' + DRIP +
+  '<div class="cut" aria-hidden="true"></div><div class="sutures" aria-hidden="true"></div>';
+ el.querySelector(".win-body").innerHTML = def.body();
+ return el;
+}
+function place(el, id){
+ if (isSmall()) return;
+ var w = el.offsetWidth, h = el.offsetHeight;
+ var areaW = window.innerWidth, areaH = window.innerHeight - parseInt(getComputedStyle(document.documentElement).getPropertyValue("--bar-h")||64,10);
+ var x, y;
+ if (id === "welcome") { x = Math.max(260, (areaW - w)/2 + 60); y = Math.max(24, (areaH - h)/2 - 20); }
+ else { x = Math.min(areaW - w - 20, 270 + (cascade % 6) * 36); y = Math.min(Math.max(20, areaH - h - 30), 30 + (cascade % 6) * 30); cascade++; }
+ el.style.left = Math.max(8, x) + "px"; el.style.top = Math.max(8, y) + "px";
+}
+function focusBody(id){ var el = open[id]; if (!el) return; var b = el.querySelector(".win-body"); (b || el).focus({preventScroll:true}); }
+function focusWin(id){
+ var el = open[id]; if (!el) return;
+ el.hidden = false; el.dataset.min = "";
+ zTop++; el.style.zIndex = zTop;
+ Object.keys(open).forEach(function(k){ open[k].classList.toggle("is-top", k===id); });
+ renderTabs();
+ setHash("os");
+}
+function openWin(id, opener){
+ if (!W[id]) return;
+ closeStart();
+ if (opener) lastOpener[id] = opener;
+ if (open[id]) { focusWin(id); focusBody(id); return; }
+ var el = buildWin(id);
+ winLayer.appendChild(el);
+ open[id] = el;
+ place(el, id);
+ focusWin(id);
+ if (S.motion) { el.classList.add("opening"); setTimeout(function(){ el.classList.remove("opening"); }, 440); }
+ sfx("open");
+ if (S.gore==="max") splatAt(el.getBoundingClientRect().left + el.offsetWidth/2, el.getBoundingClientRect().top + el.offsetHeight/2, 1.6);
+ focusBody(id);
+}
+function closeWin(id){
+ var el = open[id]; if (!el) return;
+ delete open[id];
+ sfx(id==="contact"?"chomp":"close");
+ var done = function(){ el.remove(); renderTabs(); var back = lastOpener[id]; if (back && document.body.contains(back)) back.focus(); else { var top = topWinId(); if (top) focusBody(top); } };
+ if (S.motion) { el.classList.add("closing"); setTimeout(done, 540); } else done();
+ renderTabs();
+ setHash("os");
+}
+function minWin(id){ var el = open[id]; if (!el) return; el.hidden = true; el.dataset.min = "1"; el.classList.remove("is-top"); renderTabs(); }
+function topWinId(){ var best = null, bz = -1; Object.keys(open).forEach(function(k){ var el = open[k]; if (el.hidden) return; var z = +el.style.zIndex||0; if (z > bz) { bz = z; best = k; } }); return best; }
+
+function renderTabs(){
+ var top = topWinId();
+ tabs.innerHTML = "";
+ var first = true;
+ Object.keys(open).forEach(function(k){
+  var b = document.createElement("button");
+  b.textContent = fname(k);
+  b.tabIndex = (k===top || (!top && first)) ? 0 : -1; first = false;
+  if (k===top) { b.classList.add("active"); b.setAttribute("aria-current","true"); }
+  if (open[k].hidden) b.classList.add("min");
+  b.addEventListener("click", function(){ if (open[k].hidden || k!==topWinId()) { focusWin(k); focusBody(k); } else { minWin(k); } });
+  tabs.appendChild(b);
+ });
+}
+/* barra delle finestre: frecce per spostarsi tra le schede (role=toolbar) */
+tabs.addEventListener("keydown", function(e){
+ if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+ var bs = Array.prototype.slice.call(tabs.querySelectorAll("button")); if (!bs.length) return;
+ var i = bs.indexOf(document.activeElement); if (i < 0) i = 0;
+ var n = (i + (e.key === "ArrowRight" ? 1 : -1) + bs.length) % bs.length;
+ bs.forEach(function(b){ b.tabIndex = -1; }); bs[n].tabIndex = 0; bs[n].focus(); e.preventDefault();
+});
+
+/* eventi delle finestre (delegati) */
+winLayer.addEventListener("click", function(e){
+ var win = e.target.closest(".win"); if (!win) return;
+ var id = win.dataset.id;
+ if (e.target.closest(".close")) { closeWin(id); return; }
+ if (e.target.closest(".min")) { minWin(id); return; }
+ var o = e.target.closest("[data-open]"); if (o) { openWin(o.dataset.open, o); return; }
+ if (e.target.closest("[data-copy]")) { copyEmail(); return; }
+});
+winLayer.addEventListener("pointerdown", function(e){
+ var win = e.target.closest(".win"); if (!win) return;
+ if (win.dataset.id !== topWinId()) focusWin(win.dataset.id);
+ var bar = e.target.closest(".win-bar");
+ if (!bar || e.target.closest("button") || isSmall()) return;
+ e.preventDefault();
+ var sx = e.clientX, sy = e.clientY, ox = win.offsetLeft, oy = win.offsetTop;
+ bar.setPointerCapture(e.pointerId);
+ function mv(ev){
+  var nx = ox + ev.clientX - sx, ny = oy + ev.clientY - sy;
+  nx = Math.min(Math.max(nx, -win.offsetWidth + 120), window.innerWidth - 120);
+  ny = Math.min(Math.max(ny, 0), window.innerHeight - 120);
+  win.style.left = nx + "px"; win.style.top = ny + "px";
+ }
+ function up(){ bar.removeEventListener("pointermove", mv); bar.removeEventListener("pointerup", up); bar.removeEventListener("pointercancel", up); }
+ bar.addEventListener("pointermove", mv); bar.addEventListener("pointerup", up); bar.addEventListener("pointercancel", up);
+});
+
+function copyEmail(){
+ var done = function(){ say(t("copied")); };
+ var fail = function(){ var n = document.getElementById("emailText"); if (n) { var r = document.createRange(); r.selectNodeContents(n); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } say(t("copyFail")); };
+ try { navigator.clipboard.writeText(EMAIL).then(done, fail); } catch(e){ fail(); }
+}
+
+/* ---------- schizzi ---------- */
+var splatLayer = document.getElementById("splats");
+function splatAt(x, y, scale){
+ if (S.gore !== "max") return;
+ var s = (scale||1) * (0.6 + Math.random()*0.8);
+ var r = Math.floor(Math.random()*360);
+ var svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
+ svg.setAttribute("viewBox","-20 -10 200 200"); svg.setAttribute("class","splat"); svg.setAttribute("aria-hidden","true");
+ svg.style.left = x + "px"; svg.style.top = y + "px";
+ var tf = "rotate(" + r + "deg) scale(" + s.toFixed(2) + ")";
+ svg.style.setProperty("--t", tf);
+ svg.style.transform = tf;
+ svg.innerHTML = '<use href="#splatShape" fill="' + (Math.random()<.3?"#6E0410":"#B0081A") + '"/>';
+ splatLayer.appendChild(svg);
+ while (splatLayer.children.length > 16) splatLayer.firstChild.remove();
+ setTimeout(function(){ svg.remove(); }, 12000);
+}
+app.addEventListener("pointerdown", function(e){
+ if (e.target.closest(".win") || e.target.closest("#taskbar") || e.target.closest("#startmenu")) return;
+ splatAt(e.clientX, e.clientY, 1);
+ if (!e.target.closest(".icon")) sfx("click");
+});
+
+/* ---------- icone della scrivania ---------- */
+var iconsNav = document.getElementById("icons");
+function renderIcons(){
+ iconsNav.innerHTML = "";
+ ICON_ORDER.forEach(function(id){
+  var b = document.createElement("button");
+  b.className = "icon"; b.dataset.open = id;
+  b.innerHTML = ICON[id] + '<span class="lbl">' + fname(id) + '</span>';
+  b.addEventListener("click", function(){ openWin(id, b); });
+  iconsNav.appendChild(b);
+ });
+}
+
+/* ---------- menu START ---------- */
+function renderStart(){
+ var h = "";
+ ["welcome","projects"].concat(ICON_ORDER).forEach(function(id){ h += '<li><button data-open="' + id + '"><span>' + fname(id) + '</span><span aria-hidden="true">›</span></button></li>'; });
+ h += '<li class="sep" aria-hidden="true"></li>';
+ h += '<li><button data-set="gore"><span>' + T[S.lang].gore[S.gore] + '</span></button></li>';
+ h += '<li><button data-set="motion" aria-pressed="' + S.motion + '"><span>' + t("motion")[S.motion?1:0] + '</span></button></li>';
+ h += '<li><button data-set="sound" aria-pressed="' + S.sound + '"><span>' + t("sound")[S.sound?1:0] + '</span></button></li>';
+ h += '<li><button data-set="lang"><span>' + t("lang") + '</span></button></li>';
+ h += '<li><button data-set="classic"><span>' + t("classic") + '</span><span aria-hidden="true">›</span></button></li>';
+ h += '<li class="sep" aria-hidden="true"></li>';
+ h += '<li><button data-set="reboot"><span>' + t("reboot") + '</span><span aria-hidden="true">↻</span></button></li>';
+ h += '<li><button data-set="home"><span>' + t("home") + '</span><span aria-hidden="true">⌂</span></button></li>';
+ startList.innerHTML = h;
+}
+function closeStart(){ startMenu.hidden = true; startBtn.setAttribute("aria-expanded","false"); }
+startBtn.addEventListener("click", function(){
+ var willOpen = startMenu.hidden;
+ if (willOpen) { renderStart(); startMenu.hidden = false; startBtn.setAttribute("aria-expanded","true"); var f = startList.querySelector("button"); if (f) f.focus(); }
+ else closeStart();
+ sfx("click");
+});
+startList.addEventListener("click", function(e){
+ var o = e.target.closest("[data-open]"); if (o) { openWin(o.dataset.open, startBtn); return; }
+ var s = e.target.closest("[data-set]"); if (s) { toggle(s.dataset.set); renderStart(); }
+});
+startMenu.addEventListener("keydown", function(e){
+ if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+ var bs = Array.prototype.slice.call(startList.querySelectorAll("button"));
+ var i = bs.indexOf(document.activeElement); var n = (i + (e.key === "ArrowDown" ? 1 : -1) + bs.length) % bs.length;
+ bs[n].focus(); e.preventDefault();
+});
+document.addEventListener("pointerdown", function(e){ if (!startMenu.hidden && !e.target.closest("#startmenu") && !e.target.closest("#startBtn")) closeStart(); });
+
+/* ---------- impostazioni ---------- */
+var sGore = document.getElementById("sGore"), sMotion = document.getElementById("sMotion"), sSound = document.getElementById("sSound"), sLang = document.getElementById("sLang"), sClassic = document.getElementById("sClassic");
+function toggle(k){
+ if (k==="gore") S.gore = S.gore==="max" ? "off" : S.gore==="off" ? "low" : "max";
+ if (k==="motion") S.motion = !S.motion;
+ if (k==="sound") { S.sound = !S.sound; if (S.sound) setTimeout(function(){ sfx("open"); }, 30); }
+ if (k==="lang") { S.lang = S.lang==="en" ? "it" : "en"; relang(); }
+ if (k==="classic") { setClassic(true); return; }
+ if (k==="reboot") { closeStart(); save(); runBoot(); return; }
+ if (k==="home") { showLanding(); return; }
+ apply(); save();
+}
+sGore.addEventListener("click", function(){ toggle("gore"); });
+sMotion.addEventListener("click", function(){ toggle("motion"); });
+sSound.addEventListener("click", function(){ toggle("sound"); });
+sLang.addEventListener("click", function(){ toggle("lang"); });
+sClassic.addEventListener("click", function(){ toggle("classic"); });
+
+function apply(){
+ document.body.classList.remove("gore-off","gore-low","gore-max"); document.body.classList.add("gore-" + S.gore);
+ app.classList.toggle("motion-off", !S.motion); app.classList.toggle("motion-on", S.motion);
+ document.body.classList.toggle("motion-off", !S.motion);
+ sGore.textContent = T[S.lang].gore[S.gore]; sGore.setAttribute("aria-label", T[S.lang].gore[S.gore]);
+ sMotion.textContent = t("motion")[S.motion?1:0]; sMotion.setAttribute("aria-pressed", String(S.motion));
+ sSound.textContent = t("sound")[S.sound?1:0]; sSound.setAttribute("aria-pressed", String(S.sound));
+ sLang.textContent = t("lang");
+ sClassic.textContent = t("classic");
+ document.documentElement.lang = S.lang;
+ iconsNav.setAttribute("aria-label", t("desktop"));
+ tabs.setAttribute("aria-label", t("openWins"));
+ document.querySelector(".settings").setAttribute("aria-label", t("settings"));
+ var le = document.getElementById("ldEn"), li = document.getElementById("ldIt");
+ if (le) { le.setAttribute("aria-pressed", String(S.lang==="en")); li.setAttribute("aria-pressed", String(S.lang==="it")); }
+ document.querySelectorAll("[data-i18n]").forEach(function(n){ n.textContent = t(n.dataset.i18n); });
+ skipBtn.textContent = S.motion ? t("skip") : t("cont");
+}
+function relang(){
+ Object.keys(open).forEach(function(k){
+  var b = open[k].querySelector(".win-body"); var top = b.scrollTop; b.innerHTML = W[k].body(); b.scrollTop = top;
+  open[k].querySelector(".min").setAttribute("aria-label", t("min")); open[k].querySelector(".close").setAttribute("aria-label", t("close"));
+  open[k].querySelector(".win-bar h2").textContent = fname(k);
+ });
+ renderIcons(); renderTabs();
+ if (S.classic) { var y = window.scrollY; renderClassic(); window.scrollTo(0, y); }
+}
+
+/* ---------- vista classica ---------- */
+function renderClassic(){
+ var it = S.lang==="it";
+ var nav = [["about", it?"Chi sono":"About me"],["projects", it?"Progetti":"Projects"],["personal", it?"Personali":"Personal"],["writing", it?"Narrativa":"Narrative"],["contact", it?"Contatti":"Contact"]];
+ var h = '<a class="skip-link" href="#c-projects">' + t("skipTo") + '</a>';
+ h += '<div class="cl-top"><b>Matteo Marrale</b><button class="cl-menu" id="clMenu" aria-expanded="false" aria-controls="clPanel">' + t("menu") + '</button><div class="cl-panel" id="clPanel"><nav aria-label="' + t("sections") + '">' + nav.map(function(n){ return '<a href="#c-' + n[0] + '">' + n[1] + '</a>'; }).join("") + '</nav><div class="act"><button id="clHome">Home</button><button id="clLang">' + t("lang") + '</button><button id="clBack">' + t("toOs") + '</button></div></div></div>';
+ h += '<div class="cl">';
+ h += '<section id="c-top">' + W.welcome.body("web") + '</section>';
+ h += '<section id="c-about">' + W.about.body() + '</section>';
+ h += '<div id="c-projects" style="display:grid;gap:28px">';
+ ["antiques","casino","cosmic","train","nigishida"].forEach(function(id){ h += '<article id="' + id + '">' + W[id].body() + '</article>'; });
+ h += '</div>';
+ h += '<section id="c-personal">' + W.personal.body() + '</section>';
+ h += '<div id="c-personal-sheets" style="display:grid;gap:28px">';
+ ["splitter","catnhell","otherside"].forEach(function(id){ h += '<article id="' + id + '">' + W[id].body() + '</article>'; });
+ h += '</div>';
+ h += '<section id="c-writing">' + W.eleanor.body() + '</section>';
+ h += '<section id="c-contact">' + W.contact.body() + '</section>';
+ h += '</div>';
+ classic.innerHTML = h;
+ /* ogni pulsante della pagina scorre alla scheda giusta (SPLITTER, Cat'n'Hell, Other Side inclusi) */
+ classic.querySelectorAll("[data-open]").forEach(function(b){ b.addEventListener("click", function(){ var tid = webTarget(b.dataset.open); if (tid) goWeb(tid, false); }); });
+ var menuBtn = document.getElementById("clMenu"), bar = classic.querySelector(".cl-top");
+ menuBtn.addEventListener("click", function(){ setMenu(!bar.classList.contains("open")); });
+ classic.querySelectorAll(".cl-top nav a").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+ measureTop();
+ classic.querySelectorAll("[data-copy]").forEach(function(b){ b.addEventListener("click", copyEmail); });
+ document.getElementById("clLang").addEventListener("click", function(){ S.lang = S.lang==="en"?"it":"en"; apply(); relang(); save(); var b2 = document.getElementById("clLang"); if (b2) b2.focus({preventScroll:true}); });
+ document.getElementById("clBack").addEventListener("click", function(){ setClassic(false); });
+ document.getElementById("clHome").addEventListener("click", showLanding);
+}
+function setMenu(open){ var bar = classic.querySelector(".cl-top"), b = document.getElementById("clMenu"); if (!bar || !b) return; bar.classList.toggle("open", open); b.setAttribute("aria-expanded", String(open)); }
+/* altezza reale della barra: serve a scroll-margin-top delle ancore */
+function measureTop(){ var bar = classic.querySelector(".cl-top"); if (bar) document.documentElement.style.setProperty("--cl-top-h", bar.offsetHeight + "px"); }
+function goWeb(tid, instant){
+ var n = document.getElementById(tid); if (!n) return;
+ measureTop();
+ n.scrollIntoView({behavior: (S.motion && !instant) ? "smooth" : "auto", block:"start"});
+ var hd = n.matches("h1,h2") ? n : n.querySelector("h1, h2"); if (hd) { hd.tabIndex = -1; hd.focus({preventScroll:true}); }
+ if (CARDS.indexOf(tid) >= 0) setHash(tid);
+}
+function stopBoot(){ if (boot.hidden) return; bootTimers.forEach(clearTimeout); bootTimers = []; bootDone = true; boot.hidden = true; }
+function setClassic(on, keepPlace){
+ S.classic = on;
+ closeStart();
+ if (on) stopBoot();
+ app.hidden = on; classic.hidden = !on;
+ document.body.classList.toggle("is-classic", on);
+ /* entrando nella versione web il focus va sull'h1 (il nome), non sul pulsante "Carne Viva OS" */
+ if (on) { renderClassic(); if (!keepPlace) { window.scrollTo(0,0); setHash("web"); var f = classic.querySelector("#c-top h1"); if (f) f.focus({preventScroll:true}); } }
+ else { classic.innerHTML = ""; if (!osBooted) runBoot(); else { setHash("os"); sClassic.focus(); } }
+}
+
+/* ---------- home ---------- */
+var landing = document.getElementById("landing");
+var osBooted = false;
+function showLanding(){
+ closeStart();
+ if (S.classic) { S.classic = false; classic.hidden = true; classic.innerHTML = ""; document.body.classList.remove("is-classic"); }
+ app.hidden = true;
+ landing.hidden = false;
+ setHash("");
+ var b = document.getElementById(S.lang === "it" ? "ldIt" : "ldEn"); if (b) b.focus();
+}
+function enterWeb(){ landing.hidden = true; setClassic(true); }
+function enterOS(){
+ landing.hidden = true; app.hidden = false;
+ if (!osBooted) runBoot(); else { setHash("os"); var id = topWinId(); if (id) focusBody(id); }
+}
+document.getElementById("goWeb").addEventListener("click", enterWeb);
+document.getElementById("goOs").addEventListener("click", enterOS);
+document.getElementById("ldEn").addEventListener("click", function(){ if (S.lang !== "en") { S.lang = "en"; apply(); relang(); save(); } });
+document.getElementById("ldIt").addEventListener("click", function(){ if (S.lang !== "it") { S.lang = "it"; apply(); relang(); save(); } });
+
+/* ---------- tastiera ---------- */
+var MOD_KEYS = {Tab:1, Shift:1, Control:1, Alt:1, Meta:1, CapsLock:1, Escape:0};
+document.addEventListener("keydown", function(e){
+ if (!landing.hidden) return;
+ if (!boot.hidden) { if (MOD_KEYS[e.key]) return; if (!boot.classList.contains("torn")) { finishBoot(); e.preventDefault(); } return; }
+ if (e.key === "Escape") {
+  if (!startMenu.hidden) { closeStart(); startBtn.focus(); return; }
+  if (S.classic) { var mb = document.getElementById("clMenu"); if (mb && mb.getAttribute("aria-expanded") === "true") { setMenu(false); mb.focus(); } return; }
+  var id = topWinId(); if (id) closeWin(id);
+ }
+});
+
+/* ---------- avvio ---------- */
+var bootLines = document.getElementById("bootLines");
+var bootDone = false, bootTimers = [];
+function renderBootLines(){
+ bootLines.innerHTML = T[S.lang].boot.map(function(l){ return '<p class="ln"><span>' + l[0] + '</span><span class="' + l[2] + '">' + l[1] + '</span></p>'; }).join("");
+}
+function finishBoot(){
+ if (bootDone) return; bootDone = true;
+ bootTimers.forEach(clearTimeout); bootTimers = [];
+ bootLines.querySelectorAll(".ln").forEach(function(n){ n.classList.add("on"); });
+ var reveal = function(){ boot.hidden = true; startDesktop(); };
+ if (!S.motion) { reveal(); return; }
+ boot.classList.add("torn"); sfx("open");
+ bootTimers.push(setTimeout(reveal, 820));
+}
+function runBoot(){
+ bootDone = false;
+ boot.className = "";
+ boot.hidden = false;
+ renderBootLines();
+ setHash("os");
+ skipBtn.textContent = S.motion ? t("skip") : t("cont");
+ skipBtn.focus({preventScroll:true});
+ var lines = bootLines.querySelectorAll(".ln");
+ if (!S.motion) { /* senza movimento: tutte le righe subito, si aspetta un tasto o un clic */ lines.forEach(function(n){ n.classList.add("on"); }); return; }
+ /* ritmo scelto da Matteo: una riga al secondo, poi 3 s per leggere prima dello strappo (saltabile) */
+ lines.forEach(function(n, i){ bootTimers.push(setTimeout(function(){ n.classList.add("on"); }, 1000 + i*1000)); });
+ bootTimers.push(setTimeout(finishBoot, lines.length*1000 + 3000));
+}
+var initialHash = (location.hash || "").replace("#",""); /* letto prima che l'avvio riscriva l'hash */
+function startDesktop(){
+ var first = !osBooted;
+ osBooted = true;
+ openWin("welcome");
+ if (first && initialHash && W[initialHash] && initialHash !== "welcome") openWin(initialHash);
+}
+boot.addEventListener("click", function(){ finishBoot(); });
+
+/* ---------- pausa delle animazioni ambientali quando la scheda non si vede ---------- */
+document.addEventListener("visibilitychange", function(){ app.classList.toggle("paused", document.hidden); });
+
+/* ---------- init ---------- */
+renderIcons();
+apply();
+/* instradamento: #os = Carne Viva OS; #web = versione web; #antiques, #splitter, … = versione web sulla scheda; niente hash = home */
+function route(initial){
+ var hash = (location.hash || "").replace("#","");
+ if (hash === "os") {
+  if (S.classic) setClassic(false);
+  else if (!landing.hidden || app.hidden) enterOS();
+  return;
+ }
+ if (hash === "classic" || hash === "web") { if (!S.classic) enterWeb(); return; }
+ var tid = webTarget(hash);
+ if (tid) {
+  if (!S.classic) { landing.hidden = true; setClassic(true, true); }
+  if (!document.getElementById(tid)) { if (initial) { window.scrollTo(0,0); setHash("web"); } return; }
+  requestAnimationFrame(function(){ goWeb(tid, initial); });
+  /* i font cambiano le altezze: al primo caricamento si riallinea quando sono pronti */
+  if (initial && document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ if ((location.hash || "").replace("#","") === tid) goWeb(tid, true); });
+  return;
+ }
+ if (!hash) { if (initial || S.classic || !app.hidden) showLanding(); return; }
+ if (initial) showLanding();
+}
+route(true);
+window.addEventListener("hashchange", function(){ route(false); });
+window.addEventListener("resize", function(){ if (S.classic) { measureTop(); if (!isSmall()) setMenu(false); } });
+window.addEventListener("resize", function(){ if (isSmall()) return; Object.keys(open).forEach(function(k){ var el = open[k]; var maxX = window.innerWidth - 120, maxY = window.innerHeight - 160; if (el.offsetLeft > maxX) el.style.left = maxX + "px"; if (el.offsetTop > maxY) el.style.top = Math.max(8,maxY) + "px"; }); });
+})();
+</script>
+
+</body></html>
