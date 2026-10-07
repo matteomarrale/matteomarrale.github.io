@@ -156,6 +156,7 @@ button{font:inherit; color:inherit; cursor:pointer}
 .ph{display:grid; place-items:center; text-align:center; padding:12px; border:3px dashed var(--blood-dry); border-radius:12px; background:repeating-linear-gradient(135deg,var(--bone-2) 0 10px,var(--bone) 10px 20px); font:400 14px/1.4 var(--f-ui); color:var(--ink-soft); max-width:100%; box-sizing:border-box}
 .ph-169{aspect-ratio:16/9; width:min(100%,570px); max-height:320px}
 .ph-portrait{width:140px; aspect-ratio:4/5; float:right; margin:0 0 10px 16px}
+.portrait{width:150px; height:auto; aspect-ratio:1; object-fit:cover; float:right; margin:0 0 10px 16px; border:3px solid var(--ink); border-radius:14px; box-shadow:5px 5px 0 var(--ink)}
 .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin:8px 0}
 .gallery .ph-169{width:100%; max-height:none}
 .todo{display:inline; padding:1px 6px; background:var(--fat); color:var(--ink); border-radius:4px; font:600 15px var(--f-ui)}
@@ -304,6 +305,7 @@ button{font:inherit; color:inherit; cursor:pointer}
   .strip > div{border-left:0; border-top:3px solid var(--ink)}
   .strip > div:first-child{border-top:0}
   .ph-portrait{width:110px}
+  .portrait{width:112px}
   /* versione web sul telefono: una riga sola (nome + Menu), circa 64 px */
   .cl-top{padding:8px 16px}
   .cl-top b{font-size:26px}
@@ -608,7 +610,7 @@ var W = {
  }},
  about:{file:"about_me.txt", size:"", body:function(){
   var it = S.lang==="it";
-  return '<h2 class="t">' + (it?'Chi sono':'About me') + '</h2>' + ph(it?'[DA FORNIRE: foto ritratto]':'[DA FORNIRE: portrait photo]', 'ph-portrait') +
+  return '<h2 class="t">' + (it?'Chi sono':'About me') + '</h2>' + '<img class="portrait" src="foto-profilo.jpg" width="480" height="480" loading="lazy" alt="' + (it?'Matteo Marrale in un selfie con un gatto bianco e nero':'Matteo Marrale in a selfie with a black-and-white cat') + '">' +
    '<div class="prose">' + (it ?
    '<p>Sono un Junior Game &amp; Narrative Designer in formazione alla Digital Bros Game Academy di Milano (fino all’estate 2027), dove progetto sistemi di gioco, livelli e storie per esperienze interattive.</p><p>Vengo dalla scrittura: ho completato il primo anno di Strategic Writing &amp; Screenwriting all’AIV (Accademia Italiana Videogiochi), con basi di struttura narrativa, personaggi e analisi tra giochi, cinema e TV. Alla DBGA l’ho ampliata al game design completo: meccaniche, level design, bilanciamento e produzione.</p><h3>Cosa porto</h3><ul><li>Unisco design e scrittura: costruisco sistemi di gioco senza perdere il filo della storia.</li><li>Attento allo scope: abituato a consegnare in tempo, in team e da solo.</li><li>Multidisciplinare: capisco cosa serve a programmatori, artisti e producer e progetto di conseguenza.</li></ul><h3>Obiettivo</h3><p>Dopo l’accademia (estate 2027) cerco un ruolo da Junior Game / Narrative Designer, in studi italiani indie e mid-size o da remoto, meglio se su giochi narrativi o con un’identità forte.</p>'
    :
