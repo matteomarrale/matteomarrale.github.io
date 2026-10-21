@@ -1,6 +1,10 @@
-<!doctype html><html lang="en" class="no-js"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Matteo Marrale — Junior Producer &amp; Project Manager | Game &amp; Narrative Designer</title>
-<!-- Meta di anteprima e descrizione (in inglese). In Astro vanno nell'<head> del layout. -->
+<!-- Meta di anteprima e descrizione (in inglese). -->
 <meta name="description" content="Portfolio of Matteo Marrale, Junior Producer &amp; Project Manager and Game &amp; Narrative Designer training at Digital Bros Game Academy in Milan: five academy projects and personal projects.">
 <meta name="theme-color" content="#000000">
 <meta property="og:type" content="website">
@@ -9,7 +13,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="it_IT">
 <meta property="og:url" content="https://matteomarrale.github.io/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://matteomarrale.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Matteo Marrale — Junior Producer &amp; Project Manager | Game &amp; Narrative Designer">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -31,7 +39,9 @@
 }
 @supports (height:100dvh){ :root{--vh:100dvh} }
 html,body{height:100%}
-.no-js #landing,.no-js #app,.no-js #classic,.no-js #boot{display:none!important}
+[hidden]{display:none!important}
+img{max-width:100%}
+.no-js #app,.no-js #classic,.no-js #boot{display:none!important}
 body{
   margin:0; overflow:hidden; color:var(--white); font-family:var(--f-text); font-size:18px; line-height:1.5;
   background:var(--grey-dark);
@@ -42,7 +52,6 @@ button{font:inherit; color:inherit; cursor:pointer}
 /* Focus: anello doppio (nero + bianco) così si vede sia sul chiaro sia sullo scuro. */
 :focus-visible{outline:3px solid var(--black); outline-offset:0; box-shadow:0 0 0 6px var(--white)}
 .win-body:focus-visible{outline:none; box-shadow:inset 0 0 0 3px var(--black)}
-.ld-card:focus-visible{box-shadow:0 0 0 6px var(--white)}
 .win:focus-visible{outline:none; box-shadow:0 0 0 6px var(--white)}
 .skip-link{position:absolute; left:16px; top:-60px; z-index:5000; padding:10px 14px; background:var(--white); color:var(--black); border:3px solid var(--black); border-radius:10px; font:600 16px var(--f-ui); text-decoration:none}
 .skip-link:focus{top:16px}
@@ -156,31 +165,6 @@ button{font:inherit; color:inherit; cursor:pointer}
 #skip{position:absolute; z-index:4; right:20px; bottom:calc(20px + env(safe-area-inset-bottom,0px)); min-height:44px; padding:0 16px; background:var(--black); color:var(--white); border:2px solid var(--grey-mid); border-radius:10px; font:400 15px var(--f-ui)}
 @media (max-height:520px){ #boot .txt{padding:14px 16px; font-size:12px; line-height:1.6} #boot .logo{font-size:36px; margin-bottom:6px} }
 
-/* ---------- home: scegli come vedere ---------- */
-#landing{position:fixed; inset:0; z-index:2500; height:var(--vh); overflow:auto; display:flex; flex-direction:column; color:var(--white); background:var(--grey-dark)}
-.ld-top{position:relative; display:flex; justify-content:flex-end; padding:16px 16px 0}
-.ld-lang{display:flex; border:3px solid var(--black); border-radius:12px; overflow:hidden; background:var(--black)}
-.ld-lang button{min-width:64px; min-height:44px; padding:0 14px; border:0; background:transparent; color:var(--white); font:600 16px var(--f-ui)}
-.ld-lang button[aria-pressed="true"]{background:var(--white); color:var(--black)}
-.ld-main{position:relative; flex:1; display:flex; flex-direction:column; justify-content:center; gap:22px; width:min(980px,100%); box-sizing:border-box; margin:0 auto; padding:24px 16px 48px}
-.ld-name{margin:0; font:400 clamp(60px,11vw,128px)/.88 var(--f-black); color:var(--white)}
-.ld-role{margin:10px 0 0; font:400 clamp(20px,2.5vw,25px)/1.35 var(--f-head); color:var(--white)}
-.ld-q{margin:10px 0 0; font:400 clamp(23px,3vw,30px)/1.25 var(--f-head); text-wrap:balance}
-.ld-choices{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:18px}
-.ld-card{display:flex; flex-direction:column; gap:10px; padding:0; text-align:left; border:4px solid var(--black); overflow:hidden; transition:transform .12s ease}
-@media (hover:hover) and (pointer:fine){ .ld-card:hover{transform:translate(-2px,-3px)} }
-.ld-card .bar{display:flex; align-items:center; gap:10px; padding:10px 14px; border-bottom:4px solid var(--black); font:600 16px var(--f-ui)}
-.ld-card .in{display:flex; flex-direction:column; gap:8px; padding:6px 20px 22px}
-.ld-card b{font:700 clamp(26px,3vw,32px)/1.15 var(--f-text)}
-.ld-card p{margin:0; font-size:17px; line-height:1.5}
-.ld-card .go{margin-top:6px; font:600 16px var(--f-ui)}
-.ld-web{background:var(--white); color:var(--black)}
-.ld-web .bar{background:var(--grey-light)}
-.ld-web b{color:var(--black)}
-.ld-os{background:var(--white); color:var(--black)}
-.ld-os .bar{background:var(--grey-dark); color:var(--white)}
-.ld-os b{color:var(--black)}
-
 /* ---------- vista classica ---------- */
 #classic{min-height:100%; background:var(--black); color:var(--white)}
 .cl-top{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; display:flex; align-items:center; gap:10px 18px; padding:10px 16px; background:var(--black); border-bottom:4px solid var(--grey-mid)}
@@ -191,7 +175,7 @@ button{font:inherit; color:inherit; cursor:pointer}
 .cl-top nav a{text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
 .cl-top .act{display:flex; gap:6px}
 .cl-top .act button{min-height:40px; padding:0 12px; border-radius:10px; font:600 14px var(--f-ui)}
-#clLang,#clHome{background:transparent; color:var(--white); border:2px solid var(--grey-mid)}
+#clLang{background:transparent; color:var(--white); border:2px solid var(--grey-mid)}
 #clBack{background:var(--grey-dark); color:var(--white); border:2px solid var(--grey-dark)}
 .cl{max-width:820px; margin:0 auto; padding:24px 16px 80px; display:grid; gap:28px}
 /* ancore: la barra fissa non copre il titolo della scheda */
@@ -224,7 +208,18 @@ button{font:inherit; color:inherit; cursor:pointer}
   .cl-top nav a{min-height:44px; font-size:15px}
   .cl-top .act{flex-wrap:wrap}
 }
+/* stampa: si stampa la versione web, in nero su bianco, senza barra e pulsanti */
+@media print{
+ body,body.is-classic,#classic{background:#FFFFFF!important; color:#000000!important; overflow:visible!important}
+ #app,#boot,.cl-top,.btns,.skip-link,#toast{display:none!important}
+ .cl{max-width:none; padding:0}
+ .cl h1,.cl h2.t,.cl h3,.meta,.facts dt,.facts dd{color:#000000!important}
+ .cl section,.cl article{break-inside:avoid-page}
+ a{color:#000000}
+}
 </style>
+</head>
+<body>
 
 <noscript>
 <style>body{overflow:auto!important}</style>
@@ -266,32 +261,6 @@ button{font:inherit; color:inherit; cursor:pointer}
 
 <main id="classic" hidden></main>
 
-<div id="landing" hidden>
-  <div class="ld-top">
-    <div class="ld-lang" role="group" aria-label="Language / Lingua">
-      <button id="ldEn" aria-pressed="true">EN</button>
-      <button id="ldIt" aria-pressed="false">IT</button>
-    </div>
-  </div>
-  <main class="ld-main">
-    <div>
-      <h1 class="ld-name">Matteo Marrale</h1>
-      <p class="ld-role" data-i18n="ldRole"></p>
-    </div>
-    <p class="ld-q" data-i18n="ldQ"></p>
-    <div class="ld-choices">
-      <button class="ld-card ld-web" id="goWeb">
-        <span class="bar"><span data-i18n="ldWebBar"></span></span>
-        <span class="in"><b data-i18n="ldWebTitle"></b><p data-i18n="ldWebDesc"></p><span class="go" data-i18n="ldWebGo"></span></span>
-      </button>
-      <button class="ld-card ld-os" id="goOs">
-        <span class="bar">Portfolio_OS</span>
-        <span class="in"><b>Portfolio_OS</b><p data-i18n="ldOsDesc"></p><span class="go" data-i18n="ldOsGo"></span></span>
-      </button>
-    </div>
-  </main>
-</div>
-
 <div id="boot" hidden>
   <div class="txt" role="status" aria-live="polite">
     <p class="logo">Portfolio_OS</p>
@@ -317,6 +286,7 @@ var mqReduce = null, reduce = false;
 try { mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)"); reduce = mqReduce.matches; } catch(e){}
 var saved = null;
 try { saved = JSON.parse(localStorage.getItem("cvos-settings") || "null"); } catch(e){}
+if (!(saved && saved.lang)) { try { if (/^it\b/i.test(navigator.language || "")) S.lang = "it"; } catch(e){} }
 if (saved) { ["motion","lang"].forEach(function(k){ if (k in saved) S[k] = saved[k]; }); }
 else if (reduce) { S.motion = false; }
 function save(){ try { localStorage.setItem("cvos-settings", JSON.stringify({motion:S.motion, lang:S.lang})); } catch(e){} }
@@ -332,11 +302,7 @@ var T = {
   motion:["MOTION: OFF","MOTION: ON"], lang:"EN / IT", classic:"CLASSIC VIEW",
   back:"Back to Portfolio_OS", min:"Minimize", close:"Close", desktop:"Desktop", openWins:"Open windows", settings:"Settings", sections:"Sections", skipTo:"Skip to projects",
   copied:"Email copied", copyFail:"Select the address and copy it",
-  ldRole:"Junior Producer & Project Manager | Game & Narrative Designer · Portfolio",
-  ldQ:"How do you want to view the portfolio?",
-  ldWebBar:"Web version", ldWebTitle:"Web version", ldWebDesc:"A classic, readable page with every project. Best for a quick look or a phone.", ldWebGo:"Open the web version ›",
-  ldOsDesc:"An interactive desktop: open the projects like files and drag the windows around.", ldOsGo:"Boot Portfolio_OS ›",
-  home:"Home (choose the view)", toOs:"Portfolio_OS",
+  home:"Web version", toOs:"Portfolio_OS",
   reboot:"Reboot (watch the start again)",
   boot:[
    ["Writing module (AIV, 1st year) ......... ","OK","ok"],
@@ -353,11 +319,7 @@ var T = {
   motion:["MOVIMENTO: OFF","MOVIMENTO: ON"], lang:"IT / EN", classic:"VISTA CLASSICA",
   back:"Torna a Portfolio_OS", min:"Riduci", close:"Chiudi", desktop:"Scrivania", openWins:"Finestre aperte", settings:"Impostazioni", sections:"Sezioni", skipTo:"Vai ai progetti",
   copied:"Email copiata", copyFail:"Seleziona l'indirizzo e copialo",
-  ldRole:"Junior Producer & Project Manager | Game & Narrative Designer · Portfolio",
-  ldQ:"Come vuoi vedere il portfolio?",
-  ldWebBar:"Versione web", ldWebTitle:"Versione web", ldWebDesc:"Una pagina classica e leggibile con tutti i progetti. Ideale per uno sguardo veloce o dal telefono.", ldWebGo:"Apri la versione web ›",
-  ldOsDesc:"Un desktop interattivo: apri i progetti come file e trascina le finestre.", ldOsGo:"Avvia Portfolio_OS ›",
-  home:"Home (scegli la modalità)", toOs:"Portfolio_OS",
+  home:"Versione web", toOs:"Portfolio_OS",
   reboot:"Riavvia (rivedi l'avvio)",
   boot:[
    ["Modulo scrittura (AIV, 1° anno) ........ ","OK","ok"],
@@ -400,6 +362,11 @@ function projectSheet(o){
  return h;
 }
 
+/* CV scaricabili (PDF dal CV master, senza numero di telefono) */
+function cvButtons(){
+ return '<div class="btns"><a class="btn" href="cv/MatteoMarrale_CV_IT.pdf" target="_blank" rel="noopener" hreflang="it">CV IT (PDF)</a><a class="btn" href="cv/MatteoMarrale_CV_EN.pdf" target="_blank" rel="noopener" hreflang="en">CV EN (PDF)</a></div>';
+}
+
 /* blocchi di Antiques */
 function loopBlock(it){
  return '<div class="loop" aria-label="Core loop"><span>' + (it?'oggetto':'object') + '</span><i>→</i><span>' + (it?'fantasma':'ghost') + '</span><i>→</i><span>' + (it?'rimpianto':'regret') + '</span><i>→</i><span class="end">' + (it?'rituale':'ritual') + '</span></div>';
@@ -418,7 +385,7 @@ var W = {
   return '<h1 tabindex="-1">Matteo Marrale</h1>' +
    '<p class="meta">Junior Producer &amp; Project Manager | Game &amp; Narrative Designer · Digital Bros Game Academy, ' + (it?'Milano':'Milan') + '</p>' +
    '<div class="prose"><p>' + (it ? "Mi sto formando alla Digital Bros Game Academy di Milano fino all'estate 2027. Dopo cerco ruoli da Junior Producer, Project Manager o Game &amp; Narrative Designer, in Italia o da remoto." : "I'm training at Digital Bros Game Academy in Milan until summer 2027. After that, I'm looking for Junior Producer, Project Manager or Game &amp; Narrative Designer roles, in Italy or remote.") + '</p></div>' +
-   '<div class="btns"><button class="btn" data-open="about">' + (it?'Chi sono':'About me') + '</button><button class="btn red" data-open="projects">' + (it?'Progetti':'Projects') + '</button><button class="btn" data-open="contact">' + (it?'Contatti':'Contact') + '</button></div>' +
+   '<div class="btns"><button class="btn" data-open="about">' + (it?'Chi sono':'About me') + '</button><button class="btn red" data-open="projects">' + (it?'Progetti':'Projects') + '</button><button class="btn" data-open="contact">' + (it?'Contatti':'Contact') + '</button>' + (ctx === "web" ? '<button class="btn" data-os>' + t("toOs") + '</button>' : '') + '</div>' +
    (ctx === "web" ? '' : '<p class="tip">' + t("tip") + '</p>');
  }},
  projects:{file:function(){ return S.lang==="it" ? "Progetti" : "Projects"; }, size:"small", body:function(){
@@ -443,7 +410,7 @@ var W = {
    :
    "<p>I'm a Junior Producer &amp; Project Manager and Game &amp; Narrative Designer, training at Digital Bros Game Academy in Milan (October 2025 – summer 2027).</p><p>I completed the first year of Strategic Writing &amp; Screenwriting at AIV (Accademia Italiana Videogiochi). At DBGA I'm studying game design documentation, level design, Unity and Unreal Engine prototyping, mobile game design and project management.</p><h3>Goal</h3><p>After the academy (summer 2027) I'm looking for Junior Producer, Project Manager or Game &amp; Narrative Designer roles, in Italy or remote.</p>") +
    '<h3>' + (it?'Strumenti':'Tools') + '</h3><p class="tools">Unity · Unreal Engine · Figma · Miro · Jira · ClickUp · Notion · Git · Claude Code</p>' +
-   '</div>' + (DEV ? '<h3>CV</h3><div class="btns"><span class="btn" aria-disabled="true">CV IT ' + todo("PDF") + '</span><span class="btn" aria-disabled="true">CV EN ' + todo("PDF") + '</span></div>' : '');
+   '</div>' + '<h3>CV</h3>' + cvButtons();
  }},
  antiques:{file:"Antiques: The Last Owner", size:"wide", body:function(){
   var it = S.lang==="it", L = LBL[S.lang];
@@ -527,7 +494,7 @@ var W = {
   var it = S.lang==="it", L = LBL[S.lang];
   var said = '<a href="' + SAID_LINKEDIN + '" target="_blank" rel="noopener">Said Serbouti</a>';
   return projectSheet({ l:L, title:"Cat 'n' Hell!",
-   facts:[[L.role, it?"Game design e sviluppo":"Game design &amp; development"],[it?"Stato":"Status", it?"Prototipo giocabile":"Playable prototype"],[L.engine,"Unity"],[L.platform,"Windows"],[it?"Genere":"Genre", it?"Roguelite run'n'gun 2D":"2D run'n'gun roguelite"]],
+   facts:[[L.role, it?"Game design e sviluppo":"Game design &amp; development"],[it?"Stato":"Status", it?"Prototipo giocabile":"Playable prototype"],[L.engine,"Unity"],[L.platform,"PC"],[it?"Genere":"Genre", it?"Roguelite run'n'gun 2D":"2D run'n'gun roguelite"]],
    media: it?"[IMG 16:9 · gameplay di Cat ’n’ Hell! · 19 ott]":"[IMG 16:9 · Cat ’n’ Hell! gameplay · 19 Oct]",
    context: it ? "Un roguelite run'n'gun 2D ambientato in un Inferno a forma di gatto, sviluppato in Unity."
     : "A 2D run'n'gun roguelite set in a cat-shaped Hell, developed in Unity.",
@@ -538,7 +505,7 @@ var W = {
  otherside:{file:"Other Side", size:"", body:function(){
   var it = S.lang==="it", L = LBL[S.lang];
   return projectSheet({ l:L, title:"Other Side",
-   facts:[[L.role, it?"Progetto personale":"Solo personal project"],[it?"Stato":"Status", it?"Prototipo giocabile":"Playable prototype"],[L.engine,"Unity (URP)"],[L.platform,"Windows"],[it?"Genere":"Genre", it?"Dungeon crawler a turni in prima persona, permadeath":"First-person turn-based dungeon crawler, permadeath"]],
+   facts:[[L.role, it?"Progetto personale":"Solo personal project"],[it?"Stato":"Status", it?"Prototipo giocabile":"Playable prototype"],[L.engine,"Unity (URP)"],[L.platform,"PC"],[it?"Genere":"Genre", it?"Dungeon crawler a turni in prima persona, permadeath":"First-person turn-based dungeon crawler, permadeath"]],
    media: it?"[IMG 16:9 · gameplay di Other Side · 19 ott]":"[IMG 16:9 · Other Side gameplay · 19 Oct]",
    context: it ? "Un dungeon crawler a turni in prima persona con permadeath, sviluppato in Unity. Ogni nemico si sconfigge sfruttando gli oggetti e la stanza. Quando muori ricominci da capo: tra una run e l'altra conservi solo un diario che disegni e scrivi tu."
     : "A first-person, turn-based dungeon crawler with permadeath, developed in Unity. You beat each enemy by using your items and the room around you. When you die, you start over: all you keep between runs is a journal you draw and write in yourself.",
@@ -552,7 +519,7 @@ var W = {
    '<p><a class="email" id="emailText" href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
    '<div class="btns"><button class="btn red" data-copy="1">' + (it?'Copia email':'Copy email') + '</button><a class="btn" href="' + LINKEDIN + '" target="_blank" rel="me noopener">LinkedIn ↗</a></div>' +
    '<div class="btns"><a class="btn" href="' + GITHUB + '" target="_blank" rel="me noopener">GitHub ↗</a><a class="btn" href="' + ITCH + '" target="_blank" rel="me noopener">Itch.io ↗</a></div>' +
-   (DEV ? '<div class="btns"><span class="btn" aria-disabled="true">CV IT ' + todo("PDF") + '</span><span class="btn" aria-disabled="true">CV EN ' + todo("PDF") + '</span></div>' : '');
+   cvButtons();
  }}
 };
 function fname(id){ var f = W[id].file; return typeof f === "function" ? f() : f; }
@@ -745,7 +712,7 @@ function toggle(k){
  if (k==="lang") { S.lang = S.lang==="en" ? "it" : "en"; relang(); }
  if (k==="classic") { setClassic(true); return; }
  if (k==="reboot") { closeStart(); save(); runBoot(); return; }
- if (k==="home") { showLanding(); return; }
+ if (k==="home") { setClassic(true); return; }
  apply(); save();
 }
 sMotion.addEventListener("click", function(){ toggle("motion"); });
@@ -762,8 +729,6 @@ function apply(){
  iconsNav.setAttribute("aria-label", t("desktop"));
  tabs.setAttribute("aria-label", t("openWins"));
  document.querySelector(".settings").setAttribute("aria-label", t("settings"));
- var le = document.getElementById("ldEn"), li = document.getElementById("ldIt");
- if (le) { le.setAttribute("aria-pressed", String(S.lang==="en")); li.setAttribute("aria-pressed", String(S.lang==="it")); }
  document.querySelectorAll("[data-i18n]").forEach(function(n){ n.textContent = t(n.dataset.i18n); });
  skipBtn.textContent = S.motion ? t("skip") : t("cont");
 }
@@ -782,7 +747,7 @@ function renderClassic(){
  var it = S.lang==="it";
  var nav = [["about", it?"Chi sono":"About me"],["projects", it?"Progetti":"Projects"],["personal", it?"Personali":"Personal"],["contact", it?"Contatti":"Contact"]];
  var h = '<a class="skip-link" href="#c-projects">' + t("skipTo") + '</a>';
- h += '<div class="cl-top"><b>Matteo Marrale</b><button class="cl-menu" id="clMenu" aria-expanded="false" aria-controls="clPanel">' + t("menu") + '</button><div class="cl-panel" id="clPanel"><nav aria-label="' + t("sections") + '">' + nav.map(function(n){ return '<a href="#c-' + n[0] + '">' + n[1] + '</a>'; }).join("") + '</nav><div class="act"><button id="clHome">Home</button><button id="clLang">' + t("lang") + '</button><button id="clBack">' + t("toOs") + '</button></div></div></div>';
+ h += '<div class="cl-top"><b>Matteo Marrale</b><button class="cl-menu" id="clMenu" aria-expanded="false" aria-controls="clPanel">' + t("menu") + '</button><div class="cl-panel" id="clPanel"><nav aria-label="' + t("sections") + '">' + nav.map(function(n){ return '<a href="#c-' + n[0] + '">' + n[1] + '</a>'; }).join("") + '</nav><div class="act"><button id="clLang">' + t("lang") + '</button><button id="clBack">' + t("toOs") + '</button></div></div></div>';
  h += '<div class="cl">';
  h += '<section id="c-top">' + W.welcome.body("web") + '</section>';
  h += '<section id="c-about">' + W.about.body() + '</section>';
@@ -805,7 +770,7 @@ function renderClassic(){
  classic.querySelectorAll("[data-copy]").forEach(function(b){ b.addEventListener("click", copyEmail); });
  document.getElementById("clLang").addEventListener("click", function(){ S.lang = S.lang==="en"?"it":"en"; apply(); relang(); save(); var b2 = document.getElementById("clLang"); if (b2) b2.focus({preventScroll:true}); });
  document.getElementById("clBack").addEventListener("click", function(){ setClassic(false); });
- document.getElementById("clHome").addEventListener("click", showLanding);
+ classic.querySelectorAll("[data-os]").forEach(function(b){ b.addEventListener("click", function(){ setClassic(false); }); });
 }
 function setMenu(open){ var bar = classic.querySelector(".cl-top"), b = document.getElementById("clMenu"); if (!bar || !b) return; bar.classList.toggle("open", open); b.setAttribute("aria-expanded", String(open)); }
 /* altezza reale della barra: serve a scroll-margin-top delle ancore */
@@ -829,31 +794,18 @@ function setClassic(on, keepPlace){
  else { classic.innerHTML = ""; if (!osBooted) runBoot(); else { setHash("os"); sClassic.focus(); } }
 }
 
-/* ---------- home ---------- */
-var landing = document.getElementById("landing");
+/* ---------- home = versione web (scelta di Matteo, 2026-10-21); Portfolio_OS da pulsante o con #os ---------- */
 var osBooted = false;
-function showLanding(){
- closeStart();
- if (S.classic) { S.classic = false; classic.hidden = true; classic.innerHTML = ""; document.body.classList.remove("is-classic"); }
- app.hidden = true;
- landing.hidden = false;
- setHash("");
- var b = document.getElementById(S.lang === "it" ? "ldIt" : "ldEn"); if (b) b.focus();
-}
-function enterWeb(){ landing.hidden = true; setClassic(true); }
+function showHome(){ setClassic(true, true); window.scrollTo(0,0); setHash(""); }
+function enterWeb(){ setClassic(true); }
 function enterOS(){
- landing.hidden = true; app.hidden = false;
+ app.hidden = false;
  if (!osBooted) runBoot(); else { setHash("os"); var id = topWinId(); if (id) focusBody(id); }
 }
-document.getElementById("goWeb").addEventListener("click", enterWeb);
-document.getElementById("goOs").addEventListener("click", enterOS);
-document.getElementById("ldEn").addEventListener("click", function(){ if (S.lang !== "en") { S.lang = "en"; apply(); relang(); save(); } });
-document.getElementById("ldIt").addEventListener("click", function(){ if (S.lang !== "it") { S.lang = "it"; apply(); relang(); save(); } });
 
 /* ---------- tastiera ---------- */
 var MOD_KEYS = {Tab:1, Shift:1, Control:1, Alt:1, Meta:1, CapsLock:1, Escape:0};
 document.addEventListener("keydown", function(e){
- if (!landing.hidden) return;
  if (!boot.hidden) { if (MOD_KEYS[e.key]) return; finishBoot(); e.preventDefault(); return; }
  if (e.key === "Escape") {
   if (!startMenu.hidden) { closeStart(); startBtn.focus(); return; }
@@ -899,26 +851,26 @@ boot.addEventListener("click", function(){ finishBoot(); });
 /* ---------- init ---------- */
 renderIcons();
 apply();
-/* instradamento: #os = Portfolio_OS; #web = versione web; #antiques, #catnhell, … = versione web sulla scheda; niente hash = home */
+/* instradamento: #os = Portfolio_OS; #web = versione web; #antiques, #catnhell, … = versione web sulla scheda; niente hash = versione web */
 function route(initial){
  var hash = (location.hash || "").replace("#","");
  if (hash === "os") {
   if (S.classic) setClassic(false);
-  else if (!landing.hidden || app.hidden) enterOS();
+  else if (app.hidden) enterOS();
   return;
  }
  if (hash === "classic" || hash === "web") { if (!S.classic) enterWeb(); return; }
  var tid = webTarget(hash);
  if (tid) {
-  if (!S.classic) { landing.hidden = true; setClassic(true, true); }
+  if (!S.classic) setClassic(true, true);
   if (!document.getElementById(tid)) { if (initial) { window.scrollTo(0,0); setHash("web"); } return; }
   requestAnimationFrame(function(){ goWeb(tid, initial); });
   /* i font cambiano le altezze: al primo caricamento si riallinea quando sono pronti */
   if (initial && document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ if ((location.hash || "").replace("#","") === tid) goWeb(tid, true); });
   return;
  }
- if (!hash) { if (initial || S.classic || !app.hidden) showLanding(); return; }
- if (initial) showLanding();
+ if (!hash) { if (initial || !S.classic) showHome(); return; }
+ if (initial) showHome();
 }
 route(true);
 window.addEventListener("hashchange", function(){ route(false); });
