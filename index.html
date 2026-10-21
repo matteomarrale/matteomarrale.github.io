@@ -1,7 +1,6 @@
 <!doctype html><html lang="en" class="no-js"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Matteo Marrale — Junior Game &amp; Narrative Designer</title>
-<!-- Meta di anteprima e descrizione (in inglese). In Astro vanno nell'<head> del layout.
-     og:image: og-image.png 1200×630 (sobria, senza gore: è la miniatura su LinkedIn), aggiunta il 2026-10-07. -->
+<!-- Meta di anteprima e descrizione (in inglese). In Astro vanno nell'<head> del layout. -->
 <meta name="description" content="Matteo Marrale, Junior Game &amp; Narrative Designer training at Digital Bros Game Academy in Milan. Portfolio: five academy projects, a case study of Antiques: The Last Owner, and personal prototypes.">
 <meta name="theme-color" content="#1A0A0E">
 <meta property="og:type" content="website">
@@ -10,11 +9,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="it_IT">
 <meta property="og:url" content="https://matteomarrale.github.io/">
-<meta property="og:image" content="https://matteomarrale.github.io/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Matteo Marrale — Junior Game &amp; Narrative Designer. Portfolio.">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -330,43 +325,8 @@ button{font:inherit; color:inherit; cursor:pointer}
 </div>
 </noscript>
 
-<!-- Definizioni condivise: fibre muscolari (statiche, filtro calcolato una volta) e forma dello schizzo -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <g id="splatShape"><path d="M60 10C80 0 95 25 110 18C130 10 140 40 125 55C150 60 150 90 125 92C135 115 105 125 95 108C85 135 55 130 58 105C30 118 15 95 32 80C5 70 12 42 38 45C25 22 45 5 60 10Z"/><circle cx="150" cy="30" r="7"/><circle cx="162" cy="48" r="4"/><circle cx="12" cy="120" r="6"/><circle cx="140" cy="128" r="9"/><circle cx="-8" cy="40" r="4"/><path d="M118 92C122 120 120 160 126 172C132 160 128 120 126 92Z"/></g>
-    <filter id="fibreWarp" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.0025 0.018" numOctaves="2" seed="11" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-    <pattern id="fibrePat" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(112)">
-      <rect width="30" height="30" fill="#5C0E1B"/>
-      <rect y="9" width="30" height="4" fill="#6D1523"/>
-      <rect y="13" width="30" height="9" fill="#4A0A15"/>
-      <rect y="22" width="30" height="4" fill="#61101E"/>
-      <rect y="26" width="30" height="1.5" fill="#7A1A2B" opacity=".7"/>
-    </pattern>
-    <symbol id="fibres" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-      <rect width="1440" height="900" fill="#4A0A15"/>
-      <rect x="-80" y="-80" width="1600" height="1060" fill="url(#fibrePat)" filter="url(#fibreWarp)"/>
-      <g fill="#3A0812" opacity=".85"><ellipse cx="170" cy="770" rx="280" ry="130"/><ellipse cx="1280" cy="170" rx="300" ry="150"/><ellipse cx="1220" cy="780" rx="230" ry="100"/></g>
-    </symbol>
-  </defs>
-</svg>
 
 <div id="app" class="motion-on" hidden>
-  <svg class="bg" aria-hidden="true" focusable="false"><use href="#fibres"/></svg>
-  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <!-- vene ramificate: ombra, corpo, luce -->
-    <g class="veins" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <g stroke="#1E2C5E" stroke-width="9" opacity=".6"><path d="M0 410 C160 390 220 470 360 450 S560 370 640 430"/><path d="M1440 520 C1320 540 1260 470 1150 500 S980 600 900 560"/><path d="M360 450 C380 520 330 590 380 660"/></g>
-      <g stroke="#3E5BA9" stroke-width="6"><path d="M0 410 C160 390 220 470 360 450 S560 370 640 430"/><path d="M1440 520 C1320 540 1260 470 1150 500 S980 600 900 560"/><path d="M360 450 C380 520 330 590 380 660"/></g>
-      <g stroke="#3E5BA9" stroke-width="3"><path d="M220 440C250 400 290 396 310 360"/><path d="M500 414C520 450 560 460 600 500"/><path d="M1150 500C1130 460 1150 420 1120 390"/><path d="M1010 540C1000 580 960 600 950 640"/><path d="M380 660C410 680 450 690 470 720"/></g>
-      <g stroke="#6F8BD6" stroke-width="1.5" opacity=".8"><path d="M10 406 C160 386 220 466 356 446"/><path d="M1430 516 C1320 536 1262 466 1152 496"/></g>
-    </g>
-    <g class="blood" fill="#B0081A"><use href="#splatShape" transform="translate(1210 300) scale(1.4)"/><use href="#splatShape" transform="translate(60 520) scale(.9) rotate(30)"/><use href="#splatShape" transform="translate(1290 640) scale(.7) rotate(-40)"/></g>
-    <g class="blood" fill="#6E0410" opacity=".9"><use href="#splatShape" transform="translate(1140 360) scale(.5) rotate(70)"/><use href="#splatShape" transform="translate(300 760) scale(.8) rotate(-20)"/></g>
-    <g class="blood ooze" fill="#B0081A"><path d="M0 0H1440V12C1390 14 1376 18 1370 34C1366 48 1364 92 1356 92C1348 92 1348 50 1342 32C1334 16 1260 16 1200 14C1120 12 1100 20 1094 46C1090 66 1088 140 1078 140C1068 140 1068 72 1062 48C1056 24 1010 16 900 16C760 16 520 12 400 18C330 22 316 28 312 50C310 70 306 110 298 110C290 110 290 66 284 44C276 22 200 16 120 14C60 12 20 12 0 12Z"/><circle cx="1078" cy="164" r="7"/><circle cx="298" cy="130" r="5"/></g>
-  </svg>
   <div class="vignette" aria-hidden="true"></div>
   <div id="splats" aria-hidden="true"></div>
 
@@ -374,10 +334,9 @@ button{font:inherit; color:inherit; cursor:pointer}
 
   <div id="windows"></div>
 
-  <svg class="gums" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 26V16C30 12 30 2 50 2C70 2 70 16 90 16C110 16 112 4 132 4C152 4 150 16 170 16C190 16 194 2 214 2C234 2 232 16 252 16H1440V26Z" fill="#C9465A"/><path d="M252 16C272 16 274 3 294 3C314 3 312 16 332 16C352 16 354 2 374 2C394 2 392 16 412 16" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><path d="M1000 16C1020 16 1022 2 1042 2C1062 2 1060 16 1080 16C1100 16 1102 4 1122 4C1142 4 1140 16 1160 16C1180 16 1182 2 1202 2C1222 2 1220 16 1240 16" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/></svg>
 
   <footer id="taskbar">
-    <button id="startBtn" aria-haspopup="true" aria-expanded="false" aria-controls="startmenu"><svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true" focusable="false"><ellipse cx="13" cy="11" rx="12" ry="9" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><path d="M2 9L6 10M3 14L7 12M24 8L20 10M23 14L19 12" stroke="#B0081A" stroke-width="1.3"/><circle cx="13" cy="11" r="4.5" fill="#3E5BA9"/><circle cx="13" cy="11" r="2" fill="#1A0A0E"/></svg>START</button>
+    <button id="startBtn" aria-haspopup="true" aria-expanded="false" aria-controls="startmenu">START</button>
     <div id="tabs" role="toolbar" aria-label="Open windows"></div>
     <div class="settings" role="group" aria-label="Settings">
       <button id="sGore" class="gore"></button>
@@ -399,7 +358,6 @@ button{font:inherit; color:inherit; cursor:pointer}
 <main id="classic" hidden></main>
 
 <div id="landing" hidden>
-  <svg class="bg" aria-hidden="true" focusable="false"><use href="#fibres"/></svg>
   <div class="vignette" aria-hidden="true"></div>
   <div class="ld-top">
     <div class="ld-lang" role="group" aria-label="Language / Lingua">
@@ -415,11 +373,11 @@ button{font:inherit; color:inherit; cursor:pointer}
     <p class="ld-q" data-i18n="ldQ"></p>
     <div class="ld-choices">
       <button class="ld-card ld-web" id="goWeb">
-        <span class="bar"><svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true" focusable="false"><path d="M3 2H14L19 7V22H3Z" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><path d="M7 11H15M7 15H15M7 19H12" stroke="#1A0A0E" stroke-width="1.6"/></svg><span data-i18n="ldWebBar"></span></span>
+        <span class="bar"><span data-i18n="ldWebBar"></span></span>
         <span class="in"><b data-i18n="ldWebTitle"></b><p data-i18n="ldWebDesc"></p><span class="go" data-i18n="ldWebGo"></span></span>
       </button>
       <button class="ld-card ld-os" id="goOs">
-        <span class="bar"><svg width="38" height="24" viewBox="0 0 40 26" aria-hidden="true" focusable="false"><ellipse cx="20" cy="13" rx="18" ry="11" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3"/><path d="M4 10L10 12M5 17L11 15M34 9L29 12M35 17L30 15" stroke="#B0081A" stroke-width="1.5"/><circle cx="22" cy="13" r="7" fill="#3E5BA9"/><circle cx="22" cy="13" r="3" fill="#1A0A0E"/></svg>matteo_marrale.exe</span>
+        <span class="bar">matteo_marrale.exe</span>
         <span class="in"><b>Carne Viva OS</b><p data-i18n="ldOsDesc"></p><small data-i18n="ldOsWarn"></small><span class="go" data-i18n="ldOsGo"></span></span>
       </button>
     </div>
@@ -427,14 +385,8 @@ button{font:inherit; color:inherit; cursor:pointer}
 </div>
 
 <div id="boot" hidden>
-  <div class="throat" aria-hidden="true"></div>
-  <div class="uvula" aria-hidden="true"></div>
-  <div class="saliva s1" aria-hidden="true"></div>
-  <div class="saliva s2" aria-hidden="true"></div>
   <div class="hw top">
     <div class="half">
-      <svg class="gum" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 0H1440V14C1400 10 1360 22 1320 18C1280 14 1240 24 1200 20C1160 16 1120 24 1080 20C1040 16 1000 24 960 20C920 16 880 22 840 18C800 14 760 24 720 20C680 16 640 24 600 20C560 16 520 24 480 20C440 16 400 22 360 18C320 14 280 24 240 20C200 16 160 24 120 20C80 16 40 22 0 18Z" fill="#8E2434" stroke="#1A0A0E" stroke-width="3"/></svg>
-      <svg class="fangs" aria-hidden="true" focusable="false"><defs><pattern id="fangDown" width="300" height="60" patternUnits="userSpaceOnUse" patternTransform="scale(1.5)"><g fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3" stroke-linejoin="round"><path d="M6 0C10 18 18 28 24 30C30 28 38 18 42 0Z" transform="rotate(-4 24 0)"/><path d="M62 0C68 26 82 48 90 52C98 48 112 26 118 0Z"/><path d="M142 0C146 14 154 20 158 20C162 20 170 14 174 0Z" transform="rotate(5 158 0)"/><path d="M194 0C198 22 212 40 220 42C228 40 240 22 246 0Z" transform="rotate(-5 220 0)"/><path d="M266 0C270 16 278 24 282 24C286 24 294 16 298 0Z" transform="rotate(4 282 0)"/></g><path class="blood" d="M84 46C87 50 89 52 90 52C91 52 93 50 96 46C93 48 87 48 84 46Z" fill="#B0081A"/></pattern></defs><rect width="100%" height="90" fill="url(#fangDown)"/></svg>
       <div class="txt" role="status" aria-live="polite">
         <span class="staple tl" aria-hidden="true"></span><span class="staple tr" aria-hidden="true"></span><span class="staple bl" aria-hidden="true"></span><span class="staple br" aria-hidden="true"></span>
         <p class="logo">Carne Viva OS</p>
@@ -445,8 +397,6 @@ button{font:inherit; color:inherit; cursor:pointer}
   </div>
   <div class="hw bot">
     <div class="half">
-      <svg class="gum" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 26H1440V12C1400 16 1360 4 1320 8C1280 12 1240 2 1200 6C1160 10 1120 2 1080 6C1040 10 1000 2 960 6C920 10 880 4 840 8C800 12 760 2 720 6C680 10 640 2 600 6C560 10 520 2 480 6C440 10 400 4 360 8C320 12 280 2 240 6C200 10 160 2 120 6C80 10 40 4 0 8Z" fill="#8E2434" stroke="#1A0A0E" stroke-width="3"/></svg>
-      <svg class="fangs" aria-hidden="true" focusable="false"><defs><pattern id="fangUp" width="300" height="60" patternUnits="userSpaceOnUse" x="150" patternTransform="scale(1.5)"><g fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3" stroke-linejoin="round"><path d="M10 60C14 40 24 26 30 24C36 26 46 40 50 60Z" transform="rotate(4 30 60)"/><path d="M78 60C82 46 90 40 94 40C98 40 106 46 110 60Z"/><path d="M134 60C140 36 154 18 162 16C170 18 184 36 190 60Z" transform="rotate(-4 162 60)"/><path d="M212 60C216 48 222 42 226 42C230 42 236 48 240 60Z" transform="rotate(6 226 60)"/><path d="M258 60C262 40 274 26 280 24C286 26 298 40 302 60Z" transform="rotate(-3 280 60)"/></g></pattern></defs><rect width="100%" height="90" fill="url(#fangUp)"/></svg>
     </div>
   </div>
   <button id="skip" data-i18n="skip"></button>
@@ -531,19 +481,19 @@ function facts(rows){ return '<dl class="facts">' + rows.map(function(r){ return
 
 /* ---------- icone-organo (dal canvas, tavola "Review · Icone") ---------- */
 var ICON = {
- about:'<svg class="glyph" width="58" height="62" viewBox="0 0 58 62" aria-hidden="true" focusable="false"><g transform="rotate(-8 29 31)"><rect x="6" y="14" width="46" height="34" rx="12" fill="#E0806E" stroke="#1A0A0E" stroke-width="3"/><rect x="18" y="14" width="22" height="34" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><circle cx="29" cy="26" r="5" fill="#E0806E" stroke="#1A0A0E" stroke-width="2"/><path d="M21 42C23 35 35 35 37 42" fill="#E0806E" stroke="#1A0A0E" stroke-width="2"/><g fill="#1A0A0E"><circle cx="11" cy="24" r="1.3"/><circle cx="11" cy="31" r="1.3"/><circle cx="11" cy="38" r="1.3"/><circle cx="47" cy="24" r="1.3"/><circle cx="47" cy="31" r="1.3"/><circle cx="47" cy="38" r="1.3"/></g></g></svg>',
- antiques:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M6 16C6 10 10 8 16 8H28L34 14H56C62 14 66 18 66 24V48C66 54 60 56 54 56H14C8 56 6 52 6 46Z" fill="#E0806E" stroke="#1A0A0E" stroke-width="3"/><path d="M8 24L64 22" stroke="#6E0410" stroke-width="3"/><path d="M14 19L18 28M26 18L30 27M38 18L42 27M50 17L54 26" stroke="#1A0A0E" stroke-width="2.5" stroke-linecap="round"/><path d="M26 50C26 36 30 30 36 30C42 30 46 36 46 50C44 47 42 50 40 48C38 50 36 47 34 50C32 47 30 50 28 48Z" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="33" cy="38" r="1.8" fill="#1A0A0E"/><circle cx="39" cy="38" r="1.8" fill="#1A0A0E"/><path d="M34 44C35 46 37 46 38 44" fill="none" stroke="#1A0A0E" stroke-width="1.5"/></svg>',
- casino:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><g transform="rotate(-12 35 30)"><rect x="14" y="10" width="42" height="42" rx="9" fill="#C9465A" stroke="#1A0A0E" stroke-width="3"/><ellipse cx="25" cy="21" rx="6" ry="4.5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><circle cx="26" cy="21" r="2.2" fill="#3E5BA9"/><circle cx="26" cy="21" r="1" fill="#1A0A0E"/><ellipse cx="45" cy="41" rx="6" ry="4.5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><circle cx="44" cy="41" r="2.2" fill="#3E5BA9"/><circle cx="44" cy="41" r="1" fill="#1A0A0E"/><ellipse cx="35" cy="31" rx="6" ry="4.5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2"/><circle cx="35" cy="31" r="2.2" fill="#3E5BA9"/><circle cx="35" cy="31" r="1" fill="#1A0A0E"/></g></svg>',
- cosmic:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M14 20H20V14H26V20H44V14H50V20H56V26H62V44H56V38H50V44H44V50H38V44H32V50H26V44H20V38H14V44H8V26H14Z" fill="#E0806E" stroke="#1A0A0E" stroke-width="2.5" stroke-linejoin="round"/><rect x="24" y="26" width="8" height="8" fill="#1A0A0E"/><rect x="38" y="26" width="8" height="8" fill="#1A0A0E"/><rect x="26" y="28" width="3" height="3" fill="#F1E6D6"/><rect x="40" y="28" width="3" height="3" fill="#F1E6D6"/><path d="M28 40H42" stroke="#6E0410" stroke-width="3"/></svg>',
- train:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><g transform="rotate(-28 35 30)"><rect x="12" y="24" width="46" height="12" rx="6" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3"/><circle cx="12" cy="24" r="5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="12" cy="36" r="5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="58" cy="24" r="5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="58" cy="36" r="5" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><g fill="#1A0A0E"><circle cx="28" cy="30" r="2"/><circle cx="36" cy="30" r="2"/><circle cx="44" cy="30" r="2"/></g></g><path d="M50 10V2M50 2L56 4" fill="none" stroke="#1A0A0E" stroke-width="2.5" stroke-linecap="round"/><circle class="blood" cx="47" cy="11" r="3.2" fill="#B0081A" stroke="#1A0A0E" stroke-width="2"/></svg>',
- nigishida:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M10 40C10 26 20 22 28 28C36 34 34 44 42 44C50 44 52 34 46 28C40 22 50 12 58 18" fill="none" stroke="#1A0A0E" stroke-width="12" stroke-linecap="round"/><path d="M10 40C10 26 20 22 28 28C36 34 34 44 42 44C50 44 52 34 46 28C40 22 50 12 58 18" fill="none" stroke="#C9465A" stroke-width="7" stroke-linecap="round"/><path d="M16 36C18 30 22 28 26 30M38 42C42 40 46 36 46 32" fill="none" stroke="#E0806E" stroke-width="2" stroke-linecap="round"/><path d="M54 14C60 10 66 14 64 20C62 24 56 24 54 22Z" fill="#C9465A" stroke="#1A0A0E" stroke-width="2.5"/><circle cx="60" cy="17" r="1.8" fill="#F2D06B" stroke="#1A0A0E" stroke-width="1"/><path class="blood" d="M64 20L68 23" stroke="#B0081A" stroke-width="2" stroke-linecap="round"/></svg>',
- personal:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M12 20C10 12 20 8 30 10C42 6 56 8 60 18C66 30 60 46 50 50C40 54 24 54 14 46C6 40 8 28 12 20Z" fill="#9DB82B" stroke="#1A0A0E" stroke-width="3"/><path d="M16 30C26 22 44 22 56 30C44 38 26 38 16 30Z" fill="#2A0006" stroke="#1A0A0E" stroke-width="2.5"/><g stroke="#1A0A0E" stroke-width="2" stroke-linecap="round"><path d="M22 24L20 19M30 22L29 17M42 22L43 17M50 24L52 19"/><path d="M22 36L20 41M30 38L29 43M42 38L43 43M50 36L52 41"/></g><g fill="#F1E6D6" stroke="#1A0A0E" stroke-width="1.5"><path d="M26 30L29 26L32 30L29 33Z"/><path d="M38 30L41 26L44 30L41 33Z"/></g><circle class="blood" cx="22" cy="46" r="2.5" fill="#B0081A"/></svg>',
- eleanor:'<svg class="glyph" width="70" height="58" viewBox="0 0 70 58" aria-hidden="true" focusable="false"><path d="M8 30C18 14 52 14 62 30C52 46 18 46 8 30Z" fill="#8E2434" stroke="#1A0A0E" stroke-width="3"/><path d="M12 30C20 20 50 20 58 30C50 40 20 40 12 30Z" fill="#2A0006"/><path d="M14 29L22 29L24 24L28 29L34 29L36 23L40 29L46 29L48 25L52 29L56 29" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="1.5" stroke-linejoin="round"/><path d="M22 38C26 30 44 30 48 38Z" fill="#E0806E" stroke="#1A0A0E" stroke-width="2"/><rect x="44" y="4" width="22" height="14" rx="4" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5"/><path d="M50 18L48 23L56 18" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="2.5" stroke-linejoin="round"/><path d="M48 11H62" stroke="#1A0A0E" stroke-width="2"/></svg>',
- contact:'<svg class="glyph" width="58" height="62" viewBox="0 0 58 62" aria-hidden="true" focusable="false"><path d="M12 14C12 6 20 4 29 6C38 4 46 6 46 14C48 24 44 30 42 38C40 48 38 56 34 56C30 56 30 44 29 40C28 44 28 56 24 56C20 56 18 48 16 38C14 30 10 24 12 14Z" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3"/><path d="M20 18C24 14 34 14 38 18" fill="none" stroke="#1A0A0E" stroke-width="2" stroke-linecap="round"/><path d="M22 26H36" stroke="#E4D5C1" stroke-width="3" stroke-linecap="round"/><path class="blood" d="M44 50C46 44 50 44 50 50C50 54 44 54 44 50Z" fill="#B0081A" stroke="#1A0A0E" stroke-width="1.5"/><path class="blood" d="M4 30L10 32M4 38L10 36" stroke="#B0081A" stroke-width="2" stroke-linecap="round"/></svg>'
+ about:'',
+ antiques:'',
+ casino:'',
+ cosmic:'',
+ train:'',
+ nigishida:'',
+ personal:'',
+ eleanor:'',
+ contact:''
 };
-var EYE = '<svg width="38" height="24" viewBox="0 0 40 26" aria-hidden="true" focusable="false"><ellipse cx="20" cy="13" rx="18" ry="11" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="3"/><path d="M4 10L10 12M5 17L11 15M34 9L29 12M35 17L30 15" stroke="#B0081A" stroke-width="1.5"/><circle cx="22" cy="13" r="7" fill="#3E5BA9"/><circle cx="22" cy="13" r="3" fill="#1A0A0E"/></svg>';
-var TEETH = '<svg class="teeth" viewBox="0 0 760 16" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 0H760V2'+(function(){var s="";for(var x=748;x>=0;x-=24){s+="L"+(x+12)+" 16L"+x+" 2";}return s;})()+'Z" fill="#F1E6D6" stroke="#1A0A0E" stroke-width="1"/></svg>';
-var DRIP = '<svg class="win-drip" viewBox="0 0 760 76" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g fill="#B0081A"><path d="M60 0H130C126 10 124 40 118 62C114 76 106 76 104 62C100 40 98 12 92 4C84 0 70 0 60 0Z"/><path d="M420 0H470C466 8 466 26 462 38C459 46 452 46 450 38C447 26 446 8 440 2Z"/><path d="M640 0H700C696 14 694 64 688 76C685 80 676 80 674 72C670 54 668 14 662 4Z"/></g></svg>';
+var EYE = '';
+var TEETH = '';
+var DRIP = '';
 var CLOSE_X = '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 2L10 10M10 2L2 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>';
 var MIN_BAR = '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 9H10" stroke="#1A0A0E" stroke-width="2.5" stroke-linecap="round"/></svg>';
 
@@ -947,7 +897,7 @@ function copyEmail(){
 /* ---------- schizzi ---------- */
 var splatLayer = document.getElementById("splats");
 function splatAt(x, y, scale){
- if (S.gore !== "max") return;
+ return;
  var s = (scale||1) * (0.6 + Math.random()*0.8);
  var r = Math.floor(Math.random()*360);
  var svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
