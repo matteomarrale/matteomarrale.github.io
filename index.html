@@ -395,7 +395,8 @@ function projectSheet(o){
  h += '<div class="prose"><h3>' + o.l.context + '</h3><p>' + o.context + '</p>';
  h += '<h3>' + o.l.did + '</h3><ul>' + o.did.map(function(x){return "<li>"+x+"</li>";}).join("") + '</ul>';
  h += '</div>';
- if (DEV) h += '<div class="btns"><span class="btn" aria-disabled="true">' + o.l.more + ' ' + todo("link") + '</span></div>';
+ if (o.doc) h += '<div class="btns"><a class="btn" href="' + o.doc[0] + '" target="_blank" rel="noopener">' + o.doc[1] + '</a></div>';
+ else if (DEV) h += '<div class="btns"><span class="btn" aria-disabled="true">' + o.l.more + ' ' + todo("link") + '</span></div>';
  return h;
 }
 
@@ -404,6 +405,9 @@ function loopBlock(it){
  return '<div class="loop" aria-label="Core loop"><span>' + (it?'oggetto':'object') + '</span><i>→</i><span>' + (it?'fantasma':'ghost') + '</span><i>→</i><span>' + (it?'rimpianto':'regret') + '</span><i>→</i><span class="end">' + (it?'rituale':'ritual') + '</span></div>';
 }
 function scriptBlock(it){
+ return '<div class="btns"><a class="btn" href="campioni/Antiques_Eleanor_dialogue_sample_' + (it?'IT':'EN') + '.pdf" target="_blank" rel="noopener">' + (it?'Campione di dialoghi (PDF)':'Dialogue sample (PDF)') + '</a></div>';
+}
+function scriptBlockDev(it){
  if (!DEV) return "";
  return '<div class="script"><div class="who">ELEANOR WHITESKIN</div><div class="par">(' + (it?'giorno 1':'Day 1') + ')</div><p>' + todo(it?"3–4 righe di dialogo di Eleanor, scelte da Matteo":"3–4 lines of Eleanor’s dialogue, chosen by Matteo") + '</p></div>';
 }
@@ -460,7 +464,7 @@ var W = {
  }},
  casino:{file:"One Hell of a Casino", size:"", body:function(){
   var it = S.lang==="it", L = LBL[S.lang];
-  return projectSheet({ l:L, title:"One Hell of a Casino",
+  return projectSheet({ l:L, title:"One Hell of a Casino", doc:["campioni/Casino_production_sample_" + (it?"IT":"EN") + ".pdf", it?"Documento di produzione (PDF)":"Production document (PDF)"],
    facts:[[L.role,"Producer"],[L.when, it?"mar–apr 2026":"Mar–Apr 2026"],[L.engine,"Unity"],[L.platform,"Android"],[L.team,"15"]],
    media: it?"[IMG 16:9 · menu principale con mascotte, minigioco, shop/gacha · 19 ott]":"[IMG 16:9 · main menu with mascot, mini-game, shop/gacha · 19 Oct]",
    context: it ? "Gioco mobile casual a tema infernale per Android: una raccolta di minigiochi con sistema gacha e monetizzazione simulata."
