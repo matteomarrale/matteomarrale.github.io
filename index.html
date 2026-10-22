@@ -21,6 +21,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<script>
+/* lingua prima del primo disegno (evita il lampo in inglese); se gira, JavaScript c'è */
+(function(){ var d = document.documentElement, l = "en", s = null; d.classList.remove("no-js");
+ try { s = JSON.parse(localStorage.getItem("cvos-settings") || "null"); } catch(e){}
+ if (s && s.lang) l = s.lang; else { try { if (/^it\b/i.test(navigator.language || "")) l = "it"; } catch(e){} }
+ d.lang = l === "it" ? "it" : "en"; })();
+</script>
 <style>
 /* Portfolio_OS — desktop: icone a sinistra, finestre trascinabili, barra in basso. */
 /* Fallback per Jacquard 24 (pixel blackletter condensato): Georgia ridotta, così il layout non salta mentre il font arriva.
@@ -41,7 +48,13 @@
 html,body{height:100%}
 [hidden]{display:none!important}
 img{max-width:100%}
-.no-js #app,.no-js #classic,.no-js #boot{display:none!important}
+.no-js #app,.no-js #boot{display:none!important}
+.no-js .cl-top .act,.no-js .cl-menu{display:none}
+/* testi in due lingue nello stesso HTML: si vede solo quella di <html lang> */
+html[lang="it"] .l[lang="en"],html[lang="en"] .l[lang="it"]{display:none}
+/* segnaposto ([DA FORNIRE], riquadri IMG/VIDEO): solo con ?dev=1 */
+html:not(.dev) [data-dev]{display:none!important}
+.win .only-web,#classic .only-os{display:none}
 body{
   margin:0; overflow:hidden; color:var(--white); font-family:var(--f-text); font-size:18px; line-height:1.5;
   background:var(--grey-dark);
@@ -207,6 +220,9 @@ button{font:inherit; color:inherit; cursor:pointer}
   .cl-top nav{flex-direction:column; gap:0}
   .cl-top nav a{min-height:44px; font-size:15px}
   .cl-top .act{flex-wrap:wrap}
+  /* senza JavaScript il Menu non si apre: le sezioni restano visibili sotto il nome */
+  .no-js .cl-top{position:static; flex-wrap:wrap}
+  .no-js .cl-panel{display:flex; flex-basis:100%; position:static; padding:0; border:0; max-height:none}
 }
 /* stampa: si stampa la versione web, in nero su bianco, senza barra e pulsanti */
 @media print{
@@ -219,19 +235,8 @@ button{font:inherit; color:inherit; cursor:pointer}
 }
 </style>
 </head>
-<body>
+<body class="is-classic">
 
-<noscript>
-<style>body{overflow:auto!important}</style>
-<div style="padding:24px 16px;font-family:system-ui,sans-serif;font-size:17px;line-height:1.55;color:#FFFFFF;background:#000000;min-height:100vh;box-sizing:border-box">
-<h1 style="font-size:40px;margin:0 0 8px">Matteo Marrale</h1>
-<p>Junior Producer &amp; Project Manager | Game &amp; Narrative Designer · Digital Bros Game Academy, Milan · until summer 2027</p>
-<p>This portfolio is interactive and needs JavaScript. Contact: <a href="mailto:matteo.marrale.1998@gmail.com">matteo.marrale.1998@gmail.com</a> · <a href="https://www.linkedin.com/in/matteomarrale/" rel="me">LinkedIn</a> · <a href="https://github.com/matteomarrale" rel="me">GitHub</a> · <a href="https://matteomarrale.itch.io" rel="me">Itch.io</a></p>
-<p>Academy projects: Antiques: The Last Owner (Narrative Designer &amp; Writer) · One Hell of a Casino (Producer) · Cosmic Chaos (Game &amp; Level Designer, Balancing) · What a Train (Game &amp; Level Designer) · The Hunger of Nigishida (Game &amp; Level Designer).</p>
-<p>Personal projects: Cat 'n' Hell! · Other Side (Unity prototypes) · Fighting Ground · All Bullets for Me (Unreal, in development).</p>
-<p lang="it">In italiano: il portfolio è interattivo e richiede JavaScript; per contattarmi usa i link qui sopra.</p>
-</div>
-</noscript>
 
 
 <div id="app" class="motion-on" hidden>
@@ -259,7 +264,429 @@ button{font:inherit; color:inherit; cursor:pointer}
   <div id="toast" role="status" aria-live="polite" hidden></div>
 </div>
 
-<main id="classic" hidden></main>
+<main id="classic">
+<a class="skip-link" href="#c-projects"><span class="l" lang="en">Skip to projects</span><span class="l" lang="it">Vai ai progetti</span></a>
+<div class="cl-top"><b>Matteo Marrale</b><button class="cl-menu" id="clMenu" aria-expanded="false" aria-controls="clPanel">Menu</button><div class="cl-panel" id="clPanel"><nav aria-label="Sections">
+<a href="#c-about"><span class="l" lang="en">About me</span><span class="l" lang="it">Chi sono</span></a>
+<a href="#c-projects"><span class="l" lang="en">Projects</span><span class="l" lang="it">Progetti</span></a>
+<a href="#c-personal"><span class="l" lang="en">Personal</span><span class="l" lang="it">Personali</span></a>
+<a href="#c-contact"><span class="l" lang="en">Contact</span><span class="l" lang="it">Contatti</span></a>
+</nav><div class="act"><button id="clLang">EN / IT</button><button id="clBack">Portfolio_OS</button></div></div></div>
+<div class="cl">
+<section id="c-top">
+<div class="l" lang="en">
+<h1 tabindex="-1">Matteo Marrale</h1>
+<p class="meta">Junior Producer &amp; Project Manager | Game &amp; Narrative Designer · Digital Bros Game Academy, Milan</p>
+<div class="prose">
+<p>I'm training at Digital Bros Game Academy in Milan until summer 2027. After that, I'm looking for Junior Producer, Project Manager or Game &amp; Narrative Designer roles, in Italy or remote.</p></div>
+<div class="btns"><button class="btn" data-open="about">About me</button><button class="btn red" data-open="projects">Projects</button><button class="btn" data-open="contact">Contact</button><button class="btn only-web" data-os>Portfolio_OS</button></div>
+<p class="tip only-os">Click an icon to open it. Drag windows by their bar. Esc closes the top window.</p>
+</div>
+<div class="l" lang="it">
+<h1 tabindex="-1">Matteo Marrale</h1>
+<p class="meta">Junior Producer &amp; Project Manager | Game &amp; Narrative Designer · Digital Bros Game Academy, Milano</p>
+<div class="prose">
+<p>Mi sto formando alla Digital Bros Game Academy di Milano fino all'estate 2027. Dopo cerco ruoli da Junior Producer, Project Manager o Game &amp; Narrative Designer, in Italia o da remoto.</p></div>
+<div class="btns"><button class="btn" data-open="about">Chi sono</button><button class="btn red" data-open="projects">Progetti</button><button class="btn" data-open="contact">Contatti</button><button class="btn only-web" data-os>Portfolio_OS</button></div>
+<p class="tip only-os">Clicca un'icona per aprirla. Trascina le finestre dalla barra. Esc chiude la finestra in primo piano.</p>
+</div>
+</section>
+<section id="c-about">
+<div class="l" lang="en">
+<h2 class="t">About me</h2>
+<img class="portrait" src="foto-profilo.jpg" width="480" height="480" loading="lazy" alt="Matteo Marrale in a selfie with a black-and-white cat">
+<div class="prose">
+<p>I'm a Junior Producer &amp; Project Manager and Game &amp; Narrative Designer, training at Digital Bros Game Academy in Milan (October 2025 – summer 2027).</p>
+<p>I completed the first year of Strategic Writing &amp; Screenwriting at AIV (Accademia Italiana Videogiochi). At DBGA I'm studying game design documentation, level design, Unity and Unreal Engine prototyping, mobile game design and project management.</p>
+<h3>Goal</h3>
+<p>After the academy (summer 2027) I'm looking for Junior Producer, Project Manager or Game &amp; Narrative Designer roles, in Italy or remote.</p>
+<h3>Tools</h3>
+<p class="tools">Unity · Unreal Engine · Figma · Miro · Jira · ClickUp · Notion · Git · Claude Code</p></div>
+<h3>CV</h3>
+<div class="btns"><a class="btn" href="cv/MatteoMarrale_CV_IT.pdf" target="_blank" rel="noopener" hreflang="it">CV IT (PDF)</a><a class="btn" href="cv/MatteoMarrale_CV_EN.pdf" target="_blank" rel="noopener" hreflang="en">CV EN (PDF)</a></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">Chi sono</h2>
+<img class="portrait" src="foto-profilo.jpg" width="480" height="480" loading="lazy" alt="Matteo Marrale in un selfie con un gatto bianco e nero">
+<div class="prose">
+<p>Sono un Junior Producer &amp; Project Manager e Game &amp; Narrative Designer, in formazione alla Digital Bros Game Academy di Milano (ottobre 2025 – estate 2027).</p>
+<p>Ho completato il primo anno di Strategic Writing &amp; Screenwriting all'AIV (Accademia Italiana Videogiochi). Alla DBGA studio documentazione di game design, level design, prototipazione in Unity e Unreal Engine, mobile game design e project management.</p>
+<h3>Obiettivo</h3>
+<p>Dopo l'accademia (estate 2027) cerco ruoli da Junior Producer, Project Manager o Game &amp; Narrative Designer, in Italia o da remoto.</p>
+<h3>Strumenti</h3>
+<p class="tools">Unity · Unreal Engine · Figma · Miro · Jira · ClickUp · Notion · Git · Claude Code</p></div>
+<h3>CV</h3>
+<div class="btns"><a class="btn" href="cv/MatteoMarrale_CV_IT.pdf" target="_blank" rel="noopener" hreflang="it">CV IT (PDF)</a><a class="btn" href="cv/MatteoMarrale_CV_EN.pdf" target="_blank" rel="noopener" hreflang="en">CV EN (PDF)</a></div>
+</div>
+</section>
+<div id="c-projects" style="display:grid;gap:28px">
+<article id="antiques">
+<div class="l" lang="en">
+<h2 class="t">Antiques: The Last Owner</h2>
+<dl class="facts">
+<div><dt>Role</dt><dd>Narrative Designer &amp; Writer</dd></div>
+<div><dt>When</dt><dd>May–Jul 2026</dd></div>
+<div><dt>Engine</dt><dd>Unity (URP)</dd></div>
+<div><dt>Platform</dt><dd>PC</dd></div>
+<div><dt>Team</dt><dd>14</dd></div>
+<div><dt>Release</dt><dd>3 July 2026</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[VIDEO 16:9 · Antiques trailer / gameplay · arrives 19 October]"><span>[VIDEO 16:9 · Antiques trailer / gameplay · arrives 19 October]</span></div>
+<div class="prose">
+<h3>Context</h3>
+<p>First-person restoration sim with supernatural elements. An antique shop where every object to restore is possessed by a ghost with a regret. 6 in-game days, 3 ghosts, 6 objects.</p>
+<h3>What I did</h3></div>
+<div class="loop" aria-label="Core loop"><span>object</span><i>→</i><span>ghost</span><i>→</i><span>regret</span><i>→</i><span class="end">ritual</span></div>
+<div class="prose">
+<ul>
+<li>Narrative design of the core concept: object → ghost → regret → ritual</li>
+<li>Wrote two of the three ghosts (Eleanor and Anselmo) and their in-game dialogue in English, with triggers, word counts and notes for programmers</li>
+<li>Beat chart of the 6 days and tutorial texts (IT + EN), delivered inside the scene</li></ul></div>
+<div data-dev>
+<h3>Screenshots</h3>
+<div class="gallery">
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · restoration bench · 19 Oct]"><span>[IMG 16:9 · restoration bench · 19 Oct]</span></div>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · ritual table · 19 Oct]"><span>[IMG 16:9 · ritual table · 19 Oct]</span></div>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · on-screen dialogue · 19 Oct]"><span>[IMG 16:9 · on-screen dialogue · 19 Oct]</span></div></div></div>
+<div class="btns"><a class="btn" href="campioni/Antiques_Eleanor_dialogue_sample_EN.pdf" target="_blank" rel="noopener">Dialogue sample (PDF)</a></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">GDD / Beat chart <span class="todo" data-dev>[DA FORNIRE: link]</span></span><span class="btn" aria-disabled="true">Playable build <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">Antiques: The Last Owner</h2>
+<dl class="facts">
+<div><dt>Ruolo</dt><dd>Narrative Designer &amp; Writer</dd></div>
+<div><dt>Periodo</dt><dd>mag–lug 2026</dd></div>
+<div><dt>Motore</dt><dd>Unity (URP)</dd></div>
+<div><dt>Piattaforma</dt><dd>PC</dd></div>
+<div><dt>Team</dt><dd>14</dd></div>
+<div><dt>Uscita</dt><dd>3 luglio 2026</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[VIDEO 16:9 · trailer / gameplay di Antiques · arriva il 19 ottobre]"><span>[VIDEO 16:9 · trailer / gameplay di Antiques · arriva il 19 ottobre]</span></div>
+<div class="prose">
+<h3>Contesto</h3>
+<p>Simulatore di restauro in prima persona con elementi soprannaturali. Un negozio di antiquariato dove ogni oggetto da restaurare è posseduto da un fantasma con un rimpianto. 6 giorni di gioco, 3 fantasmi, 6 oggetti.</p>
+<h3>Cosa ho fatto</h3></div>
+<div class="loop" aria-label="Core loop"><span>oggetto</span><i>→</i><span>fantasma</span><i>→</i><span>rimpianto</span><i>→</i><span class="end">rituale</span></div>
+<div class="prose">
+<ul>
+<li>Narrative design del concept centrale: oggetto → fantasma → rimpianto → rituale</li>
+<li>Scrittura di due dei tre fantasmi (Eleanor e Anselmo) e dei loro dialoghi in inglese, con trigger, word count e note per i programmatori</li>
+<li>Beat chart dei 6 giorni e testi del tutorial (IT + EN), integrati nella scena</li></ul></div>
+<div data-dev>
+<h3>Screenshot</h3>
+<div class="gallery">
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · banco di restauro · 19 ott]"><span>[IMG 16:9 · banco di restauro · 19 ott]</span></div>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · tavolo del rituale · 19 ott]"><span>[IMG 16:9 · tavolo del rituale · 19 ott]</span></div>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · dialogo a schermo · 19 ott]"><span>[IMG 16:9 · dialogo a schermo · 19 ott]</span></div></div></div>
+<div class="btns"><a class="btn" href="campioni/Antiques_Eleanor_dialogue_sample_IT.pdf" target="_blank" rel="noopener">Campione di dialoghi (PDF)</a></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">GDD / Beat chart <span class="todo" data-dev>[DA FORNIRE: link]</span></span><span class="btn" aria-disabled="true">Build giocabile <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+</article>
+<article id="casino">
+<div class="l" lang="en">
+<h2 class="t">One Hell of a Casino</h2>
+<dl class="facts">
+<div><dt>Role</dt><dd>Producer</dd></div>
+<div><dt>When</dt><dd>Mar–Apr 2026</dd></div>
+<div><dt>Engine</dt><dd>Unity</dd></div>
+<div><dt>Platform</dt><dd>Android</dd></div>
+<div><dt>Team</dt><dd>15</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · main menu with mascot, mini-game, shop/gacha · 19 Oct]"><span>[IMG 16:9 · main menu with mascot, mini-game, shop/gacha · 19 Oct]</span></div>
+<div class="prose">
+<h3>Context</h3>
+<p>Hell-themed casual mobile game for Android: a mini-game collection with a gacha system and simulated monetization.</p>
+<h3>What I did</h3>
+<ul>
+<li>Coordinated the team for 6 weeks, through to release</li>
+<li>Managed milestones (Alpha 29/03, Beta 10/04, Release 24/04) and dependencies between departments</li>
+<li>Delivered on time with Android APK, pitch, walkthrough, promo art and technical documentation</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / docs <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">One Hell of a Casino</h2>
+<dl class="facts">
+<div><dt>Ruolo</dt><dd>Producer</dd></div>
+<div><dt>Periodo</dt><dd>mar–apr 2026</dd></div>
+<div><dt>Motore</dt><dd>Unity</dd></div>
+<div><dt>Piattaforma</dt><dd>Android</dd></div>
+<div><dt>Team</dt><dd>15</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · menu principale con mascotte, minigioco, shop/gacha · 19 ott]"><span>[IMG 16:9 · menu principale con mascotte, minigioco, shop/gacha · 19 ott]</span></div>
+<div class="prose">
+<h3>Contesto</h3>
+<p>Gioco mobile casual a tema infernale per Android: una raccolta di minigiochi con sistema gacha e monetizzazione simulata.</p>
+<h3>Cosa ho fatto</h3>
+<ul>
+<li>Coordinamento del team per 6 settimane, fino all'uscita</li>
+<li>Gestione delle milestone (Alpha 29/03, Beta 10/04, Release 24/04) e delle dipendenze tra reparti</li>
+<li>Consegna nei tempi con APK Android, pitch, walkthrough, promo art e documentazione tecnica</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / documenti <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+</article>
+<article id="cosmic">
+<div class="l" lang="en">
+<h2 class="t">Cosmic Chaos</h2>
+<dl class="facts">
+<div><dt>Role</dt><dd>Game &amp; Level Designer, Balancing</dd></div>
+<div><dt>When</dt><dd>Feb 2026</dd></div>
+<div><dt>Engine</dt><dd>Unity</dd></div>
+<div><dt>Format</dt><dd>“Shuffle”: a new team every 5 days</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · gameplay with enemy formations · 19 Oct]"><span>[IMG 16:9 · gameplay with enemy formations · 19 Oct]</span></div>
+<div class="prose">
+<h3>Context</h3>
+<p>Space Invaders with a twist. "Shuffle" format: the project moved to a different team every 5 days.</p>
+<h3>What I did</h3>
+<ul>
+<li>Co-wrote the GDD with the team; designed the twist and the enemy spawn and movement patterns</li>
+<li>Testing, bug reports and balancing analysis (difficulty curve, usefulness of elements), with tuning up to the final build</li>
+<li>Took over work started by other teams and handed off my own</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / docs <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">Cosmic Chaos</h2>
+<dl class="facts">
+<div><dt>Ruolo</dt><dd>Game &amp; Level Designer, Balancing</dd></div>
+<div><dt>Periodo</dt><dd>feb 2026</dd></div>
+<div><dt>Motore</dt><dd>Unity</dd></div>
+<div><dt>Formato</dt><dd>“Shuffle”: team diversi ogni 5 giorni</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · gameplay con le formazioni nemiche · 19 ott]"><span>[IMG 16:9 · gameplay con le formazioni nemiche · 19 ott]</span></div>
+<div class="prose">
+<h3>Contesto</h3>
+<p>Space Invaders con un twist. Formato "Shuffle": il progetto passava a un altro team ogni 5 giorni.</p>
+<h3>Cosa ho fatto</h3>
+<ul>
+<li>Co-stesura del GDD con il team; design del twist e dei pattern di spawn e movimento dei nemici</li>
+<li>Testing, bug report e analisi di bilanciamento (curva di difficoltà, utilità degli elementi), con tuning fino alla build finale</li>
+<li>Ripresa del lavoro avviato da altri team e passaggio di consegne ai team successivi</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / documenti <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+</article>
+<article id="train">
+<div class="l" lang="en">
+<h2 class="t">What a Train</h2>
+<dl class="facts">
+<div><dt>Role</dt><dd>Game &amp; Level Designer</dd></div>
+<div><dt>When</dt><dd>Jan 2026</dd></div>
+<div><dt>Engine</dt><dd>Unity</dd></div>
+<div><dt>Format</dt><dd>1-week game jam</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · prototype · 19 Oct]"><span>[IMG 16:9 · prototype · 19 Oct]</span></div>
+<div class="prose">
+<h3>Context</h3>
+<p>Theme "origin of music": side camera, 26-second runs, at least one mandatory diversifier.</p>
+<h3>What I did</h3>
+<ul>
+<li>From brainstorm to playable prototype in 5 days, cutting features to fit a 26-second experience</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / docs <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">What a Train</h2>
+<dl class="facts">
+<div><dt>Ruolo</dt><dd>Game &amp; Level Designer</dd></div>
+<div><dt>Periodo</dt><dd>gen 2026</dd></div>
+<div><dt>Motore</dt><dd>Unity</dd></div>
+<div><dt>Formato</dt><dd>Game jam di 1 settimana</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · prototipo · 19 ott]"><span>[IMG 16:9 · prototipo · 19 ott]</span></div>
+<div class="prose">
+<h3>Contesto</h3>
+<p>Tema "origine della musica": camera laterale, run di 26 secondi, almeno un diversifier obbligatorio.</p>
+<h3>Cosa ho fatto</h3>
+<ul>
+<li>Dal brainstorming al prototipo giocabile in 5 giorni, tagliando feature per far stare tutto in 26 secondi</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / documenti <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+</article>
+<article id="nigishida">
+<div class="l" lang="en">
+<h2 class="t">The Hunger of Nigishida</h2>
+<dl class="facts">
+<div><dt>Role</dt><dd>Game &amp; Level Designer</dd></div>
+<div><dt>When</dt><dd>Nov–Dec 2025</dd></div>
+<div><dt>Engine</dt><dd>Unity · first Unity project</dd></div>
+<div><dt>Team</dt><dd>8</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · top-down view of a level · 19 Oct]"><span>[IMG 16:9 · top-down view of a level · 19 Oct]</span></div>
+<div class="prose">
+<h3>Context</h3>
+<p>Top-down arcade game set in Sumerian mythology: 3 levels, scoring and power-ups.</p>
+<h3>What I did</h3>
+<ul>
+<li>Game and level design of one of the 3 levels; co-designed the score system, items (Beer, Speed Potion) and NPC rules</li>
+<li>Wrote the GDD in English (core loop, mechanics, NPC behavior, level design, UI/UX, audio spec)</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / docs <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">The Hunger of Nigishida</h2>
+<dl class="facts">
+<div><dt>Ruolo</dt><dd>Game &amp; Level Designer</dd></div>
+<div><dt>Periodo</dt><dd>nov–dic 2025</dd></div>
+<div><dt>Motore</dt><dd>Unity · primo progetto Unity</dd></div>
+<div><dt>Team</dt><dd>8</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · vista top-down di un livello · 19 ott]"><span>[IMG 16:9 · vista top-down di un livello · 19 ott]</span></div>
+<div class="prose">
+<h3>Contesto</h3>
+<p>Arcade top-down ambientato nella mitologia sumera: 3 livelli, punteggio e power-up.</p>
+<h3>Cosa ho fatto</h3>
+<ul>
+<li>Game e level design di uno dei 3 livelli; co-design del sistema di punteggio, degli item (Beer, Speed Potion) e delle regole degli NPC</li>
+<li>Stesura del GDD in inglese (core loop, meccaniche, comportamento degli NPC, level design, UI/UX, specifiche audio)</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / documenti <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+</article>
+</div>
+<section id="c-personal">
+<div class="l" lang="en">
+<h2 class="t">Personal projects</h2>
+<div class="prose">
+<p>Projects I develop outside the academy (I use Claude Code for programming).</p></div>
+<h3>Prototypes · 1.0 demos coming</h3>
+<ul class="list">
+<li><button class="proj" data-open="catnhell"><b>Cat 'n' Hell!</b><span>2D run'n'gun roguelite · Unity · playable prototype</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="otherside"><b>Other Side</b><span>First-person turn-based dungeon crawler · Unity · playable prototype</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<h3>In development</h3>
+<ul class="list">
+<li class="sealed"><b>Fighting Ground</b><span>Hand-to-hand combat inspired by Sifu and a hex world map inspired by For The King; new moves are stolen from enemies' cyberdecks. Unreal Engine · combat prototype · working title.</span></li>
+<li class="sealed"><b>All Bullets for Me</b><span>An FPS built on combining weapons and powers. Unreal Engine · early mechanic tests · working title.</span></li></ul>
+<div class="btns"><a class="btn" href="https://matteomarrale.itch.io" target="_blank" rel="me noopener">Itch.io ↗</a></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">Progetti personali</h2>
+<div class="prose">
+<p>Progetti che sviluppo fuori dall'accademia (uso Claude Code per la programmazione).</p></div>
+<h3>Prototipi · demo 1.0 in arrivo</h3>
+<ul class="list">
+<li><button class="proj" data-open="catnhell"><b>Cat 'n' Hell!</b><span>Roguelite run'n'gun 2D · Unity · prototipo giocabile</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="otherside"><b>Other Side</b><span>Dungeon crawler a turni in prima persona · Unity · prototipo giocabile</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<h3>In sviluppo</h3>
+<ul class="list">
+<li class="sealed"><b>Fighting Ground</b><span>Combattimento corpo a corpo ispirato a Sifu e mappa del mondo a esagoni ispirata a For The King; le nuove mosse si rubano dai cyberdeck dei nemici. Unreal Engine · prototipo del combattimento · titolo provvisorio.</span></li>
+<li class="sealed"><b>All Bullets for Me</b><span>Un FPS basato sul combinare armi e poteri. Unreal Engine · primi test delle meccaniche · titolo provvisorio.</span></li></ul>
+<div class="btns"><a class="btn" href="https://matteomarrale.itch.io" target="_blank" rel="me noopener">Itch.io ↗</a></div>
+</div>
+</section>
+<div id="c-personal-sheets" style="display:grid;gap:28px">
+<article id="catnhell">
+<div class="l" lang="en">
+<h2 class="t">Cat 'n' Hell!</h2>
+<dl class="facts">
+<div><dt>Role</dt><dd>Game design &amp; development</dd></div>
+<div><dt>Status</dt><dd>Playable prototype</dd></div>
+<div><dt>Engine</dt><dd>Unity</dd></div>
+<div><dt>Platform</dt><dd>PC</dd></div>
+<div><dt>Genre</dt><dd>2D run'n'gun roguelite</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · Cat ’n’ Hell! gameplay · 19 Oct]"><span>[IMG 16:9 · Cat ’n’ Hell! gameplay · 19 Oct]</span></div>
+<div class="prose">
+<h3>Context</h3>
+<p>A 2D run'n'gun roguelite set in a cat-shaped Hell, developed in Unity.</p>
+<h3>What I did</h3>
+<ul>
+<li>Game design and development: Matteo Marrale (programming with Claude Code)</li>
+<li>Narrative and lore: <a href="https://www.linkedin.com/in/said-serbouti-63a073270/" target="_blank" rel="noopener">Said Serbouti</a></li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / docs <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">Cat 'n' Hell!</h2>
+<dl class="facts">
+<div><dt>Ruolo</dt><dd>Game design e sviluppo</dd></div>
+<div><dt>Stato</dt><dd>Prototipo giocabile</dd></div>
+<div><dt>Motore</dt><dd>Unity</dd></div>
+<div><dt>Piattaforma</dt><dd>PC</dd></div>
+<div><dt>Genere</dt><dd>Roguelite run'n'gun 2D</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · gameplay di Cat ’n’ Hell! · 19 ott]"><span>[IMG 16:9 · gameplay di Cat ’n’ Hell! · 19 ott]</span></div>
+<div class="prose">
+<h3>Contesto</h3>
+<p>Un roguelite run'n'gun 2D ambientato in un Inferno a forma di gatto, sviluppato in Unity.</p>
+<h3>Cosa ho fatto</h3>
+<ul>
+<li>Game design e sviluppo: Matteo Marrale (programmazione con Claude Code)</li>
+<li>Narrativa e lore: <a href="https://www.linkedin.com/in/said-serbouti-63a073270/" target="_blank" rel="noopener">Said Serbouti</a></li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / documenti <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+</article>
+<article id="otherside">
+<div class="l" lang="en">
+<h2 class="t">Other Side</h2>
+<dl class="facts">
+<div><dt>Role</dt><dd>Solo personal project</dd></div>
+<div><dt>Status</dt><dd>Playable prototype</dd></div>
+<div><dt>Engine</dt><dd>Unity (URP)</dd></div>
+<div><dt>Platform</dt><dd>PC</dd></div>
+<div><dt>Genre</dt><dd>First-person turn-based dungeon crawler, permadeath</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · Other Side gameplay · 19 Oct]"><span>[IMG 16:9 · Other Side gameplay · 19 Oct]</span></div>
+<div class="prose">
+<h3>Context</h3>
+<p>A first-person, turn-based dungeon crawler with permadeath, developed in Unity. You beat each enemy by using your items and the room around you. When you die, you start over: all you keep between runs is a journal you draw and write in yourself.</p>
+<h3>What I did</h3>
+<ul>
+<li>Game design and development: Matteo Marrale (programming with Claude Code)</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / docs <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">Other Side</h2>
+<dl class="facts">
+<div><dt>Ruolo</dt><dd>Progetto personale</dd></div>
+<div><dt>Stato</dt><dd>Prototipo giocabile</dd></div>
+<div><dt>Motore</dt><dd>Unity (URP)</dd></div>
+<div><dt>Piattaforma</dt><dd>PC</dd></div>
+<div><dt>Genere</dt><dd>Dungeon crawler a turni in prima persona, permadeath</dd></div></dl>
+<div class="ph ph-169" data-dev role="img" aria-label="[IMG 16:9 · gameplay di Other Side · 19 ott]"><span>[IMG 16:9 · gameplay di Other Side · 19 ott]</span></div>
+<div class="prose">
+<h3>Contesto</h3>
+<p>Un dungeon crawler a turni in prima persona con permadeath, sviluppato in Unity. Ogni nemico si sconfigge sfruttando gli oggetti e la stanza. Quando muori ricominci da capo: tra una run e l'altra conservi solo un diario che disegni e scrivi tu.</p>
+<h3>Cosa ho fatto</h3>
+<ul>
+<li>Game design e sviluppo: Matteo Marrale (programmazione con Claude Code)</li></ul></div>
+<div class="btns" data-dev><span class="btn" aria-disabled="true">Build / documenti <span class="todo" data-dev>[DA FORNIRE: link]</span></span></div>
+</div>
+</article>
+</div>
+<section id="c-contact">
+<div class="l" lang="en">
+<h2 class="t">Contact</h2>
+<div class="prose">
+<p>You can write to me at:</p></div>
+<p><a class="email" href="mailto:matteo.marrale.1998@gmail.com">matteo.marrale.1998@gmail.com</a></p>
+<div class="btns"><button class="btn red" data-copy="1">Copy email</button><a class="btn" href="https://www.linkedin.com/in/matteomarrale/" target="_blank" rel="me noopener">LinkedIn ↗</a></div>
+<div class="btns"><a class="btn" href="https://github.com/matteomarrale" target="_blank" rel="me noopener">GitHub ↗</a><a class="btn" href="https://matteomarrale.itch.io" target="_blank" rel="me noopener">Itch.io ↗</a></div>
+<div class="btns"><a class="btn" href="cv/MatteoMarrale_CV_IT.pdf" target="_blank" rel="noopener" hreflang="it">CV IT (PDF)</a><a class="btn" href="cv/MatteoMarrale_CV_EN.pdf" target="_blank" rel="noopener" hreflang="en">CV EN (PDF)</a></div>
+</div>
+<div class="l" lang="it">
+<h2 class="t">Contatti</h2>
+<div class="prose">
+<p>Puoi scrivermi a:</p></div>
+<p><a class="email" href="mailto:matteo.marrale.1998@gmail.com">matteo.marrale.1998@gmail.com</a></p>
+<div class="btns"><button class="btn red" data-copy="1">Copia email</button><a class="btn" href="https://www.linkedin.com/in/matteomarrale/" target="_blank" rel="me noopener">LinkedIn ↗</a></div>
+<div class="btns"><a class="btn" href="https://github.com/matteomarrale" target="_blank" rel="me noopener">GitHub ↗</a><a class="btn" href="https://matteomarrale.itch.io" target="_blank" rel="me noopener">Itch.io ↗</a></div>
+<div class="btns"><a class="btn" href="cv/MatteoMarrale_CV_IT.pdf" target="_blank" rel="noopener" hreflang="it">CV IT (PDF)</a><a class="btn" href="cv/MatteoMarrale_CV_EN.pdf" target="_blank" rel="noopener" hreflang="en">CV EN (PDF)</a></div>
+</div>
+</section>
+</div>
+</main>
+
+<!-- finestra "Progetti" (solo Portfolio_OS) -->
+<template id="tpl-projects">
+<div class="l" lang="en">
+<h2 class="t">Projects</h2>
+<h3>Academy projects · Digital Bros Game Academy</h3>
+<ul class="list">
+<li><button class="proj" data-open="antiques"><b>Antiques: The Last Owner</b><span>Narrative Designer &amp; Writer · May–Jul 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="casino"><b>One Hell of a Casino</b><span>Producer · Mar–Apr 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="cosmic"><b>Cosmic Chaos</b><span>Game &amp; Level Designer, Balancing · Feb 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="train"><b>What a Train</b><span>Game &amp; Level Designer · Jan 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="nigishida"><b>The Hunger of Nigishida</b><span>Game &amp; Level Designer · Nov–Dec 2025</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<h3>Personal projects</h3>
+<ul class="list">
+<li><button class="proj" data-open="personal"><b>Personal projects</b><span>Cat 'n' Hell! · Other Side · Fighting Ground · All Bullets for Me</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+</div>
+<div class="l" lang="it">
+<h2 class="t">Progetti</h2>
+<h3>Progetti accademici · Digital Bros Game Academy</h3>
+<ul class="list">
+<li><button class="proj" data-open="antiques"><b>Antiques: The Last Owner</b><span>Narrative Designer &amp; Writer · mag–lug 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="casino"><b>One Hell of a Casino</b><span>Producer · mar–apr 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="cosmic"><b>Cosmic Chaos</b><span>Game &amp; Level Designer, Balancing · feb 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="train"><b>What a Train</b><span>Game &amp; Level Designer · gen 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
+<li><button class="proj" data-open="nigishida"><b>The Hunger of Nigishida</b><span>Game &amp; Level Designer · nov–dic 2025</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<h3>Progetti personali</h3>
+<ul class="list">
+<li><button class="proj" data-open="personal"><b>Progetti personali</b><span>Cat 'n' Hell! · Other Side · Fighting Ground · All Bullets for Me</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+</div>
+</template>
 
 <div id="boot" hidden>
   <div class="txt" role="status" aria-live="polite">
@@ -273,15 +700,15 @@ button{font:inherit; color:inherit; cursor:pointer}
 <script>
 (function(){
 "use strict";
-document.documentElement.classList.remove("no-js");
 
 /* Flag di sviluppo: i segnaposto ([DA FORNIRE], riquadri IMG/VIDEO, pulsanti senza link) si vedono solo con ?dev=1
    (oppure localStorage "cvos-dev" = "1"). Senza flag, un dato che manca non compare. */
 var DEV = false;
 try { DEV = /(?:^|[?&])dev(?:=1)?(?:&|$)/.test(location.search.slice(1)) || localStorage.getItem("cvos-dev") === "1"; } catch(e){}
+if (DEV) document.documentElement.classList.add("dev");
 
 /* ---------- impostazioni ---------- */
-var S = {motion:true, lang:"en", classic:false};
+var S = {motion:true, lang:"en", classic:true};
 var mqReduce = null, reduce = false;
 try { mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)"); reduce = mqReduce.matches; } catch(e){}
 var saved = null;
@@ -289,20 +716,22 @@ try { saved = JSON.parse(localStorage.getItem("cvos-settings") || "null"); } cat
 if (!(saved && saved.lang)) { try { if (/^it\b/i.test(navigator.language || "")) S.lang = "it"; } catch(e){} }
 if (saved) { ["motion","lang"].forEach(function(k){ if (k in saved) S[k] = saved[k]; }); }
 else if (reduce) { S.motion = false; }
+if (S.lang !== "it") S.lang = "en";
 function save(){ try { localStorage.setItem("cvos-settings", JSON.stringify({motion:S.motion, lang:S.lang})); } catch(e){} }
 /* se l'utente cambia la preferenza di sistema e non ha mai scelto a mano, la seguiamo */
 if (mqReduce && !saved) { try { mqReduce.addEventListener("change", function(ev){ if (!saved) { S.motion = !ev.matches; apply(); } }); } catch(e){} }
 
 /* ---------- testi ---------- */
+/* I testi delle schede sono nell'HTML (#classic e #tpl-projects), in due lingue: <div class="l" lang="en"> e <div class="l" lang="it">.
+   Qui restano solo le etichette dell'interfaccia. */
 var T = {
  en:{
-  tip:"Click an icon to open it. Drag windows by their bar. Esc closes the top window.", menu:"Menu",
   press:"Press any key or click to start_",
   skip:"Skip ›", cont:"Continue ›",
   motion:["MOTION: OFF","MOTION: ON"], lang:"EN / IT", classic:"CLASSIC VIEW",
-  back:"Back to Portfolio_OS", min:"Minimize", close:"Close", desktop:"Desktop", openWins:"Open windows", settings:"Settings", sections:"Sections", skipTo:"Skip to projects",
+  back:"Back to Portfolio_OS", min:"Minimize", close:"Close", desktop:"Desktop", openWins:"Open windows", settings:"Settings", sections:"Sections",
   copied:"Email copied", copyFail:"Select the address and copy it",
-  home:"Web version", toOs:"Portfolio_OS",
+  home:"Web version",
   reboot:"Reboot (watch the start again)",
   boot:[
    ["Writing module (AIV, 1st year) ......... ","OK","ok"],
@@ -313,13 +742,12 @@ var T = {
   ]
  },
  it:{
-  tip:"Clicca un'icona per aprirla. Trascina le finestre dalla barra. Esc chiude la finestra in primo piano.", menu:"Menu",
   press:"Premi un tasto o clicca per iniziare_",
   skip:"Salta ›", cont:"Continua ›",
   motion:["MOVIMENTO: OFF","MOVIMENTO: ON"], lang:"IT / EN", classic:"VISTA CLASSICA",
-  back:"Torna a Portfolio_OS", min:"Riduci", close:"Chiudi", desktop:"Scrivania", openWins:"Finestre aperte", settings:"Impostazioni", sections:"Sezioni", skipTo:"Vai ai progetti",
+  back:"Torna a Portfolio_OS", min:"Riduci", close:"Chiudi", desktop:"Scrivania", openWins:"Finestre aperte", settings:"Impostazioni", sections:"Sezioni",
   copied:"Email copiata", copyFail:"Seleziona l'indirizzo e copialo",
-  home:"Versione web", toOs:"Portfolio_OS",
+  home:"Versione web",
   reboot:"Riavvia (rivedi l'avvio)",
   boot:[
    ["Modulo scrittura (AIV, 1° anno) ........ ","OK","ok"],
@@ -331,196 +759,28 @@ var T = {
  }
 };
 function t(k){ return T[S.lang][k]; }
-function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
-function todo(s){ return DEV ? '<span class="todo">[DA FORNIRE: ' + s + ']</span>' : ""; }
-function ph(label, cls){ if (!DEV) return ""; return '<div class="ph ' + (cls||"") + '" role="img" aria-label="' + esc(label) + '"><span>' + esc(label) + '</span></div>'; }
-function facts(rows){ return '<dl class="facts">' + rows.map(function(r){ return '<div><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>'; }).join("") + '</dl>'; }
+/* cerca prima nel blocco della lingua attiva (l'altro è nascosto) */
+function qL(root, sel){ var box = root.querySelector('.l[lang="' + S.lang + '"]'); return (box && box.querySelector(sel)) || root.querySelector(sel); }
 
 var CLOSE_X = '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 2L10 10M10 2L2 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>';
 var MIN_BAR = '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 9H10" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/></svg>';
 
-/* ---------- contenuti ---------- */
-var LINKEDIN = "https://www.linkedin.com/in/matteomarrale/";
 var EMAIL = "matteo.marrale.1998@gmail.com";
-var GITHUB = "https://github.com/matteomarrale";
-var ITCH = "https://matteomarrale.itch.io";
-var SAID_LINKEDIN = "https://www.linkedin.com/in/said-serbouti-63a073270/";
 
-var LBL = {
- en:{context:"Context", role:"Role", when:"When", engine:"Engine", platform:"Platform", team:"Team", release:"Release", format:"Format", did:"What I did", more:"Build / docs", gallery:"Screenshots"},
- it:{context:"Contesto", role:"Ruolo", when:"Periodo", engine:"Motore", platform:"Piattaforma", team:"Team", release:"Uscita", format:"Formato", did:"Cosa ho fatto", more:"Build / documenti", gallery:"Screenshot"}
-};
-
-function projectSheet(o){
- var h = '<h2 class="t">' + o.title + '</h2>' + facts(o.facts);
- h += ph(o.media, "ph-169");
- h += '<div class="prose"><h3>' + o.l.context + '</h3><p>' + o.context + '</p>';
- h += '<h3>' + o.l.did + '</h3><ul>' + o.did.map(function(x){return "<li>"+x+"</li>";}).join("") + '</ul>';
- h += '</div>';
- if (o.doc) h += '<div class="btns"><a class="btn" href="' + o.doc[0] + '" target="_blank" rel="noopener">' + o.doc[1] + '</a></div>';
- else if (DEV) h += '<div class="btns"><span class="btn" aria-disabled="true">' + o.l.more + ' ' + todo("link") + '</span></div>';
- return h;
-}
-
-/* CV scaricabili (PDF dal CV master, senza numero di telefono) */
-function cvButtons(){
- return '<div class="btns"><a class="btn" href="cv/MatteoMarrale_CV_IT.pdf" target="_blank" rel="noopener" hreflang="it">CV IT (PDF)</a><a class="btn" href="cv/MatteoMarrale_CV_EN.pdf" target="_blank" rel="noopener" hreflang="en">CV EN (PDF)</a></div>';
-}
-
-/* blocchi di Antiques */
-function loopBlock(it){
- return '<div class="loop" aria-label="Core loop"><span>' + (it?'oggetto':'object') + '</span><i>→</i><span>' + (it?'fantasma':'ghost') + '</span><i>→</i><span>' + (it?'rimpianto':'regret') + '</span><i>→</i><span class="end">' + (it?'rituale':'ritual') + '</span></div>';
-}
-function scriptBlock(it){
- return '<div class="btns"><a class="btn" href="campioni/Antiques_Eleanor_dialogue_sample_' + (it?'IT':'EN') + '.pdf" target="_blank" rel="noopener">' + (it?'Campione di dialoghi (PDF)':'Dialogue sample (PDF)') + '</a></div>';
-}
-function scriptBlockDev(it){
- if (!DEV) return "";
- return '<div class="script"><div class="who">ELEANOR WHITESKIN</div><div class="par">(' + (it?'giorno 1':'Day 1') + ')</div><p>' + todo(it?"3–4 righe di dialogo di Eleanor, scelte da Matteo":"3–4 lines of Eleanor’s dialogue, chosen by Matteo") + '</p></div>';
-}
-
+/* finestre di Portfolio_OS: titolo, misura e scheda da cui copiano il contenuto (id nell'HTML) */
 var W = {
- welcome:{file:"Matteo Marrale", size:"", body:function(ctx){
-  var it = S.lang==="it";
-  return '<h1 tabindex="-1">Matteo Marrale</h1>' +
-   '<p class="meta">Junior Producer &amp; Project Manager | Game &amp; Narrative Designer · Digital Bros Game Academy, ' + (it?'Milano':'Milan') + '</p>' +
-   '<div class="prose"><p>' + (it ? "Mi sto formando alla Digital Bros Game Academy di Milano fino all'estate 2027. Dopo cerco ruoli da Junior Producer, Project Manager o Game &amp; Narrative Designer, in Italia o da remoto." : "I'm training at Digital Bros Game Academy in Milan until summer 2027. After that, I'm looking for Junior Producer, Project Manager or Game &amp; Narrative Designer roles, in Italy or remote.") + '</p></div>' +
-   '<div class="btns"><button class="btn" data-open="about">' + (it?'Chi sono':'About me') + '</button><button class="btn red" data-open="projects">' + (it?'Progetti':'Projects') + '</button><button class="btn" data-open="contact">' + (it?'Contatti':'Contact') + '</button>' + (ctx === "web" ? '<button class="btn" data-os>' + t("toOs") + '</button>' : '') + '</div>' +
-   (ctx === "web" ? '' : '<p class="tip">' + t("tip") + '</p>');
- }},
- projects:{file:function(){ return S.lang==="it" ? "Progetti" : "Projects"; }, size:"small", body:function(){
-  var it = S.lang==="it";
-  var rows = [
-   ["antiques","Antiques: The Last Owner","Narrative Designer &amp; Writer · " + (it?"mag–lug 2026":"May–Jul 2026")],
-   ["casino","One Hell of a Casino","Producer · " + (it?"mar–apr 2026":"Mar–Apr 2026")],
-   ["cosmic","Cosmic Chaos","Game &amp; Level Designer, Balancing · " + (it?"feb 2026":"Feb 2026")],
-   ["train","What a Train","Game &amp; Level Designer · " + (it?"gen 2026":"Jan 2026")],
-   ["nigishida","The Hunger of Nigishida","Game &amp; Level Designer · " + (it?"nov–dic 2025":"Nov–Dec 2025")]
-  ];
-  return '<h2 class="t">' + (it?'Progetti':'Projects') + '</h2><h3>' + (it?'Progetti accademici · Digital Bros Game Academy':'Academy projects · Digital Bros Game Academy') + '</h3>' +
-   '<ul class="list">' + rows.map(function(r){ return '<li><button class="proj" data-open="' + r[0] + '"><b>' + r[1] + '</b><span>' + r[2] + '</span><span class="arr" aria-hidden="true">›</span></button></li>'; }).join("") + '</ul>' +
-   '<h3>' + (it?'Progetti personali':'Personal projects') + '</h3>' +
-   '<ul class="list"><li><button class="proj" data-open="personal"><b>' + (it?'Progetti personali':'Personal projects') + '</b><span>Cat \'n\' Hell! · Other Side · Fighting Ground · All Bullets for Me</span><span class="arr" aria-hidden="true">›</span></button></li></ul>';
- }},
- about:{file:function(){ return S.lang==="it" ? "Chi sono" : "About me"; }, size:"", body:function(){
-  var it = S.lang==="it";
-  return '<h2 class="t">' + (it?'Chi sono':'About me') + '</h2>' + '<img class="portrait" src="foto-profilo.jpg" width="480" height="480" loading="lazy" alt="' + (it?'Matteo Marrale in un selfie con un gatto bianco e nero':'Matteo Marrale in a selfie with a black-and-white cat') + '">' +
-   '<div class="prose">' + (it ?
-   "<p>Sono un Junior Producer &amp; Project Manager e Game &amp; Narrative Designer, in formazione alla Digital Bros Game Academy di Milano (ottobre 2025 – estate 2027).</p><p>Ho completato il primo anno di Strategic Writing &amp; Screenwriting all'AIV (Accademia Italiana Videogiochi). Alla DBGA studio documentazione di game design, level design, prototipazione in Unity e Unreal Engine, mobile game design e project management.</p><h3>Obiettivo</h3><p>Dopo l'accademia (estate 2027) cerco ruoli da Junior Producer, Project Manager o Game &amp; Narrative Designer, in Italia o da remoto.</p>"
-   :
-   "<p>I'm a Junior Producer &amp; Project Manager and Game &amp; Narrative Designer, training at Digital Bros Game Academy in Milan (October 2025 – summer 2027).</p><p>I completed the first year of Strategic Writing &amp; Screenwriting at AIV (Accademia Italiana Videogiochi). At DBGA I'm studying game design documentation, level design, Unity and Unreal Engine prototyping, mobile game design and project management.</p><h3>Goal</h3><p>After the academy (summer 2027) I'm looking for Junior Producer, Project Manager or Game &amp; Narrative Designer roles, in Italy or remote.</p>") +
-   '<h3>' + (it?'Strumenti':'Tools') + '</h3><p class="tools">Unity · Unreal Engine · Figma · Miro · Jira · ClickUp · Notion · Git · Claude Code</p>' +
-   '</div>' + '<h3>CV</h3>' + cvButtons();
- }},
- antiques:{file:"Antiques: The Last Owner", size:"wide", body:function(){
-  var it = S.lang==="it", L = LBL[S.lang];
-  return '<h2 class="t">Antiques: The Last Owner</h2>' +
-  facts([[L.role,"Narrative Designer &amp; Writer"],[L.when, it?"mag–lug 2026":"May–Jul 2026"],[L.engine,"Unity (URP)"],[L.platform,"PC"],[L.team,"14"],[L.release, it?"3 luglio 2026":"3 July 2026"]]) +
-  ph(it?'[VIDEO 16:9 · trailer / gameplay di Antiques · arriva il 19 ottobre]':'[VIDEO 16:9 · Antiques trailer / gameplay · arrives 19 October]', "ph-169") +
-  '<div class="prose"><h3>' + L.context + '</h3><p>' + (it ?
-   'Simulatore di restauro in prima persona con elementi soprannaturali. Un negozio di antiquariato dove ogni oggetto da restaurare è posseduto da un fantasma con un rimpianto. 6 giorni di gioco, 3 fantasmi, 6 oggetti.'
-   : 'First-person restoration sim with supernatural elements. An antique shop where every object to restore is possessed by a ghost with a regret. 6 in-game days, 3 ghosts, 6 objects.') + '</p>' +
-  '<h3>' + L.did + '</h3></div>' +
-  loopBlock(it) +
-  '<div class="prose"><ul>' + (it ?
-   '<li>Narrative design del concept centrale: oggetto → fantasma → rimpianto → rituale</li><li>Scrittura di due dei tre fantasmi (Eleanor e Anselmo) e dei loro dialoghi in inglese, con trigger, word count e note per i programmatori</li><li>Beat chart dei 6 giorni e testi del tutorial (IT + EN), integrati nella scena</li>'
-   : '<li>Narrative design of the core concept: object → ghost → regret → ritual</li><li>Wrote two of the three ghosts (Eleanor and Anselmo) and their in-game dialogue in English, with triggers, word counts and notes for programmers</li><li>Beat chart of the 6 days and tutorial texts (IT + EN), delivered inside the scene</li>') + '</ul></div>' +
-  (DEV ? '<h3>' + L.gallery + '</h3><div class="gallery">' + ph(it?'[IMG 16:9 · banco di restauro · 19 ott]':'[IMG 16:9 · restoration bench · 19 Oct]','ph-169') + ph(it?'[IMG 16:9 · tavolo del rituale · 19 ott]':'[IMG 16:9 · ritual table · 19 Oct]','ph-169') + ph(it?'[IMG 16:9 · dialogo a schermo · 19 ott]':'[IMG 16:9 · on-screen dialogue · 19 Oct]','ph-169') + '</div>' : '') +
-  scriptBlock(it) +
-  (DEV ? '<div class="btns"><span class="btn" aria-disabled="true">GDD / Beat chart ' + todo("link") + '</span><span class="btn" aria-disabled="true">' + (it?'Build giocabile':'Playable build') + ' ' + todo("link") + '</span></div>' : '');
- }},
- casino:{file:"One Hell of a Casino", size:"", body:function(){
-  var it = S.lang==="it", L = LBL[S.lang];
-  return projectSheet({ l:L, title:"One Hell of a Casino",
-   facts:[[L.role,"Producer"],[L.when, it?"mar–apr 2026":"Mar–Apr 2026"],[L.engine,"Unity"],[L.platform,"Android"],[L.team,"15"]],
-   media: it?"[IMG 16:9 · menu principale con mascotte, minigioco, shop/gacha · 19 ott]":"[IMG 16:9 · main menu with mascot, mini-game, shop/gacha · 19 Oct]",
-   context: it ? "Gioco mobile casual a tema infernale per Android: una raccolta di minigiochi con sistema gacha e monetizzazione simulata."
-    : "Hell-themed casual mobile game for Android: a mini-game collection with a gacha system and simulated monetization.",
-   did: it ? ["Coordinamento del team per 6 settimane, fino all'uscita","Gestione delle milestone (Alpha 29/03, Beta 10/04, Release 24/04) e delle dipendenze tra reparti","Consegna nei tempi con APK Android, pitch, walkthrough, promo art e documentazione tecnica"]
-    : ["Coordinated the team for 6 weeks, through to release","Managed milestones (Alpha 29/03, Beta 10/04, Release 24/04) and dependencies between departments","Delivered on time with Android APK, pitch, walkthrough, promo art and technical documentation"]
-  });
- }},
- cosmic:{file:"Cosmic Chaos", size:"", body:function(){
-  var it = S.lang==="it", L = LBL[S.lang];
-  return projectSheet({ l:L, title:"Cosmic Chaos",
-   facts:[[L.role, "Game &amp; Level Designer, Balancing"],[L.when, it?"feb 2026":"Feb 2026"],[L.engine,"Unity"],[L.format, it?"“Shuffle”: team diversi ogni 5 giorni":"“Shuffle”: a new team every 5 days"]],
-   media: it?"[IMG 16:9 · gameplay con le formazioni nemiche · 19 ott]":"[IMG 16:9 · gameplay with enemy formations · 19 Oct]",
-   context: it ? 'Space Invaders con un twist. Formato "Shuffle": il progetto passava a un altro team ogni 5 giorni.'
-    : 'Space Invaders with a twist. "Shuffle" format: the project moved to a different team every 5 days.',
-   did: it ? ["Co-stesura del GDD con il team; design del twist e dei pattern di spawn e movimento dei nemici","Testing, bug report e analisi di bilanciamento (curva di difficoltà, utilità degli elementi), con tuning fino alla build finale","Ripresa del lavoro avviato da altri team e passaggio di consegne ai team successivi"]
-    : ["Co-wrote the GDD with the team; designed the twist and the enemy spawn and movement patterns","Testing, bug reports and balancing analysis (difficulty curve, usefulness of elements), with tuning up to the final build","Took over work started by other teams and handed off my own"]
-  });
- }},
- train:{file:"What a Train", size:"", body:function(){
-  var it = S.lang==="it", L = LBL[S.lang];
-  return projectSheet({ l:L, title:"What a Train",
-   facts:[[L.role,"Game &amp; Level Designer"],[L.when, it?"gen 2026":"Jan 2026"],[L.engine,"Unity"],[L.format, it?"Game jam di 1 settimana":"1-week game jam"]],
-   media: it?"[IMG 16:9 · prototipo · 19 ott]":"[IMG 16:9 · prototype · 19 Oct]",
-   context: it ? 'Tema "origine della musica": camera laterale, run di 26 secondi, almeno un diversifier obbligatorio.'
-    : 'Theme "origin of music": side camera, 26-second runs, at least one mandatory diversifier.',
-   did: it ? ["Dal brainstorming al prototipo giocabile in 5 giorni, tagliando feature per far stare tutto in 26 secondi"]
-    : ["From brainstorm to playable prototype in 5 days, cutting features to fit a 26-second experience"]
-  });
- }},
- nigishida:{file:"The Hunger of Nigishida", size:"", body:function(){
-  var it = S.lang==="it", L = LBL[S.lang];
-  return projectSheet({ l:L, title:"The Hunger of Nigishida",
-   facts:[[L.role,"Game &amp; Level Designer"],[L.when, it?"nov–dic 2025":"Nov–Dec 2025"],[L.engine, it?"Unity · primo progetto Unity":"Unity · first Unity project"],[L.team,"8"]],
-   media: it?"[IMG 16:9 · vista top-down di un livello · 19 ott]":"[IMG 16:9 · top-down view of a level · 19 Oct]",
-   context: it ? "Arcade top-down ambientato nella mitologia sumera: 3 livelli, punteggio e power-up."
-    : "Top-down arcade game set in Sumerian mythology: 3 levels, scoring and power-ups.",
-   did: it ? ["Game e level design di uno dei 3 livelli; co-design del sistema di punteggio, degli item (Beer, Speed Potion) e delle regole degli NPC","Stesura del GDD in inglese (core loop, meccaniche, comportamento degli NPC, level design, UI/UX, specifiche audio)"]
-    : ["Game and level design of one of the 3 levels; co-designed the score system, items (Beer, Speed Potion) and NPC rules","Wrote the GDD in English (core loop, mechanics, NPC behavior, level design, UI/UX, audio spec)"]
-  });
- }},
- personal:{file:function(){ return S.lang==="it" ? "Progetti personali" : "Personal projects"; }, size:"small", body:function(){
-  var it = S.lang==="it";
-  var rows = [
-   ["catnhell","Cat 'n' Hell!", it?"Roguelite run'n'gun 2D · Unity · prototipo giocabile":"2D run'n'gun roguelite · Unity · playable prototype"],
-   ["otherside","Other Side", it?"Dungeon crawler a turni in prima persona · Unity · prototipo giocabile":"First-person turn-based dungeon crawler · Unity · playable prototype"]
-  ];
-  function row(name, desc){ return '<li class="sealed"><b>' + name + '</b><span>' + desc + '</span></li>'; }
-  return '<h2 class="t">' + (it?'Progetti personali':'Personal projects') + '</h2><div class="prose"><p>' + (it?"Progetti che sviluppo fuori dall'accademia (uso Claude Code per la programmazione).":'Projects I develop outside the academy (I use Claude Code for programming).') + '</p></div>' +
-   '<h3>' + (it?'Prototipi · demo 1.0 in arrivo':'Prototypes · 1.0 demos coming') + '</h3>' +
-   '<ul class="list">' + rows.map(function(r){ return '<li><button class="proj" data-open="' + r[0] + '"><b>' + r[1] + '</b><span>' + r[2] + '</span><span class="arr" aria-hidden="true">›</span></button></li>'; }).join("") + '</ul>' +
-   '<h3>' + (it?'In sviluppo':'In development') + '</h3>' +
-   '<ul class="list">' +
-   row("Fighting Ground", (it?'Combattimento corpo a corpo ispirato a Sifu e mappa del mondo a esagoni ispirata a For The King; le nuove mosse si rubano dai cyberdeck dei nemici. Unreal Engine · prototipo del combattimento · titolo provvisorio.':"Hand-to-hand combat inspired by Sifu and a hex world map inspired by For The King; new moves are stolen from enemies' cyberdecks. Unreal Engine · combat prototype · working title.")) +
-   row("All Bullets for Me", (it?'Un FPS basato sul combinare armi e poteri. Unreal Engine · primi test delle meccaniche · titolo provvisorio.':'An FPS built on combining weapons and powers. Unreal Engine · early mechanic tests · working title.')) +
-   '</ul>' +
-   '<div class="btns"><a class="btn" href="' + ITCH + '" target="_blank" rel="me noopener">Itch.io ↗</a></div>';
- }},
- catnhell:{file:"Cat 'n' Hell!", size:"", body:function(){
-  var it = S.lang==="it", L = LBL[S.lang];
-  var said = '<a href="' + SAID_LINKEDIN + '" target="_blank" rel="noopener">Said Serbouti</a>';
-  return projectSheet({ l:L, title:"Cat 'n' Hell!",
-   facts:[[L.role, it?"Game design e sviluppo":"Game design &amp; development"],[it?"Stato":"Status", it?"Prototipo giocabile":"Playable prototype"],[L.engine,"Unity"],[L.platform,"PC"],[it?"Genere":"Genre", it?"Roguelite run'n'gun 2D":"2D run'n'gun roguelite"]],
-   media: it?"[IMG 16:9 · gameplay di Cat ’n’ Hell! · 19 ott]":"[IMG 16:9 · Cat ’n’ Hell! gameplay · 19 Oct]",
-   context: it ? "Un roguelite run'n'gun 2D ambientato in un Inferno a forma di gatto, sviluppato in Unity."
-    : "A 2D run'n'gun roguelite set in a cat-shaped Hell, developed in Unity.",
-   did: it ? ["Game design e sviluppo: Matteo Marrale (programmazione con Claude Code)","Narrativa e lore: " + said]
-    : ["Game design and development: Matteo Marrale (programming with Claude Code)","Narrative and lore: " + said]
-  });
- }},
- otherside:{file:"Other Side", size:"", body:function(){
-  var it = S.lang==="it", L = LBL[S.lang];
-  return projectSheet({ l:L, title:"Other Side",
-   facts:[[L.role, it?"Progetto personale":"Solo personal project"],[it?"Stato":"Status", it?"Prototipo giocabile":"Playable prototype"],[L.engine,"Unity (URP)"],[L.platform,"PC"],[it?"Genere":"Genre", it?"Dungeon crawler a turni in prima persona, permadeath":"First-person turn-based dungeon crawler, permadeath"]],
-   media: it?"[IMG 16:9 · gameplay di Other Side · 19 ott]":"[IMG 16:9 · Other Side gameplay · 19 Oct]",
-   context: it ? "Un dungeon crawler a turni in prima persona con permadeath, sviluppato in Unity. Ogni nemico si sconfigge sfruttando gli oggetti e la stanza. Quando muori ricominci da capo: tra una run e l'altra conservi solo un diario che disegni e scrivi tu."
-    : "A first-person, turn-based dungeon crawler with permadeath, developed in Unity. You beat each enemy by using your items and the room around you. When you die, you start over: all you keep between runs is a journal you draw and write in yourself.",
-   did: it ? ["Game design e sviluppo: Matteo Marrale (programmazione con Claude Code)"]
-    : ["Game design and development: Matteo Marrale (programming with Claude Code)"]
-  });
- }},
- contact:{file:function(){ return S.lang==="it" ? "Contatti" : "Contact"; }, size:"small", body:function(){
-  var it = S.lang==="it";
-  return '<h2 class="t">' + (it?'Contatti':'Contact') + '</h2><div class="prose"><p>' + (it?'Puoi scrivermi a:':'You can write to me at:') + '</p></div>' +
-   '<p><a class="email" id="emailText" href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
-   '<div class="btns"><button class="btn red" data-copy="1">' + (it?'Copia email':'Copy email') + '</button><a class="btn" href="' + LINKEDIN + '" target="_blank" rel="me noopener">LinkedIn ↗</a></div>' +
-   '<div class="btns"><a class="btn" href="' + GITHUB + '" target="_blank" rel="me noopener">GitHub ↗</a><a class="btn" href="' + ITCH + '" target="_blank" rel="me noopener">Itch.io ↗</a></div>' +
-   cvButtons();
- }}
+ welcome:{file:"Matteo Marrale", size:"", src:"c-top"},
+ projects:{file:function(){ return S.lang==="it" ? "Progetti" : "Projects"; }, size:"small", src:"tpl-projects"},
+ about:{file:function(){ return S.lang==="it" ? "Chi sono" : "About me"; }, size:"", src:"c-about"},
+ antiques:{file:"Antiques: The Last Owner", size:"wide", src:"antiques"},
+ casino:{file:"One Hell of a Casino", size:"", src:"casino"},
+ cosmic:{file:"Cosmic Chaos", size:"", src:"cosmic"},
+ train:{file:"What a Train", size:"", src:"train"},
+ nigishida:{file:"The Hunger of Nigishida", size:"", src:"nigishida"},
+ personal:{file:function(){ return S.lang==="it" ? "Progetti personali" : "Personal projects"; }, size:"small", src:"c-personal"},
+ catnhell:{file:"Cat 'n' Hell!", size:"", src:"catnhell"},
+ otherside:{file:"Other Side", size:"", src:"otherside"},
+ contact:{file:function(){ return S.lang==="it" ? "Contatti" : "Contact"; }, size:"small", src:"c-contact"}
 };
 function fname(id){ var f = W[id].file; return typeof f === "function" ? f() : f; }
 /* link diretti: queste schede si aprono nella versione web (#antiques, #catnhell, …); l'OS parte solo con #os */
@@ -561,7 +821,7 @@ function buildWin(id){
  el.innerHTML =
   '<div class="win-bar"><h2 id="wt-' + id + '">' + fname(id) + '</h2><div class="win-btns"><button class="min" aria-label="' + t("min") + '">' + MIN_BAR + '</button><button class="close" aria-label="' + t("close") + '">' + CLOSE_X + '</button></div></div>' +
   '<div class="win-body" tabindex="0"></div>';
- el.querySelector(".win-body").innerHTML = def.body();
+ el.querySelector(".win-body").innerHTML = document.getElementById(def.src).innerHTML;
  return el;
 }
 function place(el, id){
@@ -657,7 +917,7 @@ winLayer.addEventListener("pointerdown", function(e){
 
 function copyEmail(){
  var done = function(){ say(t("copied")); };
- var fail = function(){ var n = document.getElementById("emailText"); if (n) { var r = document.createRange(); r.selectNodeContents(n); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } say(t("copyFail")); };
+ var fail = function(){ var n = null; document.querySelectorAll(".email").forEach(function(x){ if (!n && x.getClientRects().length) n = x; }); if (n) { var r = document.createRange(); r.selectNodeContents(n); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } say(t("copyFail")); };
  try { navigator.clipboard.writeText(EMAIL).then(done, fail); } catch(e){ fail(); }
 }
 
@@ -730,37 +990,20 @@ function apply(){
  tabs.setAttribute("aria-label", t("openWins"));
  document.querySelector(".settings").setAttribute("aria-label", t("settings"));
  document.querySelectorAll("[data-i18n]").forEach(function(n){ n.textContent = t(n.dataset.i18n); });
+ document.getElementById("clLang").textContent = t("lang");
+ classic.querySelector(".cl-top nav").setAttribute("aria-label", t("sections"));
  skipBtn.textContent = S.motion ? t("skip") : t("cont");
 }
 function relang(){
  Object.keys(open).forEach(function(k){
-  var b = open[k].querySelector(".win-body"); var top = b.scrollTop; b.innerHTML = W[k].body(); b.scrollTop = top;
   open[k].querySelector(".min").setAttribute("aria-label", t("min")); open[k].querySelector(".close").setAttribute("aria-label", t("close"));
   open[k].querySelector(".win-bar h2").textContent = fname(k);
  });
  renderIcons(); renderTabs();
- if (S.classic) { var y = window.scrollY; renderClassic(); window.scrollTo(0, y); }
 }
 
-/* ---------- vista classica ---------- */
-function renderClassic(){
- var it = S.lang==="it";
- var nav = [["about", it?"Chi sono":"About me"],["projects", it?"Progetti":"Projects"],["personal", it?"Personali":"Personal"],["contact", it?"Contatti":"Contact"]];
- var h = '<a class="skip-link" href="#c-projects">' + t("skipTo") + '</a>';
- h += '<div class="cl-top"><b>Matteo Marrale</b><button class="cl-menu" id="clMenu" aria-expanded="false" aria-controls="clPanel">' + t("menu") + '</button><div class="cl-panel" id="clPanel"><nav aria-label="' + t("sections") + '">' + nav.map(function(n){ return '<a href="#c-' + n[0] + '">' + n[1] + '</a>'; }).join("") + '</nav><div class="act"><button id="clLang">' + t("lang") + '</button><button id="clBack">' + t("toOs") + '</button></div></div></div>';
- h += '<div class="cl">';
- h += '<section id="c-top">' + W.welcome.body("web") + '</section>';
- h += '<section id="c-about">' + W.about.body() + '</section>';
- h += '<div id="c-projects" style="display:grid;gap:28px">';
- ["antiques","casino","cosmic","train","nigishida"].forEach(function(id){ h += '<article id="' + id + '">' + W[id].body() + '</article>'; });
- h += '</div>';
- h += '<section id="c-personal">' + W.personal.body() + '</section>';
- h += '<div id="c-personal-sheets" style="display:grid;gap:28px">';
- ["catnhell","otherside"].forEach(function(id){ h += '<article id="' + id + '">' + W[id].body() + '</article>'; });
- h += '</div>';
- h += '<section id="c-contact">' + W.contact.body() + '</section>';
- h += '</div>';
- classic.innerHTML = h;
+/* ---------- vista classica (HTML già nella pagina: qui solo i comandi) ---------- */
+function bindClassic(){
  /* ogni pulsante della pagina scorre alla scheda giusta (Cat 'n' Hell! e Other Side inclusi) */
  classic.querySelectorAll("[data-open]").forEach(function(b){ b.addEventListener("click", function(){ var tid = webTarget(b.dataset.open); if (tid) goWeb(tid, false); }); });
  var menuBtn = document.getElementById("clMenu"), bar = classic.querySelector(".cl-top");
@@ -768,7 +1011,7 @@ function renderClassic(){
  classic.querySelectorAll(".cl-top nav a").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
  measureTop();
  classic.querySelectorAll("[data-copy]").forEach(function(b){ b.addEventListener("click", copyEmail); });
- document.getElementById("clLang").addEventListener("click", function(){ S.lang = S.lang==="en"?"it":"en"; apply(); relang(); save(); var b2 = document.getElementById("clLang"); if (b2) b2.focus({preventScroll:true}); });
+ document.getElementById("clLang").addEventListener("click", function(){ var y = window.scrollY; S.lang = S.lang==="en"?"it":"en"; apply(); relang(); save(); window.scrollTo(0, y); });
  document.getElementById("clBack").addEventListener("click", function(){ setClassic(false); });
  classic.querySelectorAll("[data-os]").forEach(function(b){ b.addEventListener("click", function(){ setClassic(false); }); });
 }
@@ -779,7 +1022,7 @@ function goWeb(tid, instant){
  var n = document.getElementById(tid); if (!n) return;
  measureTop();
  n.scrollIntoView({behavior: (S.motion && !instant) ? "smooth" : "auto", block:"start"});
- var hd = n.matches("h1,h2") ? n : n.querySelector("h1, h2"); if (hd) { hd.tabIndex = -1; hd.focus({preventScroll:true}); }
+ var hd = n.matches("h1,h2") ? n : qL(n, "h1, h2"); if (hd) { hd.tabIndex = -1; hd.focus({preventScroll:true}); }
  if (CARDS.indexOf(tid) >= 0) setHash(tid);
 }
 function stopBoot(){ if (boot.hidden) return; bootTimers.forEach(clearTimeout); bootTimers = []; bootDone = true; boot.hidden = true; }
@@ -790,8 +1033,8 @@ function setClassic(on, keepPlace){
  app.hidden = on; classic.hidden = !on;
  document.body.classList.toggle("is-classic", on);
  /* entrando nella versione web il focus va sull'h1 (il nome), non sul pulsante "Portfolio_OS" */
- if (on) { renderClassic(); if (!keepPlace) { window.scrollTo(0,0); setHash("web"); var f = classic.querySelector("#c-top h1"); if (f) f.focus({preventScroll:true}); } }
- else { classic.innerHTML = ""; if (!osBooted) runBoot(); else { setHash("os"); sClassic.focus(); } }
+ if (on) { measureTop(); if (!keepPlace) { window.scrollTo(0,0); setHash("web"); var f = qL(document.getElementById("c-top"), "h1"); if (f) f.focus({preventScroll:true}); } }
+ else { setMenu(false); if (!osBooted) runBoot(); else { setHash("os"); sClassic.focus(); } }
 }
 
 /* ---------- home = versione web (scelta di Matteo, 2026-10-21); Portfolio_OS da pulsante o con #os ---------- */
@@ -850,6 +1093,7 @@ boot.addEventListener("click", function(){ finishBoot(); });
 
 /* ---------- init ---------- */
 renderIcons();
+bindClassic();
 apply();
 /* instradamento: #os = Portfolio_OS; #web = versione web; #antiques, #catnhell, … = versione web sulla scheda; niente hash = versione web */
 function route(initial){
