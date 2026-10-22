@@ -18,20 +18,44 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Matteo Marrale — Junior Producer &amp; Project Manager | Game &amp; Narrative Designer">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="canonical" href="https://matteomarrale.github.io/">
+<!-- dati strutturati per i motori di ricerca (schema.org): solo dati già scritti nella pagina -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Person",
+ "name":"Matteo Marrale",
+ "url":"https://matteomarrale.github.io/",
+ "image":"https://matteomarrale.github.io/foto-profilo.jpg",
+ "jobTitle":"Junior Producer & Project Manager | Game & Narrative Designer",
+ "email":"mailto:matteo.marrale.1998@gmail.com",
+ "affiliation":{"@type":"EducationalOrganization","name":"Digital Bros Game Academy","address":{"@type":"PostalAddress","addressLocality":"Milano","addressCountry":"IT"}},
+ "sameAs":["https://www.linkedin.com/in/matteomarrale/","https://github.com/matteomarrale","https://matteomarrale.itch.io"]
+}
+</script>
+<!-- font sul sito (cartella fonts/, licenza OFL): niente richieste a Google -->
+<link rel="preload" href="fonts/jacquard-24-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/eb-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script>
 /* lingua prima del primo disegno (evita il lampo in inglese); se gira, JavaScript c'è */
 (function(){ var d = document.documentElement, l = "en", s = null; d.classList.remove("no-js");
  try { s = JSON.parse(localStorage.getItem("cvos-settings") || "null"); } catch(e){}
  if (s && s.lang) l = s.lang; else { try { if (/^it\b/i.test(navigator.language || "")) l = "it"; } catch(e){} }
- d.lang = l === "it" ? "it" : "en"; })();
+ d.lang = l === "it" ? "it" : "en";
+ if (!location.hash || location.hash === "#") d.classList.add("ld"); })();
 </script>
 <style>
 /* Portfolio_OS — desktop: icone a sinistra, finestre trascinabili, barra in basso. */
-/* Fallback per Jacquard 24 (pixel blackletter condensato): Georgia ridotta, così il layout non salta mentre il font arriva.
-   In Astro: self-host dei woff2 e metriche tarate con fontaine/capsize. */
+/* Font ospitati sul sito (fonts/, crediti in fonts/CREDITI.txt): sottoinsiemi latin e latin-ext di Google Fonts. */
+@font-face{font-family:'EB Garamond'; font-style:italic; font-weight:400; font-display:swap; src:url(fonts/eb-garamond-italic-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'EB Garamond'; font-style:italic; font-weight:400; font-display:swap; src:url(fonts/eb-garamond-italic-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'EB Garamond'; font-style:normal; font-weight:400 700; font-display:swap; src:url(fonts/eb-garamond-normal-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'EB Garamond'; font-style:normal; font-weight:400 700; font-display:swap; src:url(fonts/eb-garamond-normal-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IM Fell English'; font-style:italic; font-weight:400; font-display:swap; src:url(fonts/im-fell-english-italic-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IM Fell English'; font-style:normal; font-weight:400; font-display:swap; src:url(fonts/im-fell-english-normal-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Jacquard 24'; font-style:normal; font-weight:400; font-display:swap; src:url(fonts/jacquard-24-normal-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Jacquard 24'; font-style:normal; font-weight:400; font-display:swap; src:url(fonts/jacquard-24-normal-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+/* Fallback per Jacquard 24 (pixel blackletter condensato): Georgia ridotta, così il layout non salta mentre il font arriva. */
 @font-face{font-family:'Jacquard Fallback'; src:local('Georgia'), local('Times New Roman'); size-adjust:90%; ascent-override:92%; descent-override:22%; line-gap-override:0%}
 :root{
   color-scheme: dark;
@@ -178,6 +202,34 @@ button{font:inherit; color:inherit; cursor:pointer}
 #skip{position:absolute; z-index:4; right:20px; bottom:calc(20px + env(safe-area-inset-bottom,0px)); min-height:44px; padding:0 16px; background:var(--black); color:var(--white); border:2px solid var(--grey-mid); border-radius:10px; font:400 15px var(--f-ui)}
 @media (max-height:520px){ #boot .txt{padding:14px 16px; font-size:12px; line-height:1.6} #boot .logo{font-size:36px; margin-bottom:6px} }
 
+/* ---------- home: scegli come vedere ---------- */
+#landing{display:none; position:fixed; inset:0; z-index:2500; height:var(--vh); overflow:auto; flex-direction:column; color:var(--white); background:var(--grey-dark)}
+html.ld #landing{display:flex}
+html.ld #classic,html.ld #app{display:none!important}
+html.ld body{overflow:hidden}
+.ld-top{position:relative; display:flex; justify-content:flex-end; padding:16px 16px 0}
+.ld-lang{display:flex; border:3px solid var(--black); border-radius:12px; overflow:hidden; background:var(--black)}
+.ld-lang button{min-width:64px; min-height:44px; padding:0 14px; border:0; background:transparent; color:var(--white); font:600 16px var(--f-ui)}
+.ld-lang button[aria-pressed="true"]{background:var(--white); color:var(--black)}
+.ld-main{position:relative; flex:1; display:flex; flex-direction:column; justify-content:center; gap:22px; width:min(980px,100%); box-sizing:border-box; margin:0 auto; padding:24px 16px 48px}
+.ld-name{margin:0; font:400 clamp(60px,11vw,128px)/.88 var(--f-black); color:var(--white)}
+.ld-role{margin:10px 0 0; font:400 clamp(20px,2.5vw,25px)/1.35 var(--f-head); color:var(--white)}
+.ld-q{margin:10px 0 0; font:400 clamp(23px,3vw,30px)/1.25 var(--f-head); text-wrap:balance}
+.ld-choices{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:18px}
+.ld-card{display:flex; flex-direction:column; gap:10px; padding:0; text-align:left; border:4px solid var(--black); overflow:hidden; transition:transform .12s ease}
+@media (hover:hover) and (pointer:fine){ .ld-card:hover{transform:translate(-2px,-3px)} }
+.ld-card .bar{display:flex; align-items:center; gap:10px; padding:10px 14px; border-bottom:4px solid var(--black); font:600 16px var(--f-ui)}
+.ld-card .in{display:flex; flex-direction:column; gap:8px; padding:6px 20px 22px}
+.ld-card b{font:700 clamp(26px,3vw,32px)/1.15 var(--f-text)}
+.ld-card .desc{margin:0; font-size:17px; line-height:1.5}
+.ld-card .go{margin-top:6px; font:600 16px var(--f-ui)}
+.ld-web{background:var(--white); color:var(--black)}
+.ld-web .bar{background:var(--grey-light)}
+.ld-web b{color:var(--black)}
+.ld-os{background:var(--white); color:var(--black)}
+.ld-os .bar{background:var(--grey-dark); color:var(--white)}
+.ld-os b{color:var(--black)}
+
 /* ---------- vista classica ---------- */
 #classic{min-height:100%; background:var(--black); color:var(--white)}
 .cl-top{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; display:flex; align-items:center; gap:10px 18px; padding:10px 16px; background:var(--black); border-bottom:4px solid var(--grey-mid)}
@@ -188,7 +240,7 @@ button{font:inherit; color:inherit; cursor:pointer}
 .cl-top nav a{text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
 .cl-top .act{display:flex; gap:6px}
 .cl-top .act button{min-height:40px; padding:0 12px; border-radius:10px; font:600 14px var(--f-ui)}
-#clLang{background:transparent; color:var(--white); border:2px solid var(--grey-mid)}
+#clLang,#clHome{background:transparent; color:var(--white); border:2px solid var(--grey-mid)}
 #clBack{background:var(--grey-dark); color:var(--white); border:2px solid var(--grey-dark)}
 .cl{max-width:820px; margin:0 auto; padding:24px 16px 80px; display:grid; gap:28px}
 /* ancore: la barra fissa non copre il titolo della scheda */
@@ -227,7 +279,8 @@ button{font:inherit; color:inherit; cursor:pointer}
 /* stampa: si stampa la versione web, in nero su bianco, senza barra e pulsanti */
 @media print{
  body,body.is-classic,#classic{background:#FFFFFF!important; color:#000000!important; overflow:visible!important}
- #app,#boot,.cl-top,.btns,.skip-link,#toast{display:none!important}
+ #app,#boot,#landing,.cl-top,.btns,.skip-link,#toast{display:none!important}
+ html.ld #classic{display:block!important}
  .cl{max-width:none; padding:0}
  .cl h1,.cl h2.t,.cl h3,.meta,.facts dt,.facts dd{color:#000000!important}
  .cl section,.cl article{break-inside:avoid-page}
@@ -271,7 +324,7 @@ button{font:inherit; color:inherit; cursor:pointer}
 <a href="#c-projects"><span class="l" lang="en">Projects</span><span class="l" lang="it">Progetti</span></a>
 <a href="#c-personal"><span class="l" lang="en">Personal</span><span class="l" lang="it">Personali</span></a>
 <a href="#c-contact"><span class="l" lang="en">Contact</span><span class="l" lang="it">Contatti</span></a>
-</nav><div class="act"><button id="clLang">EN / IT</button><button id="clBack">Portfolio_OS</button></div></div></div>
+</nav><div class="act"><button id="clHome">Home</button><button id="clLang">EN / IT</button><button id="clBack">Portfolio_OS</button></div></div></div>
 <div class="cl">
 <section id="c-top">
 <div class="l" lang="en">
@@ -688,6 +741,33 @@ button{font:inherit; color:inherit; cursor:pointer}
 </div>
 </template>
 
+<!-- home: scegli come vedere il portfolio (solo con JavaScript) -->
+<div id="landing">
+  <div class="ld-top">
+    <div class="ld-lang" role="group" aria-label="Language / Lingua">
+      <button id="ldEn" aria-pressed="true">EN</button>
+      <button id="ldIt" aria-pressed="false">IT</button>
+    </div>
+  </div>
+  <div class="ld-main">
+    <div>
+      <h1 class="ld-name">Matteo Marrale</h1>
+      <p class="ld-role">Junior Producer &amp; Project Manager | Game &amp; Narrative Designer · Portfolio</p>
+    </div>
+    <p class="ld-q"><span class="l" lang="en">How do you want to view the portfolio?</span><span class="l" lang="it">Come vuoi vedere il portfolio?</span></p>
+    <div class="ld-choices">
+      <button class="ld-card ld-web" id="goWeb">
+        <span class="bar"><span class="l" lang="en">Web version</span><span class="l" lang="it">Versione web</span></span>
+        <span class="in"><b><span class="l" lang="en">Web version</span><span class="l" lang="it">Versione web</span></b><span class="desc"><span class="l" lang="en">A classic, readable page with every project. Best for a quick look or a phone.</span><span class="l" lang="it">Una pagina classica e leggibile con tutti i progetti. Ideale per uno sguardo veloce o dal telefono.</span></span><span class="go"><span class="l" lang="en">Open the web version ›</span><span class="l" lang="it">Apri la versione web ›</span></span></span>
+      </button>
+      <button class="ld-card ld-os" id="goOs">
+        <span class="bar">Portfolio_OS</span>
+        <span class="in"><b>Portfolio_OS</b><span class="desc"><span class="l" lang="en">An interactive desktop: open the projects like files and drag the windows around.</span><span class="l" lang="it">Un desktop interattivo: apri i progetti come file e trascina le finestre.</span></span><span class="go"><span class="l" lang="en">Boot Portfolio_OS ›</span><span class="l" lang="it">Avvia Portfolio_OS ›</span></span></span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <div id="boot" hidden>
   <div class="txt" role="status" aria-live="polite">
     <p class="logo">Portfolio_OS</p>
@@ -731,7 +811,7 @@ var T = {
   motion:["MOTION: OFF","MOTION: ON"], lang:"EN / IT", classic:"CLASSIC VIEW",
   back:"Back to Portfolio_OS", min:"Minimize", close:"Close", desktop:"Desktop", openWins:"Open windows", settings:"Settings", sections:"Sections",
   copied:"Email copied", copyFail:"Select the address and copy it",
-  home:"Web version",
+  home:"Home (choose the view)",
   reboot:"Reboot (watch the start again)",
   boot:[
    ["Writing module (AIV, 1st year) ......... ","OK","ok"],
@@ -747,7 +827,7 @@ var T = {
   motion:["MOVIMENTO: OFF","MOVIMENTO: ON"], lang:"IT / EN", classic:"VISTA CLASSICA",
   back:"Torna a Portfolio_OS", min:"Riduci", close:"Chiudi", desktop:"Scrivania", openWins:"Finestre aperte", settings:"Impostazioni", sections:"Sezioni",
   copied:"Email copiata", copyFail:"Seleziona l'indirizzo e copialo",
-  home:"Versione web",
+  home:"Home (scegli la modalità)",
   reboot:"Riavvia (rivedi l'avvio)",
   boot:[
    ["Modulo scrittura (AIV, 1° anno) ........ ","OK","ok"],
@@ -973,7 +1053,7 @@ function toggle(k){
  if (k==="lang") { S.lang = S.lang==="en" ? "it" : "en"; relang(); }
  if (k==="classic") { setClassic(true); return; }
  if (k==="reboot") { closeStart(); save(); runBoot(); return; }
- if (k==="home") { setClassic(true); return; }
+ if (k==="home") { showLanding(); return; }
  apply(); save();
 }
 sMotion.addEventListener("click", function(){ toggle("motion"); });
@@ -992,6 +1072,8 @@ function apply(){
  document.querySelector(".settings").setAttribute("aria-label", t("settings"));
  document.querySelectorAll("[data-i18n]").forEach(function(n){ n.textContent = t(n.dataset.i18n); });
  document.getElementById("clLang").textContent = t("lang");
+ document.getElementById("ldEn").setAttribute("aria-pressed", String(S.lang === "en"));
+ document.getElementById("ldIt").setAttribute("aria-pressed", String(S.lang === "it"));
  classic.querySelector(".cl-top nav").setAttribute("aria-label", t("sections"));
  skipBtn.textContent = S.motion ? t("skip") : t("cont");
 }
@@ -1014,6 +1096,7 @@ function bindClassic(){
  classic.querySelectorAll("[data-copy]").forEach(function(b){ b.addEventListener("click", copyEmail); });
  document.getElementById("clLang").addEventListener("click", function(){ var y = window.scrollY; S.lang = S.lang==="en"?"it":"en"; apply(); relang(); save(); window.scrollTo(0, y); });
  document.getElementById("clBack").addEventListener("click", function(){ setClassic(false); });
+ document.getElementById("clHome").addEventListener("click", showLanding);
  classic.querySelectorAll("[data-os]").forEach(function(b){ b.addEventListener("click", function(){ setClassic(false); }); });
 }
 function setMenu(open){ var bar = classic.querySelector(".cl-top"), b = document.getElementById("clMenu"); if (!bar || !b) return; bar.classList.toggle("open", open); b.setAttribute("aria-expanded", String(open)); }
@@ -1038,18 +1121,34 @@ function setClassic(on, keepPlace){
  else { setMenu(false); if (!osBooted) runBoot(); else { setHash("os"); sClassic.focus(); } }
 }
 
-/* ---------- home = versione web (scelta di Matteo, 2026-10-21); Portfolio_OS da pulsante o con #os ---------- */
+/* ---------- home: scegli come vedere (classe "ld" su <html>; senza JavaScript si vede la versione web) ---------- */
+var root = document.documentElement;
 var osBooted = false;
-function showHome(){ setClassic(true, true); window.scrollTo(0,0); setHash(""); }
-function enterWeb(){ setClassic(true); }
+function landingOn(){ return root.classList.contains("ld"); }
+function showLanding(){
+ closeStart(); stopBoot();
+ S.classic = false; classic.hidden = true; document.body.classList.remove("is-classic"); setMenu(false);
+ app.hidden = true;
+ root.classList.add("ld");
+ window.scrollTo(0,0); setHash("");
+ var b = document.getElementById(S.lang === "it" ? "ldIt" : "ldEn"); if (b) b.focus({preventScroll:true});
+}
+function enterWeb(){ root.classList.remove("ld"); setClassic(true); }
 function enterOS(){
+ root.classList.remove("ld");
+ if (S.classic) { setClassic(false); return; }
  app.hidden = false;
  if (!osBooted) runBoot(); else { setHash("os"); var id = topWinId(); if (id) focusBody(id); }
 }
+document.getElementById("goWeb").addEventListener("click", enterWeb);
+document.getElementById("goOs").addEventListener("click", enterOS);
+document.getElementById("ldEn").addEventListener("click", function(){ if (S.lang !== "en") { S.lang = "en"; apply(); relang(); save(); } });
+document.getElementById("ldIt").addEventListener("click", function(){ if (S.lang !== "it") { S.lang = "it"; apply(); relang(); save(); } });
 
 /* ---------- tastiera ---------- */
 var MOD_KEYS = {Tab:1, Shift:1, Control:1, Alt:1, Meta:1, CapsLock:1, Escape:0};
 document.addEventListener("keydown", function(e){
+ if (landingOn()) return;
  if (!boot.hidden) { if (MOD_KEYS[e.key]) return; finishBoot(); e.preventDefault(); return; }
  if (e.key === "Escape") {
   if (!startMenu.hidden) { closeStart(); startBtn.focus(); return; }
@@ -1096,26 +1195,26 @@ boot.addEventListener("click", function(){ finishBoot(); });
 renderIcons();
 bindClassic();
 apply();
-/* instradamento: #os = Portfolio_OS; #web = versione web; #antiques, #catnhell, … = versione web sulla scheda; niente hash = versione web */
+/* instradamento: #os = Portfolio_OS; #web = versione web; #antiques, #catnhell, … = versione web sulla scheda; niente hash = home (scelta) */
 function route(initial){
  var hash = (location.hash || "").replace("#","");
  if (hash === "os") {
   if (S.classic) setClassic(false);
-  else if (app.hidden) enterOS();
+  else if (landingOn() || app.hidden) enterOS();
   return;
  }
  if (hash === "classic" || hash === "web") { if (!S.classic) enterWeb(); return; }
  var tid = webTarget(hash);
  if (tid) {
-  if (!S.classic) setClassic(true, true);
+  if (!S.classic) { root.classList.remove("ld"); setClassic(true, true); }
   if (!document.getElementById(tid)) { if (initial) { window.scrollTo(0,0); setHash("web"); } return; }
   requestAnimationFrame(function(){ goWeb(tid, initial); });
   /* i font cambiano le altezze: al primo caricamento si riallinea quando sono pronti */
   if (initial && document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ if ((location.hash || "").replace("#","") === tid) goWeb(tid, true); });
   return;
  }
- if (!hash) { if (initial || !S.classic) showHome(); return; }
- if (initial) showHome();
+ if (!hash) { if (initial || S.classic || !app.hidden) showLanding(); return; }
+ if (initial) showLanding();
 }
 route(true);
 window.addEventListener("hashchange", function(){ route(false); });

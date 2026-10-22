@@ -1,0 +1,6 @@
+Font usati dal sito, ospitati qui (file woff2 di Google Fonts, sottoinsiemi latin e latin-ext).
+Tutti sotto SIL Open Font License 1.1: testo completo nei file OFL-*.txt di questa cartella.
+
+- Jacquard 24 — Sarah Cadigan-Fried (The Soft Type Project) — https://fonts.google.com/specimen/Jacquard+24
+- IM Fell English — Igino Marini — https://fonts.google.com/specimen/IM+Fell+English
+- EB Garamond — Georg Duffner, Octavio Pardo — https://fonts.google.com/specimen/EB+Garamond
