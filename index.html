@@ -49,7 +49,7 @@ html,body{height:100%}
 [hidden]{display:none!important}
 img{max-width:100%}
 .no-js #app,.no-js #boot{display:none!important}
-.no-js .cl-top .act,.no-js .cl-menu{display:none}
+.no-js .cl-top .act,.no-js .cl-menu,.no-js [data-copy],.no-js [data-os]{display:none}
 /* testi in due lingue nello stesso HTML: si vede solo quella di <html lang> */
 html[lang="it"] .l[lang="en"],html[lang="en"] .l[lang="it"]{display:none}
 /* segnaposto ([DA FORNIRE], riquadri IMG/VIDEO): solo con ?dev=1 */
@@ -140,7 +140,7 @@ button{font:inherit; color:inherit; cursor:pointer}
 .list li b{font:700 22px/1.25 var(--f-text); color:var(--black)}
 .list li.sealed{border-style:dashed}
 .list li:has(.proj){padding:0}
-.proj{width:100%; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; padding:12px 40px 12px 14px; position:relative; background:none; border:0; border-radius:10px; text-align:left; color:var(--black); font:400 17px/1.4 var(--f-text)}
+.proj{box-sizing:border-box; text-decoration:none; width:100%; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; padding:12px 40px 12px 14px; position:relative; background:none; border:0; border-radius:10px; text-align:left; color:var(--black); font:400 17px/1.4 var(--f-text)}
 .proj > span{min-width:0}
 @media (hover:hover){ .proj:hover{background:var(--white)} }
 .proj b{flex:1 1 100%}
@@ -279,7 +279,7 @@ button{font:inherit; color:inherit; cursor:pointer}
 <p class="meta">Junior Producer &amp; Project Manager | Game &amp; Narrative Designer · Digital Bros Game Academy, Milan</p>
 <div class="prose">
 <p>I'm training at Digital Bros Game Academy in Milan until summer 2027. After that, I'm looking for Junior Producer, Project Manager or Game &amp; Narrative Designer roles, in Italy or remote.</p></div>
-<div class="btns"><button class="btn" data-open="about">About me</button><button class="btn red" data-open="projects">Projects</button><button class="btn" data-open="contact">Contact</button><button class="btn only-web" data-os>Portfolio_OS</button></div>
+<div class="btns"><a class="btn" href="#c-about" data-open="about">About me</a><a class="btn red" href="#c-projects" data-open="projects">Projects</a><a class="btn" href="#c-contact" data-open="contact">Contact</a><button class="btn only-web" data-os>Portfolio_OS</button></div>
 <p class="tip only-os">Click an icon to open it. Drag windows by their bar. Esc closes the top window.</p>
 </div>
 <div class="l" lang="it">
@@ -287,7 +287,7 @@ button{font:inherit; color:inherit; cursor:pointer}
 <p class="meta">Junior Producer &amp; Project Manager | Game &amp; Narrative Designer · Digital Bros Game Academy, Milano</p>
 <div class="prose">
 <p>Mi sto formando alla Digital Bros Game Academy di Milano fino all'estate 2027. Dopo cerco ruoli da Junior Producer, Project Manager o Game &amp; Narrative Designer, in Italia o da remoto.</p></div>
-<div class="btns"><button class="btn" data-open="about">Chi sono</button><button class="btn red" data-open="projects">Progetti</button><button class="btn" data-open="contact">Contatti</button><button class="btn only-web" data-os>Portfolio_OS</button></div>
+<div class="btns"><a class="btn" href="#c-about" data-open="about">Chi sono</a><a class="btn red" href="#c-projects" data-open="projects">Progetti</a><a class="btn" href="#c-contact" data-open="contact">Contatti</a><button class="btn only-web" data-os>Portfolio_OS</button></div>
 <p class="tip only-os">Clicca un'icona per aprirla. Trascina le finestre dalla barra. Esc chiude la finestra in primo piano.</p>
 </div>
 </section>
@@ -536,8 +536,8 @@ button{font:inherit; color:inherit; cursor:pointer}
 <p>Projects I develop outside the academy (I use Claude Code for programming).</p></div>
 <h3>Prototypes · 1.0 demos coming</h3>
 <ul class="list">
-<li><button class="proj" data-open="catnhell"><b>Cat 'n' Hell!</b><span>2D run'n'gun roguelite · Unity · playable prototype</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="otherside"><b>Other Side</b><span>First-person turn-based dungeon crawler · Unity · playable prototype</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<li><a class="proj" href="#catnhell" data-open="catnhell"><b>Cat 'n' Hell!</b><span>2D run'n'gun roguelite · Unity · playable prototype</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#otherside" data-open="otherside"><b>Other Side</b><span>First-person turn-based dungeon crawler · Unity · playable prototype</span><span class="arr" aria-hidden="true">›</span></a></li></ul>
 <h3>In development</h3>
 <ul class="list">
 <li class="sealed"><b>Fighting Ground</b><span>Hand-to-hand combat inspired by Sifu and a hex world map inspired by For The King; new moves are stolen from enemies' cyberdecks. Unreal Engine · combat prototype · working title.</span></li>
@@ -550,8 +550,8 @@ button{font:inherit; color:inherit; cursor:pointer}
 <p>Progetti che sviluppo fuori dall'accademia (uso Claude Code per la programmazione).</p></div>
 <h3>Prototipi · demo 1.0 in arrivo</h3>
 <ul class="list">
-<li><button class="proj" data-open="catnhell"><b>Cat 'n' Hell!</b><span>Roguelite run'n'gun 2D · Unity · prototipo giocabile</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="otherside"><b>Other Side</b><span>Dungeon crawler a turni in prima persona · Unity · prototipo giocabile</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<li><a class="proj" href="#catnhell" data-open="catnhell"><b>Cat 'n' Hell!</b><span>Roguelite run'n'gun 2D · Unity · prototipo giocabile</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#otherside" data-open="otherside"><b>Other Side</b><span>Dungeon crawler a turni in prima persona · Unity · prototipo giocabile</span><span class="arr" aria-hidden="true">›</span></a></li></ul>
 <h3>In sviluppo</h3>
 <ul class="list">
 <li class="sealed"><b>Fighting Ground</b><span>Combattimento corpo a corpo ispirato a Sifu e mappa del mondo a esagoni ispirata a For The King; le nuove mosse si rubano dai cyberdeck dei nemici. Unreal Engine · prototipo del combattimento · titolo provvisorio.</span></li>
@@ -664,27 +664,27 @@ button{font:inherit; color:inherit; cursor:pointer}
 <h2 class="t">Projects</h2>
 <h3>Academy projects · Digital Bros Game Academy</h3>
 <ul class="list">
-<li><button class="proj" data-open="antiques"><b>Antiques: The Last Owner</b><span>Narrative Designer &amp; Writer · May–Jul 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="casino"><b>One Hell of a Casino</b><span>Producer · Mar–Apr 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="cosmic"><b>Cosmic Chaos</b><span>Game &amp; Level Designer, Balancing · Feb 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="train"><b>What a Train</b><span>Game &amp; Level Designer · Jan 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="nigishida"><b>The Hunger of Nigishida</b><span>Game &amp; Level Designer · Nov–Dec 2025</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<li><a class="proj" href="#antiques" data-open="antiques"><b>Antiques: The Last Owner</b><span>Narrative Designer &amp; Writer · May–Jul 2026</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#casino" data-open="casino"><b>One Hell of a Casino</b><span>Producer · Mar–Apr 2026</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#cosmic" data-open="cosmic"><b>Cosmic Chaos</b><span>Game &amp; Level Designer, Balancing · Feb 2026</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#train" data-open="train"><b>What a Train</b><span>Game &amp; Level Designer · Jan 2026</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#nigishida" data-open="nigishida"><b>The Hunger of Nigishida</b><span>Game &amp; Level Designer · Nov–Dec 2025</span><span class="arr" aria-hidden="true">›</span></a></li></ul>
 <h3>Personal projects</h3>
 <ul class="list">
-<li><button class="proj" data-open="personal"><b>Personal projects</b><span>Cat 'n' Hell! · Other Side · Fighting Ground · All Bullets for Me</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<li><a class="proj" href="#c-personal" data-open="personal"><b>Personal projects</b><span>Cat 'n' Hell! · Other Side · Fighting Ground · All Bullets for Me</span><span class="arr" aria-hidden="true">›</span></a></li></ul>
 </div>
 <div class="l" lang="it">
 <h2 class="t">Progetti</h2>
 <h3>Progetti accademici · Digital Bros Game Academy</h3>
 <ul class="list">
-<li><button class="proj" data-open="antiques"><b>Antiques: The Last Owner</b><span>Narrative Designer &amp; Writer · mag–lug 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="casino"><b>One Hell of a Casino</b><span>Producer · mar–apr 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="cosmic"><b>Cosmic Chaos</b><span>Game &amp; Level Designer, Balancing · feb 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="train"><b>What a Train</b><span>Game &amp; Level Designer · gen 2026</span><span class="arr" aria-hidden="true">›</span></button></li>
-<li><button class="proj" data-open="nigishida"><b>The Hunger of Nigishida</b><span>Game &amp; Level Designer · nov–dic 2025</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<li><a class="proj" href="#antiques" data-open="antiques"><b>Antiques: The Last Owner</b><span>Narrative Designer &amp; Writer · mag–lug 2026</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#casino" data-open="casino"><b>One Hell of a Casino</b><span>Producer · mar–apr 2026</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#cosmic" data-open="cosmic"><b>Cosmic Chaos</b><span>Game &amp; Level Designer, Balancing · feb 2026</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#train" data-open="train"><b>What a Train</b><span>Game &amp; Level Designer · gen 2026</span><span class="arr" aria-hidden="true">›</span></a></li>
+<li><a class="proj" href="#nigishida" data-open="nigishida"><b>The Hunger of Nigishida</b><span>Game &amp; Level Designer · nov–dic 2025</span><span class="arr" aria-hidden="true">›</span></a></li></ul>
 <h3>Progetti personali</h3>
 <ul class="list">
-<li><button class="proj" data-open="personal"><b>Progetti personali</b><span>Cat 'n' Hell! · Other Side · Fighting Ground · All Bullets for Me</span><span class="arr" aria-hidden="true">›</span></button></li></ul>
+<li><a class="proj" href="#c-personal" data-open="personal"><b>Progetti personali</b><span>Cat 'n' Hell! · Other Side · Fighting Ground · All Bullets for Me</span><span class="arr" aria-hidden="true">›</span></a></li></ul>
 </div>
 </template>
 
@@ -894,7 +894,8 @@ winLayer.addEventListener("click", function(e){
  var id = win.dataset.id;
  if (e.target.closest(".close")) { closeWin(id); return; }
  if (e.target.closest(".min")) { minWin(id); return; }
- var o = e.target.closest("[data-open]"); if (o) { openWin(o.dataset.open, o); return; }
+ /* i link delle schede (href="#…") nell'OS aprono la finestra, non cambiano pagina */
+ var o = e.target.closest("[data-open]"); if (o) { e.preventDefault(); openWin(o.dataset.open, o); return; }
  if (e.target.closest("[data-copy]")) { copyEmail(); return; }
 });
 winLayer.addEventListener("pointerdown", function(e){
@@ -1005,7 +1006,7 @@ function relang(){
 /* ---------- vista classica (HTML già nella pagina: qui solo i comandi) ---------- */
 function bindClassic(){
  /* ogni pulsante della pagina scorre alla scheda giusta (Cat 'n' Hell! e Other Side inclusi) */
- classic.querySelectorAll("[data-open]").forEach(function(b){ b.addEventListener("click", function(){ var tid = webTarget(b.dataset.open); if (tid) goWeb(tid, false); }); });
+ classic.querySelectorAll("[data-open]").forEach(function(b){ b.addEventListener("click", function(e){ var tid = webTarget(b.dataset.open); if (tid) { e.preventDefault(); goWeb(tid, false); } }); });
  var menuBtn = document.getElementById("clMenu"), bar = classic.querySelector(".cl-top");
  menuBtn.addEventListener("click", function(){ setMenu(!bar.classList.contains("open")); });
  classic.querySelectorAll(".cl-top nav a").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
