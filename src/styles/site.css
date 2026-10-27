@@ -88,15 +88,19 @@ button{font:inherit; color:inherit; cursor:pointer}
 .tools{font:400 16px/1.8 var(--f-ui)}
 .toast{margin:8px 0 0; font:600 15px var(--f-ui)}
 
-/* bug report d'esempio: campi in una lista di definizioni (leggibile da screen reader) */
-.bug{margin:10px 0 6px; border:3px solid var(--black); background:var(--grey-light)}
-.bug h3{margin:0; padding:10px 14px; background:var(--black); color:var(--white); font:400 22px/1.25 var(--f-head)}
-.bug dl{margin:0; padding:12px 14px; display:grid; grid-template-columns:minmax(110px,max-content) 1fr; gap:8px 16px}
-.bug dt{font:400 15px/1.4 var(--f-ui); color:var(--grey-text)}
-.bug dd{margin:0; font:400 17px/1.45 var(--f-text); color:var(--black)}
-.bug dd ol{margin:0; padding-left:1.2em}
-.bug .src{margin:0; padding:0 14px 12px; font:400 15px/1.4 var(--f-ui); color:var(--grey-text)}
-@media (max-width:520px){ .bug dl{grid-template-columns:1fr; gap:2px} .bug dd{margin-bottom:8px} }
+/* bug report d'esempio: scheda come in un bug tracker (titolo, campi, passi, atteso/ottenuto) */
+.bug{margin:8px 0 6px; border:3px solid var(--black); background:var(--white)}
+.bug-title{margin:0; padding:12px 14px; background:var(--black); color:var(--white); font:700 19px/1.35 var(--f-text)}
+.bug-id{display:inline-block; margin-right:6px; padding:0 8px; border:2px solid var(--white); border-radius:6px; font:600 15px/1.5 var(--f-ui)}
+.bug-meta{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:8px 18px; margin:0; padding:12px 14px; background:var(--grey-light); border-bottom:3px solid var(--black)}
+.bug-meta div{display:flex; flex-direction:column; min-width:0}
+.bug-meta dt{font:400 14px/1.3 var(--f-ui); color:var(--grey-text)}
+.bug-meta dd{margin:0; font:700 16px/1.35 var(--f-text); color:var(--black)}
+.bug-body{padding:4px 14px 12px; max-width:62ch}
+.bug-body h4{margin:12px 0 4px; font:700 15px/1.3 var(--f-ui); letter-spacing:.06em; text-transform:uppercase; color:var(--grey-text)}
+.bug-body p,.bug-body ol{margin:0}
+.bug-body ol{padding-left:1.3em}
+.src{margin:8px 0 0; font:400 15px/1.45 var(--f-ui); color:var(--grey-text); max-width:62ch}
 
 /* pagina di un progetto */
 .crumb{margin:0 0 4px; font:400 15px var(--f-ui)}

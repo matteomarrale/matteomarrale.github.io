@@ -1,5 +1,5 @@
 ---
-// Home: presentazione, Chi sono, Come testo, progetti (prima quelli con prove QA), personali, contatti.
+// Home: presentazione, Chi sono, Come faccio QA Testing, progetti (prima quelli con prove QA), personali, contatti.
 // Testi: About LinkedIn del 27/10 e CV master del 27/10 (DEC-039). Il bug report è un riassunto del file
 // «Bugs Report» di Cosmic Chaos (feb 2026) sul drive dell'accademia, letto e basta (DEC-039 punto 4).
 import Base from '../layouts/Base.astro';
@@ -35,8 +35,7 @@ const T = {
       'AIV — Accademia Italiana Videogiochi — Strategic Writing &amp; Screenwriting (first year completed), Milan: Sep 2023 – Jun 2024',
     ],
     toolsH: 'Tools',
-    testing: 'How I test',
-    qaH: 'QA in my projects',
+    testing: 'How I do QA Testing',
     qa: [
       ['cosmic', 'Cosmic Chaos', 'testing, bug reports and balancing analysis up to the final build. I also designed the twist and the enemy patterns and co-wrote the GDD with the team.'],
       ['casino', 'One Hell of a Casino', 'Producer, team of 15. I created the feedback form for the beta testers.'],
@@ -44,15 +43,7 @@ const T = {
       ['catnhell', "Cat 'n' Hell! (personal project)", 'playtested the prototype and wrote a list of bugs and fixes toward the 1.0 demo.'],
     ],
     bugH: 'Example bug report',
-    bug: [
-      ['Title', 'Enemy formation does not spawn after “Retry”'],
-      ['Project', 'Cosmic Chaos (Unity) · Feb 2026'],
-      ['Steps', '<ol><li>Start a game</li><li>Lose an attempt</li><li>Press “Retry”</li></ol>'],
-      ['Expected', 'The enemy formation spawns'],
-      ['Actual', 'No enemy formation spawns'],
-      ['Workaround', 'Going back to the menu and pressing “Play” does not fix it; closing and reopening the game does'],
-    ],
-    bugSrc: 'Summary of my original bug report for Cosmic Chaos (Feb 2026), rewritten in a standard format.',
+    bugSrc: 'From my original Cosmic Chaos bug report (Feb 2026), rewritten in a professional bug-tracker format.',
     projectsH: 'Projects', academyH: 'Academy projects · Digital Bros Game Academy',
     personalH: 'Personal projects', personalP: 'Projects I develop outside the academy (I use Claude Code for programming).',
     protoH: 'Prototypes · 1.0 demos coming', devH: 'In development',
@@ -84,8 +75,7 @@ const T = {
       'AIV — Accademia Italiana Videogiochi — Strategic Writing &amp; Screenwriting (1° anno completato), Milano: set 2023 – giu 2024',
     ],
     toolsH: 'Strumenti',
-    testing: 'Come testo',
-    qaH: 'QA nei miei progetti',
+    testing: 'Come faccio QA Testing',
     qa: [
       ['cosmic', 'Cosmic Chaos', 'testing, bug report e analisi di bilanciamento fino alla build finale. Ho anche progettato il twist e i pattern dei nemici e scritto il GDD insieme al team.'],
       ['casino', 'One Hell of a Casino', 'Producer, team di 15. Ho creato il modulo di feedback per i tester della beta.'],
@@ -93,15 +83,7 @@ const T = {
       ['catnhell', "Cat 'n' Hell! (progetto personale)", 'playtest del prototipo e lista di bug e correzioni verso la demo 1.0.'],
     ],
     bugH: "Bug report d'esempio",
-    bug: [
-      ['Titolo', 'La formazione nemica non compare dopo «Retry»'],
-      ['Progetto', 'Cosmic Chaos (Unity) · feb 2026'],
-      ['Passi', '<ol><li>Avvia una partita</li><li>Perdi un tentativo</li><li>Premi «Retry»</li></ol>'],
-      ['Risultato atteso', 'La formazione nemica compare'],
-      ['Risultato ottenuto', 'Nessuna formazione nemica compare'],
-      ['Soluzione temporanea', 'Tornare al menu e premere «Play» non risolve; chiudere e riaprire il gioco sì'],
-    ],
-    bugSrc: 'Riassunto del mio bug report originale di Cosmic Chaos (feb 2026), riscritto in un formato standard.',
+    bugSrc: 'Dal mio bug report originale di Cosmic Chaos (feb 2026), riscritto nel formato professionale di un bug tracker.',
     projectsH: 'Progetti', academyH: 'Progetti accademici · Digital Bros Game Academy',
     personalH: 'Progetti personali', personalP: "Progetti che sviluppo fuori dall'accademia (uso Claude Code per la programmazione).",
     protoH: 'Prototipi · demo 1.0 in arrivo', devH: 'In sviluppo',
@@ -110,6 +92,41 @@ const T = {
       ['All Bullets for Me', 'Un FPS basato sul combinare armi e poteri. Unreal Engine · primi test delle meccaniche · titolo provvisorio.'],
     ],
     contact: 'Contatti', write: 'Puoi scrivermi a:', copy: 'Copia email',
+  },
+};
+// Bug report in italiano e inglese (approvato da Matteo il 27/10). Fatti dal file originale; gravità, frequenza e build date da Matteo.
+const BUG = {
+  en: {
+    title: '[Gameplay] Enemy formation does not spawn after pressing “Retry”',
+    meta: [
+      ['Project', 'Cosmic Chaos (Unity)'],
+      ['Severity', 'Major'],
+      ['Repro rate', 'Sometimes'],
+      ['Platform', 'PC (Windows) build'],
+      ['Area', 'Gameplay · enemy spawn'],
+      ['Reported by', 'Matteo Marrale · Feb 2026'],
+    ],
+    stepsH: 'Steps to reproduce', expectedH: 'Expected result', actualH: 'Actual result', workaroundH: 'Workaround',
+    steps: ['Launch the game and press “Play” from the main menu.', 'Lose an attempt.', 'Press “Retry”.'],
+    expected: 'The enemy formation spawns at the start of the new attempt.',
+    actual: 'No enemy formation spawns.',
+    workaround: 'Close and reopen the game. Returning to the main menu and pressing “Play” does not fix it.',
+  },
+  it: {
+    title: '[Gameplay] La formazione nemica non compare dopo aver premuto «Retry»',
+    meta: [
+      ['Progetto', 'Cosmic Chaos (Unity)'],
+      ['Gravità', 'Alta (Major)'],
+      ['Frequenza', 'A volte'],
+      ['Piattaforma', 'Build PC (Windows)'],
+      ['Area', 'Gameplay · spawn dei nemici'],
+      ['Segnalato da', 'Matteo Marrale · feb 2026'],
+    ],
+    stepsH: 'Passi per riprodurre', expectedH: 'Risultato atteso', actualH: 'Risultato ottenuto', workaroundH: 'Soluzione temporanea',
+    steps: ['Avvia il gioco e premi «Play» dal menu principale.', 'Perdi un tentativo.', 'Premi «Retry».'],
+    expected: "All'inizio del nuovo tentativo compare la formazione nemica.",
+    actual: 'Non compare nessuna formazione nemica.',
+    workaround: 'Chiudi e riapri il gioco. Tornare al menu principale e premere «Play» non risolve.',
   },
 };
 const langs: Lang[] = ['en', 'it'];
@@ -164,13 +181,23 @@ const cvBtns = CV.map(([href, label, hl]) => ({ href, label, hl }));
 {langs.map((l) => (
   <div class="l" lang={l}>
     <h2 class="t">{T[l].testing}</h2>
-    <h3>{T[l].qaH}</h3>
     <div class="prose"><ul>{T[l].qa.map(([slug, name, txt]) => <li><a href={`/projects/${slug}/`}>{name}</a> — {txt}</li>)}</ul></div>
+    <h3>{T[l].bugH}</h3>
     <div class="bug">
-      <h3>{T[l].bugH}</h3>
-      <dl>{T[l].bug.map(([k, v]) => <><dt>{k}</dt><dd set:html={v} /></>)}</dl>
-      <p class="src">{T[l].bugSrc}</p>
+      <p class="bug-title"><span class="bug-id">#1</span> {BUG[l].title}</p>
+      <dl class="bug-meta">{BUG[l].meta.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+      <div class="bug-body">
+        <h4>{BUG[l].stepsH}</h4>
+        <ol>{BUG[l].steps.map((x) => <li>{x}</li>)}</ol>
+        <h4>{BUG[l].expectedH}</h4>
+        <p>{BUG[l].expected}</p>
+        <h4>{BUG[l].actualH}</h4>
+        <p>{BUG[l].actual}</p>
+        <h4>{BUG[l].workaroundH}</h4>
+        <p>{BUG[l].workaround}</p>
+      </div>
     </div>
+    <p class="src">{T[l].bugSrc}</p>
   </div>
 ))}
 </section>
