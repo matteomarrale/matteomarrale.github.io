@@ -1,0 +1,93 @@
+---
+// Layout comune: <head>, barra in alto con le sezioni e il tasto lingua.
+// Le due lingue stanno nello stesso HTML (.l[lang]); alla prima visita vale la lingua del browser, poi quella scelta (DEC-029).
+import '../styles/site.css';
+
+interface Props { title: string; description: string; path: string; jsonLd?: object }
+const { title, description, path, jsonLd } = Astro.props;
+const url = new URL(path, Astro.site).href;
+const og = new URL('/og-image.jpg', Astro.site).href;
+const home = path === '/';
+const nav = [
+  ['#c-about', 'About me', 'Chi sono'],
+  ['#c-testing', 'How I test', 'Come testo'],
+  ['#c-projects', 'Projects', 'Progetti'],
+  ['#c-personal', 'Personal', 'Personali'],
+  ['#c-contact', 'Contact', 'Contatti'],
+];
+---
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:url" content={url}>
+<meta property="og:image" content={og}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Matteo Marrale — Junior QA Tester | Game Designer">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href={url}>
+{jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+<link rel="preload" href="/fonts/jacquard-24-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/eb-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script is:inline>
+/* lingua prima del primo disegno (evita il lampo in inglese); se gira, JavaScript c'è.
+   I vecchi link alla pagina unica (#cosmic, #antiques, …) portano alla pagina del progetto. */
+(function(){ var d = document.documentElement, l = "en", s = null; d.classList.remove("no-js");
+ var h = (location.hash || "").slice(1), old = {antiques:1, casino:1, cosmic:1, train:1, nigishida:1, catnhell:1, otherside:1};
+ if (location.pathname === "/" && old[h]) { location.replace("/projects/" + h + "/"); return; }
+ try { s = JSON.parse(localStorage.getItem("cvos-settings") || "null"); } catch(e){}
+ if (s && s.lang) l = s.lang; else { try { if (/^it\b/i.test(navigator.language || "")) l = "it"; } catch(e){} }
+ d.lang = l === "it" ? "it" : "en";
+ try { if (/(?:^|[?&])dev(?:=1)?(?:&|$)/.test(location.search.slice(1)) || localStorage.getItem("cvos-dev") === "1") d.classList.add("dev"); } catch(e){} })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main"><span class="l" lang="en">Skip to content</span><span class="l" lang="it">Vai al contenuto</span></a>
+<header class="cl-top">
+<a class="name" href="/">Matteo Marrale</a>
+<button class="cl-menu" id="clMenu" aria-expanded="false" aria-controls="clPanel">Menu</button>
+<div class="cl-panel" id="clPanel">
+<nav aria-label="Sections">
+{nav.map(([h, en, it]) => <a href={home ? h : '/' + h}><span class="l" lang="en">{en}</span><span class="l" lang="it">{it}</span></a>)}
+</nav>
+<div class="act"><button id="clLang" type="button">EN / IT</button></div>
+</div>
+</header>
+<main id="main" class="cl" tabindex="-1">
+<slot />
+</main>
+<script is:inline>
+(function(){
+ var d = document.documentElement, bar = document.querySelector(".cl-top"), menu = document.getElementById("clMenu");
+ function save(){ try { localStorage.setItem("cvos-settings", JSON.stringify({lang:d.lang})); } catch(e){} }
+ function label(){ document.getElementById("clLang").textContent = d.lang === "it" ? "IT / EN" : "EN / IT"; document.querySelector(".cl-top nav").setAttribute("aria-label", d.lang === "it" ? "Sezioni" : "Sections"); }
+ function setMenu(open){ bar.classList.toggle("open", open); menu.setAttribute("aria-expanded", String(open)); }
+ /* altezza reale della barra: serve a scroll-margin-top delle ancore */
+ function measure(){ d.style.setProperty("--cl-top-h", bar.offsetHeight + "px"); }
+ label(); measure();
+ document.getElementById("clLang").addEventListener("click", function(){ var y = window.scrollY; d.lang = d.lang === "en" ? "it" : "en"; label(); save(); window.scrollTo(0, y); });
+ menu.addEventListener("click", function(){ setMenu(!bar.classList.contains("open")); });
+ bar.querySelectorAll("nav a").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+ document.addEventListener("keydown", function(e){ if (e.key === "Escape" && bar.classList.contains("open")) { setMenu(false); menu.focus(); } });
+ window.addEventListener("resize", function(){ measure(); if (window.innerWidth > 760) setMenu(false); });
+ /* copia email: messaggio nella lingua della pagina, annunciato agli screen reader */
+ document.querySelectorAll("[data-copy]").forEach(function(b){ b.addEventListener("click", function(){
+  var out = b.closest(".l").querySelector(".toast"), it = d.lang === "it";
+  function say(m){ out.textContent = m; setTimeout(function(){ out.textContent = ""; }, 3000); }
+  try { navigator.clipboard.writeText("matteo.marrale.1998@gmail.com").then(function(){ say(it ? "Email copiata" : "Email copied"); }, function(){ say(it ? "Seleziona l'indirizzo e copialo" : "Select the address and copy it"); }); }
+  catch(e){ say(it ? "Seleziona l'indirizzo e copialo" : "Select the address and copy it"); }
+ }); });
+})();
+</script>
+</body>
+</html>

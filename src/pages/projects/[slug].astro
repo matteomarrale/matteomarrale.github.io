@@ -1,0 +1,41 @@
+---
+// Una pagina per progetto (caso di studio): fatti, contesto, cosa ho fatto, link. Testi da src/data/projects.ts.
+import Base from '../../layouts/Base.astro';
+import { projects, type Lang } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((p, i) => ({ params: { slug: p.slug }, props: { p, next: projects[(i + 1) % projects.length] } }));
+}
+const { p, next } = Astro.props;
+const langs: Lang[] = ['en', 'it'];
+const UI = {
+  en: { all: '← All projects', ctx: 'Context', did: 'What I did', next: 'Next project', grp: p.group === 'academy' ? 'Academy project · Digital Bros Game Academy' : 'Personal project' },
+  it: { all: '← Tutti i progetti', ctx: 'Contesto', did: 'Cosa ho fatto', next: 'Progetto successivo', grp: p.group === 'academy' ? 'Progetto accademico · Digital Bros Game Academy' : 'Progetto personale' },
+};
+---
+<Base title={`${p.title} — Matteo Marrale`} path={`/projects/${p.slug}/`} description={p.en.context}>
+<article>
+{langs.map((l) => {
+  const t = p[l];
+  return (
+  <div class="l" lang={l}>
+    <p class="crumb"><a href="/#c-projects">{UI[l].all}</a></p>
+    <h1 class="t">{p.title}</h1>
+    <p class="meta">{UI[l].grp}</p>
+    <dl class="facts">{t.facts.map(([k, v]) => <div><dt>{k}</dt><dd set:html={v} /></div>)}</dl>
+    {t.dev?.map((d) => <div class="ph" data-dev>{d}</div>)}
+    <div class="prose">
+      <h2 class="t">{UI[l].ctx}</h2>
+      <p>{t.context}</p>
+      <h2 class="t">{UI[l].did}</h2>
+    </div>
+    {t.loop && <div class="loop" aria-label="Core loop">{t.loop.map((s, i) => <>{i > 0 && <i>→</i>}<span class={i === t.loop!.length - 1 ? 'end' : undefined}>{s}</span></>)}</div>}
+    <div class="prose"><ul>{t.did.map((d) => <li set:html={d} />)}</ul></div>
+    {t.links && <div class="btns">{t.links.map((k) => <a class="btn" href={k.href} target="_blank" rel="noopener">{k.label}</a>)}</div>}
+  </div>);
+})}
+</article>
+<nav class="next" aria-label="Projects">
+{langs.map((l) => <div class="l btns" lang={l}><a class="btn" href="/#c-projects">{UI[l].all}</a><a class="btn" href={`/projects/${next.slug}/`}>{UI[l].next}: {next.title} ›</a></div>)}
+</nav>
+</Base>
