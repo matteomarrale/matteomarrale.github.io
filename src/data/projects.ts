@@ -5,7 +5,7 @@
 export type Lang = 'en' | 'it';
 export interface Text {
   role: string;          // riga breve nell'elenco della home
-  card: { meta: string; line: string; tags: string[] }; // card della home (etichette ricavate dai fatti, scritte da Claude)
+  card: { meta: string; line: string; tags: string[] }; // card della home (etichette ricavate dai fatti da Claude, approvate da Matteo il 27/10)
   when: string;
   facts: [string, string][];
   context: string;
