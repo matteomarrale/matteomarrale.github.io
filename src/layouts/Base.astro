@@ -8,11 +8,11 @@ const { title, description, path, jsonLd } = Astro.props;
 const url = new URL(path, Astro.site).href;
 const og = new URL('/og-image.jpg', Astro.site).href;
 const home = path === '/';
+// ordine scelto da Matteo il 27/10: Chi sono (insieme alla presentazione), QA, Progetti, Contatti
 const nav = [
   ['#c-about', 'About me', 'Chi sono'],
   ['#c-testing', 'How I do QA Testing', 'Come faccio QA Testing'],
   ['#c-projects', 'Projects', 'Progetti'],
-  ['#c-personal', 'Personal', 'Personali'],
   ['#c-contact', 'Contact', 'Contatti'],
 ];
 ---
@@ -53,17 +53,17 @@ const nav = [
 </head>
 <body>
 <a class="skip-link" href="#main"><span class="l" lang="en">Skip to content</span><span class="l" lang="it">Vai al contenuto</span></a>
-<header class="cl-top">
+<header class="cl-top"><div class="wrap">
 <a class="name" href="/">Matteo Marrale</a>
 <button class="cl-menu" id="clMenu" aria-expanded="false" aria-controls="clPanel">Menu</button>
 <div class="cl-panel" id="clPanel">
 <nav aria-label="Sections">
 {nav.map(([h, en, it]) => <a href={home ? h : '/' + h}><span class="l" lang="en">{en}</span><span class="l" lang="it">{it}</span></a>)}
 </nav>
-<div class="act"><button id="clLang" type="button">EN / IT</button></div>
+<button id="clLang" type="button">EN / IT</button>
 </div>
-</header>
-<main id="main" class="cl" tabindex="-1">
+</div></header>
+<main id="main" tabindex="-1">
 <slot />
 </main>
 <script is:inline>

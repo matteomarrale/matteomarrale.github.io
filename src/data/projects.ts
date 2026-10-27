@@ -5,6 +5,7 @@
 export type Lang = 'en' | 'it';
 export interface Text {
   role: string;          // riga breve nell'elenco della home
+  card: { meta: string; line: string; tags: string[] }; // card della home (etichette ricavate dai fatti, scritte da Claude)
   when: string;
   facts: [string, string][];
   context: string;
@@ -26,6 +27,7 @@ export const projects: Project[] = [
   {
     slug: 'cosmic', title: 'Cosmic Chaos', group: 'academy',
     en: {
+      card: { meta: 'Feb 2026 · Unity', line: 'Game &amp; Level Designer, Testing &amp; Balancing', tags: ['Testing', 'Bug reports', 'Balancing'] },
       role: 'Game &amp; Level Designer, Testing &amp; Balancing', when: 'Feb 2026',
       facts: [['Role', 'Game &amp; Level Designer, Testing &amp; Balancing'], ['When', 'Feb 2026'], ['Engine', 'Unity'], ['Format', '“Shuffle”: a new team every 5 days']],
       context: 'Space Invaders with a twist. "Shuffle" format: the project moved to a different team every 5 days.',
@@ -37,6 +39,7 @@ export const projects: Project[] = [
       dev: ['[IMG 16:9 · gameplay with enemy formations]', '[DA FORNIRE: link build / docs]'],
     },
     it: {
+      card: { meta: 'feb 2026 · Unity', line: 'Game &amp; Level Designer, Testing &amp; Balancing', tags: ['Testing', 'Bug report', 'Balancing'] },
       role: 'Game &amp; Level Designer, Testing &amp; Balancing', when: 'feb 2026',
       facts: [['Ruolo', 'Game &amp; Level Designer, Testing &amp; Balancing'], ['Periodo', 'feb 2026'], ['Motore', 'Unity'], ['Formato', '“Shuffle”: team diversi ogni 5 giorni']],
       context: 'Space Invaders con un twist. Formato "Shuffle": il progetto passava a un altro team ogni 5 giorni.',
@@ -51,6 +54,7 @@ export const projects: Project[] = [
   {
     slug: 'casino', title: 'One Hell of a Casino', group: 'academy',
     en: {
+      card: { meta: 'Mar–Apr 2026 · Unity · Android', line: 'Producer · team of 15', tags: ['Feedback form', 'Beta'] },
       role: 'Producer', when: 'Mar–Apr 2026',
       facts: [['Role', 'Producer'], ['When', 'Mar–Apr 2026'], ['Engine', 'Unity'], ['Platform', 'Android'], ['Team', '15']],
       context: 'Hell-themed casual mobile game for Android: a mini-game collection with a gacha system and simulated monetization.',
@@ -63,6 +67,7 @@ export const projects: Project[] = [
       dev: ['[IMG 16:9 · main menu with mascot, mini-game, shop/gacha]', '[DA FORNIRE: link build / docs]'],
     },
     it: {
+      card: { meta: 'mar–apr 2026 · Unity · Android', line: 'Producer · team di 15', tags: ['Modulo di feedback', 'Beta'] },
       role: 'Producer', when: 'mar–apr 2026',
       facts: [['Ruolo', 'Producer'], ['Periodo', 'mar–apr 2026'], ['Motore', 'Unity'], ['Piattaforma', 'Android'], ['Team', '15']],
       context: 'Gioco mobile casual a tema infernale per Android: una raccolta di minigiochi con sistema gacha e monetizzazione simulata.',
@@ -78,6 +83,7 @@ export const projects: Project[] = [
   {
     slug: 'nigishida', title: 'The Hunger of Nigishida', group: 'academy',
     en: {
+      card: { meta: 'Nov–Dec 2025 · Unity', line: 'Game &amp; Level Designer · team of 8', tags: ['Internal test', '17 changes'] },
       role: 'Game &amp; Level Designer', when: 'Nov–Dec 2025',
       facts: [['Role', 'Game &amp; Level Designer'], ['When', 'Nov–Dec 2025'], ['Engine', 'Unity · first Unity project'], ['Team', '8']],
       context: 'Top-down arcade game set in Sumerian mythology: 3 levels, scoring and power-ups.',
@@ -89,6 +95,7 @@ export const projects: Project[] = [
       dev: ['[IMG 16:9 · top-down view of a level]', '[DA FORNIRE: link build / docs]'],
     },
     it: {
+      card: { meta: 'nov–dic 2025 · Unity', line: 'Game &amp; Level Designer · team di 8', tags: ['Test interno', '17 modifiche'] },
       role: 'Game &amp; Level Designer', when: 'nov–dic 2025',
       facts: [['Ruolo', 'Game &amp; Level Designer'], ['Periodo', 'nov–dic 2025'], ['Motore', 'Unity · primo progetto Unity'], ['Team', '8']],
       context: 'Arcade top-down ambientato nella mitologia sumera: 3 livelli, punteggio e power-up.',
@@ -103,6 +110,7 @@ export const projects: Project[] = [
   {
     slug: 'antiques', title: 'Antiques: The Last Owner', group: 'academy',
     en: {
+      card: { meta: 'May–Jul 2026 · Unity (URP)', line: 'Narrative Designer &amp; Writer · team of 14', tags: ['Narrative design', 'Dialogue'] },
       role: 'Narrative Designer &amp; Writer', when: 'May–Jul 2026',
       facts: [['Role', 'Narrative Designer &amp; Writer'], ['When', 'May–Jul 2026'], ['Engine', 'Unity (URP)'], ['Platform', 'PC'], ['Team', '14'], ['Release', '3 July 2026']],
       context: 'First-person restoration sim with supernatural elements. An antique shop where every object to restore is possessed by a ghost with a regret. 6 in-game days, 3 ghosts, 6 objects.',
@@ -116,6 +124,7 @@ export const projects: Project[] = [
       dev: ['[VIDEO 16:9 · Antiques trailer / gameplay]', '[IMG 16:9 · restoration bench]', '[IMG 16:9 · ritual table]', '[IMG 16:9 · on-screen dialogue]', '[DA FORNIRE: link GDD / Beat chart, playable build]'],
     },
     it: {
+      card: { meta: 'mag–lug 2026 · Unity (URP)', line: 'Narrative Designer &amp; Writer · team di 14', tags: ['Narrative design', 'Dialoghi'] },
       role: 'Narrative Designer &amp; Writer', when: 'mag–lug 2026',
       facts: [['Ruolo', 'Narrative Designer &amp; Writer'], ['Periodo', 'mag–lug 2026'], ['Motore', 'Unity (URP)'], ['Piattaforma', 'PC'], ['Team', '14'], ['Uscita', '3 luglio 2026']],
       context: 'Simulatore di restauro in prima persona con elementi soprannaturali. Un negozio di antiquariato dove ogni oggetto da restaurare è posseduto da un fantasma con un rimpianto. 6 giorni di gioco, 3 fantasmi, 6 oggetti.',
@@ -132,6 +141,7 @@ export const projects: Project[] = [
   {
     slug: 'train', title: 'What a Train', group: 'academy',
     en: {
+      card: { meta: 'Jan 2026 · Unity', line: 'Game &amp; Level Designer', tags: ['Game jam', '5 days'] },
       role: 'Game &amp; Level Designer', when: 'Jan 2026',
       facts: [['Role', 'Game &amp; Level Designer'], ['When', 'Jan 2026'], ['Engine', 'Unity'], ['Format', '1-week game jam']],
       context: 'Theme "origin of music": side camera, 26-second runs, at least one mandatory diversifier.',
@@ -139,6 +149,7 @@ export const projects: Project[] = [
       dev: ['[IMG 16:9 · prototype]', '[DA FORNIRE: link build / docs]'],
     },
     it: {
+      card: { meta: 'gen 2026 · Unity', line: 'Game &amp; Level Designer', tags: ['Game jam', '5 giorni'] },
       role: 'Game &amp; Level Designer', when: 'gen 2026',
       facts: [['Ruolo', 'Game &amp; Level Designer'], ['Periodo', 'gen 2026'], ['Motore', 'Unity'], ['Formato', 'Game jam di 1 settimana']],
       context: 'Tema "origine della musica": camera laterale, run di 26 secondi, almeno un diversifier obbligatorio.',
@@ -149,6 +160,7 @@ export const projects: Project[] = [
   {
     slug: 'catnhell', title: "Cat 'n' Hell!", group: 'personal',
     en: {
+      card: { meta: 'Personal project · Unity · PC', line: 'Game design &amp; development', tags: ['Playtest', 'Bug list'] },
       role: "2D run'n'gun roguelite · Unity · playable prototype", when: '',
       facts: [['Role', 'Game design &amp; development'], ['Status', 'Playable prototype'], ['Engine', 'Unity'], ['Platform', 'PC'], ['Genre', "2D run'n'gun roguelite"]],
       context: "A 2D run'n'gun roguelite set in a cat-shaped Hell, developed in Unity.",
@@ -160,6 +172,7 @@ export const projects: Project[] = [
       dev: ["[IMG 16:9 · Cat ’n’ Hell! gameplay]", '[DA FORNIRE: link build / docs]'],
     },
     it: {
+      card: { meta: 'Progetto personale · Unity · PC', line: 'Game design e sviluppo', tags: ['Playtest', 'Lista di bug'] },
       role: "Roguelite run'n'gun 2D · Unity · prototipo giocabile", when: '',
       facts: [['Ruolo', 'Game design e sviluppo'], ['Stato', 'Prototipo giocabile'], ['Motore', 'Unity'], ['Piattaforma', 'PC'], ['Genere', "Roguelite run'n'gun 2D"]],
       context: "Un roguelite run'n'gun 2D ambientato in un Inferno a forma di gatto, sviluppato in Unity.",
@@ -174,6 +187,7 @@ export const projects: Project[] = [
   {
     slug: 'otherside', title: 'Other Side', group: 'personal',
     en: {
+      card: { meta: 'Personal project · Unity (URP) · PC', line: 'First-person turn-based dungeon crawler', tags: [] },
       role: 'First-person turn-based dungeon crawler · Unity · playable prototype', when: '',
       facts: [['Role', 'Solo personal project'], ['Status', 'Playable prototype'], ['Engine', 'Unity (URP)'], ['Platform', 'PC'], ['Genre', 'First-person turn-based dungeon crawler, permadeath']],
       context: 'A first-person, turn-based dungeon crawler with permadeath, developed in Unity. You beat each enemy by using your items and the room around you. When you die, you start over: all you keep between runs is a journal you draw and write in yourself.',
@@ -181,6 +195,7 @@ export const projects: Project[] = [
       dev: ['[IMG 16:9 · Other Side gameplay]', '[DA FORNIRE: link build / docs]'],
     },
     it: {
+      card: { meta: 'Progetto personale · Unity (URP) · PC', line: 'Dungeon crawler a turni in prima persona', tags: [] },
       role: 'Dungeon crawler a turni in prima persona · Unity · prototipo giocabile', when: '',
       facts: [['Ruolo', 'Progetto personale'], ['Stato', 'Prototipo giocabile'], ['Motore', 'Unity (URP)'], ['Piattaforma', 'PC'], ['Genere', 'Dungeon crawler a turni in prima persona, permadeath']],
       context: "Un dungeon crawler a turni in prima persona con permadeath, sviluppato in Unity. Ogni nemico si sconfigge sfruttando gli oggetti e la stanza. Quando muori ricominci da capo: tra una run e l'altra conservi solo un diario che disegni e scrivi tu.",

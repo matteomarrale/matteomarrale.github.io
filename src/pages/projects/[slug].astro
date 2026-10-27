@@ -14,20 +14,20 @@ const UI = {
 };
 ---
 <Base title={`${p.title} — Matteo Marrale`} path={`/projects/${p.slug}/`} description={p.en.context}>
-<article>
+<article class="wrap page">
 {langs.map((l) => {
   const t = p[l];
   return (
   <div class="l" lang={l}>
     <p class="crumb"><a href="/#c-projects">{UI[l].all}</a></p>
-    <h1 class="t">{p.title}</h1>
-    <p class="meta">{UI[l].grp}</p>
+    <span class="label acc">{UI[l].grp}</span>
+    <h1>{p.title}</h1>
     <dl class="facts">{t.facts.map(([k, v]) => <div><dt>{k}</dt><dd set:html={v} /></div>)}</dl>
     {t.dev?.map((d) => <div class="ph" data-dev>{d}</div>)}
     <div class="prose">
-      <h2 class="t">{UI[l].ctx}</h2>
+      <h2>{UI[l].ctx}</h2>
       <p>{t.context}</p>
-      <h2 class="t">{UI[l].did}</h2>
+      <h2>{UI[l].did}</h2>
     </div>
     {t.loop && <div class="loop" aria-label="Core loop">{t.loop.map((s, i) => <>{i > 0 && <i>→</i>}<span class={i === t.loop!.length - 1 ? 'end' : undefined}>{s}</span></>)}</div>}
     <div class="prose"><ul>{t.did.map((d) => <li set:html={d} />)}</ul></div>
@@ -35,7 +35,7 @@ const UI = {
   </div>);
 })}
 </article>
-<nav class="next" aria-label="Projects">
-{langs.map((l) => <div class="l btns" lang={l}><a class="btn" href="/#c-projects">{UI[l].all}</a><a class="btn" href={`/projects/${next.slug}/`}>{UI[l].next}: {next.title} ›</a></div>)}
+<nav class="wrap next" aria-label="Projects">
+{langs.map((l) => <div class="l btns" lang={l}><a class="btn" href="/#c-projects">{UI[l].all}</a><a class="btn fill" href={`/projects/${next.slug}/`}>{UI[l].next}: {next.title} →</a></div>)}
 </nav>
 </Base>

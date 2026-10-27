@@ -1,97 +1,69 @@
 ---
-// Home: presentazione, Chi sono, Come faccio QA Testing, progetti (prima quelli con prove QA), personali, contatti.
-// Testi: About LinkedIn del 27/10 e CV master del 27/10 (DEC-039). Il bug report è un riassunto del file
-// «Bugs Report» di Cosmic Chaos (feb 2026) sul drive dell'accademia, letto e basta (DEC-039 punto 4).
+// Home (variante 1 «scuro + accento», 27/10): presentazione e Chi sono insieme, Come faccio QA Testing, Progetti, Contatti.
+// Testi: testo di Chi sono scritto da Matteo il 27/10 (IT; EN tradotto da Claude, da approvare), CV master e About LinkedIn del 27/10.
+// Il bug report è un riassunto del file «Bugs Report» di Cosmic Chaos (feb 2026) sul drive dell'accademia, letto e basta (DEC-039 punto 4).
 import Base from '../layouts/Base.astro';
 import { projects, type Lang } from '../data/projects';
 
 const academy = projects.filter((p) => p.group === 'academy');
 const personal = projects.filter((p) => p.group === 'personal');
-const CV = [
-  ['/cv/MatteoMarrale_CV_IT.pdf', 'CV IT (PDF)', 'it'],
-  ['/cv/MatteoMarrale_CV_EN.pdf', 'CV EN (PDF)', 'en'],
-];
 
 const T = {
   en: {
-    place: 'Milan',
-    hero: "I'm training at Digital Bros Game Academy in Milan until summer 2027. I'm looking for QA Tester roles in games, in Italy or remote.",
-    btnAbout: 'About me', btnProjects: 'Projects', btnContact: 'Contact',
-    about: 'About me', alt: 'Matteo Marrale in a selfie with a black-and-white cat',
-    intro: "Junior QA Tester with a game design background, training at Digital Bros Game Academy in Milan (October 2025 – summer 2027). From November 2026 I'm taking the DBGA QA Testing course.",
-    isec: 'Before the academy I spent two years as an airport security officer at Malpensa (I-SEC): strict procedures and attention to detail.',
-    lookH: 'Looking for', look: 'QA Tester roles in games, in Italy or remote.',
-    skillsH: 'Skills',
+    cv: '/cv/MatteoMarrale_CV_EN.pdf', cvBtn: 'Download CV', alt: 'Matteo Marrale in a selfie with a black-and-white cat',
+    lead: "I'm a Junior QA Tester with a Game Designer background, looking for work in video game QA, in Italy or remote.",
+    study: "I completed the first year of Strategic Writing &amp; Screenwriting at AIV, and I'm now training as a Game Designer at Digital Bros Game Academy in Milan (October 2025 – summer 2027), where from November 2026 I'm also taking the QA Testing course.",
+    before: 'Before the academy I spent two years as an airport security officer at Malpensa (I-SEC): a job that got me used to following strict procedures and noticing details.',
+    badges: [['Education', 'Digital Bros Game Academy · 2025–2027'], ['Course', 'DBGA QA Testing · from Nov 2026'], ['Languages', 'Italian · English B1'], ['Engines', 'Unity · Unreal Engine']],
     skills: [
       ['QA &amp; Testing', 'bug reporting, playtesting, sorting feedback (incl. Google Forms), balancing &amp; tuning, reading the GDD for expected behavior'],
       ['Game Design', 'core mechanics, gameplay loop, level design, scoring &amp; progression systems'],
       ['Documentation', 'GDD, bug reports, playtest reports, pitch deck, technical design docs'],
-      ['Languages', 'Italian (native), English B1 (GDDs and dialogue written in English)'],
+      ['Tools', 'Unity · Unreal Engine · Google Workspace · Figma · Miro · ClickUp · Notion · Git · Claude Code'],
     ],
-    eduH: 'Education',
-    edu: [
-      'Digital Bros Game Academy — QA Testing online course (Plug-N-Learn, 60 hours): enrolled, starts 11 Nov 2026',
-      'Digital Bros Game Academy — Game Design course, Milan: Oct 2025 – summer 2027 (ongoing)',
-      'AIV — Accademia Italiana Videogiochi — Strategic Writing &amp; Screenwriting (first year completed), Milan: Sep 2023 – Jun 2024',
-    ],
-    toolsH: 'Tools',
-    testing: 'How I do QA Testing',
+    testing: 'How I do QA Testing', bugH: 'Example bug report · Cosmic Chaos',
     qa: [
       ['cosmic', 'Cosmic Chaos', 'testing, bug reports and balancing analysis up to the final build. I also designed the twist and the enemy patterns and co-wrote the GDD with the team.'],
       ['casino', 'One Hell of a Casino', 'Producer, team of 15. I created the feedback form for the beta testers.'],
       ['nigishida', 'The Hunger of Nigishida', 'after internal testing, I collected the feedback into a list of 17 changes assigned to the team.'],
       ['catnhell', "Cat 'n' Hell! (personal project)", 'playtested the prototype and wrote a list of bugs and fixes toward the 1.0 demo.'],
     ],
-    bugH: 'Example bug report',
     bugSrc: 'From my original Cosmic Chaos bug report (Feb 2026), rewritten in a professional bug-tracker format.',
-    projectsH: 'Projects', academyH: 'Academy projects · Digital Bros Game Academy',
-    personalH: 'Personal projects', personalP: 'Projects I develop outside the academy (I use Claude Code for programming).',
-    protoH: 'Prototypes · 1.0 demos coming', devH: 'In development',
+    projectsH: 'Projects', academyH: 'Academy projects · Digital Bros Game Academy', more: 'Case study →',
+    personalH: 'Personal projects', personalP: 'Projects I develop outside the academy (I use Claude Code for programming).', devH: 'In development',
     sealed: [
       ['Fighting Ground', "Hand-to-hand combat inspired by Sifu and a hex world map inspired by For The King; new moves are stolen from enemies' cyberdecks. Unreal Engine · combat prototype · working title."],
       ['All Bullets for Me', 'An FPS built on combining weapons and powers. Unreal Engine · early mechanic tests · working title.'],
     ],
-    contact: 'Contact', write: 'You can write to me at:', copy: 'Copy email',
+    contact: 'Contact', copy: 'Copy email',
   },
   it: {
-    place: 'Milano',
-    hero: "Mi sto formando alla Digital Bros Game Academy di Milano fino all'estate 2027. Cerco ruoli da QA Tester nei videogiochi, in Italia o da remoto.",
-    btnAbout: 'Chi sono', btnProjects: 'Progetti', btnContact: 'Contatti',
-    about: 'Chi sono', alt: 'Matteo Marrale in un selfie con un gatto bianco e nero',
-    intro: 'Junior QA Tester con un percorso da game designer, in formazione alla Digital Bros Game Academy di Milano (ottobre 2025 – estate 2027). Da novembre 2026 seguo il corso QA Testing della DBGA.',
-    isec: "Prima dell'accademia ho lavorato due anni come guardia di sicurezza aeroportuale a Malpensa (I-SEC): procedure rigorose e attenzione ai dettagli.",
-    lookH: 'Cerco', look: 'Ruoli da QA Tester nei videogiochi, in Italia o da remoto.',
-    skillsH: 'Competenze',
+    cv: '/cv/MatteoMarrale_CV_IT.pdf', cvBtn: 'Scarica il CV', alt: 'Matteo Marrale in un selfie con un gatto bianco e nero',
+    lead: 'Sono un Junior QA Tester con un percorso da Game Designer e cerco lavoro nel campo del QA dei videogiochi, in Italia o da remoto.',
+    study: "Ho completato il primo anno di Strategic Writing &amp; Screenwriting all'AIV e oggi mi formo alla Digital Bros Game Academy di Milano (ottobre 2025 – estate 2027) come Game Designer, dove da novembre 2026 seguo anche il corso QA Testing.",
+    before: "Prima dell'accademia ho lavorato due anni come guardia di sicurezza aeroportuale a Malpensa (I-SEC): un lavoro che mi ha abituato a seguire procedure rigorose e a notare i dettagli.",
+    badges: [['Formazione', 'Digital Bros Game Academy · 2025–2027'], ['Corso', 'QA Testing DBGA · da nov 2026'], ['Lingue', 'Italiano · Inglese B1'], ['Motori', 'Unity · Unreal Engine']],
     skills: [
       ['QA &amp; Testing', 'bug reporting, playtesting, raccolta e ordinamento dei feedback (anche con moduli Google Forms), balancing &amp; tuning, lettura del GDD per capire il comportamento atteso'],
       ['Game Design', 'core mechanics, gameplay loop, level design, scoring &amp; progression systems'],
       ['Documentazione', 'GDD, bug report, report dei playtest, pitch deck, technical design docs'],
-      ['Lingue', 'Italiano (madrelingua), Inglese B1 (GDD e dialoghi scritti in inglese)'],
+      ['Strumenti', 'Unity · Unreal Engine · Google Workspace · Figma · Miro · ClickUp · Notion · Git · Claude Code'],
     ],
-    eduH: 'Formazione',
-    edu: [
-      'Digital Bros Game Academy — Corso online QA Testing (Plug-N-Learn, 60 ore): iscritto, inizio 11 nov 2026',
-      'Digital Bros Game Academy — Corso Game Design, Milano: ott 2025 – estate 2027 (in corso)',
-      'AIV — Accademia Italiana Videogiochi — Strategic Writing &amp; Screenwriting (1° anno completato), Milano: set 2023 – giu 2024',
-    ],
-    toolsH: 'Strumenti',
-    testing: 'Come faccio QA Testing',
+    testing: 'Come faccio QA Testing', bugH: "Bug report d'esempio · Cosmic Chaos",
     qa: [
       ['cosmic', 'Cosmic Chaos', 'testing, bug report e analisi di bilanciamento fino alla build finale. Ho anche progettato il twist e i pattern dei nemici e scritto il GDD insieme al team.'],
       ['casino', 'One Hell of a Casino', 'Producer, team di 15. Ho creato il modulo di feedback per i tester della beta.'],
       ['nigishida', 'The Hunger of Nigishida', 'dopo il test interno ho raccolto i feedback in una lista di 17 modifiche assegnate al team.'],
       ['catnhell', "Cat 'n' Hell! (progetto personale)", 'playtest del prototipo e lista di bug e correzioni verso la demo 1.0.'],
     ],
-    bugH: "Bug report d'esempio",
     bugSrc: 'Dal mio bug report originale di Cosmic Chaos (feb 2026), riscritto nel formato professionale di un bug tracker.',
-    projectsH: 'Progetti', academyH: 'Progetti accademici · Digital Bros Game Academy',
-    personalH: 'Progetti personali', personalP: "Progetti che sviluppo fuori dall'accademia (uso Claude Code per la programmazione).",
-    protoH: 'Prototipi · demo 1.0 in arrivo', devH: 'In sviluppo',
+    projectsH: 'Progetti', academyH: 'Progetti accademici · Digital Bros Game Academy', more: 'Caso di studio →',
+    personalH: 'Progetti personali', personalP: "Progetti che sviluppo fuori dall'accademia (uso Claude Code per la programmazione).", devH: 'In sviluppo',
     sealed: [
       ['Fighting Ground', 'Combattimento corpo a corpo ispirato a Sifu e mappa del mondo a esagoni ispirata a For The King; le nuove mosse si rubano dai cyberdeck dei nemici. Unreal Engine · prototipo del combattimento · titolo provvisorio.'],
       ['All Bullets for Me', 'Un FPS basato sul combinare armi e poteri. Unreal Engine · primi test delle meccaniche · titolo provvisorio.'],
     ],
-    contact: 'Contatti', write: 'Puoi scrivermi a:', copy: 'Copia email',
+    contact: 'Contatti', copy: 'Copia email',
   },
 };
 // Bug report in italiano e inglese (approvato da Matteo il 27/10). Fatti dal file originale; gravità, frequenza e build date da Matteo.
@@ -138,109 +110,109 @@ const jsonLd = {
   affiliation: { '@type': 'EducationalOrganization', name: 'Digital Bros Game Academy', address: { '@type': 'PostalAddress', addressLocality: 'Milano', addressCountry: 'IT' } },
   sameAs: ['https://www.linkedin.com/in/matteomarrale/', 'https://github.com/matteomarrale', 'https://matteomarrale.itch.io'],
 };
-const cvBtns = CV.map(([href, label, hl]) => ({ href, label, hl }));
 ---
 <Base title={`Matteo Marrale — ${role}`} path="/" jsonLd={jsonLd}
   description="Portfolio of Matteo Marrale, Junior QA Tester and Game Designer training at Digital Bros Game Academy in Milan: five academy projects and personal projects.">
 
-<section id="c-top">
+<div class="wrap hero" id="c-about">
 {langs.map((l) => (
   <div class="l" lang={l}>
-    <h1>Matteo Marrale</h1>
-    <p class="meta">{role} · Digital Bros Game Academy, {T[l].place}</p>
-    <div class="prose"><p>{T[l].hero}</p></div>
-    <div class="btns"><a class="btn" href="#c-about">{T[l].btnAbout}</a><a class="btn red" href="#c-projects">{T[l].btnProjects}</a><a class="btn" href="#c-contact">{T[l].btnContact}</a></div>
-  </div>
-))}
-</section>
-
-<section id="c-about">
-{langs.map((l) => (
-  <div class="l" lang={l}>
-    <h2 class="t">{T[l].about}</h2>
-    <img class="portrait" src="/foto-profilo.jpg" width="480" height="480" loading="lazy" alt={T[l].alt}>
-    <div class="prose">
-      <p>{T[l].intro}</p>
-      <p>{T[l].isec}</p>
-      <h3>{T[l].lookH}</h3>
-      <p>{T[l].look}</p>
-      <h3>{T[l].skillsH}</h3>
-      <ul>{T[l].skills.map(([k, v]) => <li><b set:html={k + ':'} /> <Fragment set:html={v} /></li>)}</ul>
-      <h3>{T[l].eduH}</h3>
-      <ul>{T[l].edu.map((e) => <li set:html={e} />)}</ul>
-      <h3>{T[l].toolsH}</h3>
-      <p class="tools">Unity · Unreal Engine · Google Workspace · Figma · Miro · ClickUp · Notion · Git · Claude Code</p>
+    <div class="hero-grid">
+      <div>
+        <span class="label acc">Junior QA Tester · Game Designer</span>
+        <h1>Matteo <br>Marrale</h1>
+        <p class="lead">{T[l].lead}</p>
+        <p set:html={T[l].study} />
+        <p>{T[l].before}</p>
+        <div class="btns"><a class="btn fill" href={T[l].cv} target="_blank" rel="noopener" hreflang={l}>{T[l].cvBtn}</a></div>
+      </div>
+      <img class="photo" src="/foto-profilo.jpg" width="480" height="480" alt={T[l].alt}>
     </div>
-    <h3>CV</h3>
-    <div class="btns">{cvBtns.map((c) => <a class="btn" href={c.href} target="_blank" rel="noopener" hreflang={c.hl}>{c.label}</a>)}</div>
+    <ul class="badges">{T[l].badges.map(([k, v]) => <li><b>{k}</b>{v}</li>)}</ul>
+    <dl class="skills">{T[l].skills.map(([k, v]) => <div><dt set:html={k} /><dd set:html={v} /></div>)}</dl>
   </div>
 ))}
-</section>
+</div>
 
-<section id="c-testing">
+<section class="blk" id="c-testing"><div class="wrap">
 {langs.map((l) => (
   <div class="l" lang={l}>
-    <h2 class="t">{T[l].testing}</h2>
-    <div class="prose"><ul>{T[l].qa.map(([slug, name, txt]) => <li><a href={`/projects/${slug}/`}>{name}</a> — {txt}</li>)}</ul></div>
-    <h3>{T[l].bugH}</h3>
-    <div class="bug">
-      <p class="bug-title"><span class="bug-id">#1</span> {BUG[l].title}</p>
-      <dl class="bug-meta">{BUG[l].meta.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
-      <div class="bug-body">
-        <h4>{BUG[l].stepsH}</h4>
-        <ol>{BUG[l].steps.map((x) => <li>{x}</li>)}</ol>
-        <h4>{BUG[l].expectedH}</h4>
-        <p>{BUG[l].expected}</p>
-        <h4>{BUG[l].actualH}</h4>
-        <p>{BUG[l].actual}</p>
-        <h4>{BUG[l].workaroundH}</h4>
-        <p>{BUG[l].workaround}</p>
+    <h2>{T[l].testing}</h2>
+    <div class="two">
+      <ul>{T[l].qa.map(([slug, name, txt]) => <li><a href={`/projects/${slug}/`}><b>{name}</b></a> — {txt}</li>)}</ul>
+      <div>
+        <h3 class="label">{T[l].bugH}</h3>
+        <div class="bug">
+          <p class="bug-title"><span class="bug-id">#1</span>{BUG[l].title}</p>
+          <dl class="bug-meta">{BUG[l].meta.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+          <div class="bug-body">
+            <h4>{BUG[l].stepsH}</h4>
+            <ol>{BUG[l].steps.map((x) => <li>{x}</li>)}</ol>
+            <h4>{BUG[l].expectedH}</h4>
+            <p>{BUG[l].expected}</p>
+            <h4>{BUG[l].actualH}</h4>
+            <p>{BUG[l].actual}</p>
+            <h4>{BUG[l].workaroundH}</h4>
+            <p>{BUG[l].workaround}</p>
+          </div>
+        </div>
+        <p class="src">{T[l].bugSrc}</p>
       </div>
     </div>
-    <p class="src">{T[l].bugSrc}</p>
   </div>
 ))}
-</section>
+</div></section>
 
-<section id="c-projects">
+<section class="blk" id="c-projects"><div class="wrap">
 {langs.map((l) => (
   <div class="l" lang={l}>
-    <h2 class="t">{T[l].projectsH}</h2>
-    <h3>{T[l].academyH}</h3>
-    <ul class="list">
-      {academy.map((p) => <li><a class="proj" href={`/projects/${p.slug}/`}><b>{p.title}</b><span set:html={`${p[l].role} · ${p[l].when}`} /><span class="arr" aria-hidden="true">›</span></a></li>)}
+    <span class="label">{T[l].academyH}</span>
+    <h2>{T[l].projectsH}</h2>
+    <ul class="grid">
+      {academy.map((p) => (
+        <li><a class="card" href={`/projects/${p.slug}/`}>
+          <span class="label">{p[l].card.meta}</span>
+          <h3 class="ttl">{p.title}</h3>
+          <p class="role" set:html={p[l].card.line} />
+          {p[l].card.tags.length > 0 && <ul class="tags">{p[l].card.tags.map((t) => <li>{t}</li>)}</ul>}
+          <span class="more">{T[l].more}</span>
+        </a></li>
+      ))}
     </ul>
-  </div>
-))}
-</section>
-
-<section id="c-personal">
-{langs.map((l) => (
-  <div class="l" lang={l}>
-    <h2 class="t">{T[l].personalH}</h2>
-    <div class="prose"><p>{T[l].personalP}</p></div>
-    <h3>{T[l].protoH}</h3>
-    <ul class="list">
-      {personal.map((p) => <li><a class="proj" href={`/projects/${p.slug}/`}><b>{p.title}</b><span>{p[l].role}</span><span class="arr" aria-hidden="true">›</span></a></li>)}
+    <h3 class="label sub">{T[l].personalH}</h3>
+    <p>{T[l].personalP}</p>
+    <ul class="grid">
+      {personal.map((p) => (
+        <li><a class="card" href={`/projects/${p.slug}/`}>
+          <span class="label">{p[l].card.meta}</span>
+          <h4 class="ttl">{p.title}</h4>
+          <p class="role" set:html={p[l].card.line} />
+          {p[l].card.tags.length > 0 && <ul class="tags">{p[l].card.tags.map((t) => <li>{t}</li>)}</ul>}
+          <span class="more">{T[l].more}</span>
+        </a></li>
+      ))}
     </ul>
-    <h3>{T[l].devH}</h3>
-    <ul class="list">{T[l].sealed.map(([n, d]) => <li class="sealed"><b>{n}</b><span>{d}</span></li>)}</ul>
-    <div class="btns"><a class="btn" href="https://matteomarrale.itch.io" target="_blank" rel="me noopener">Itch.io ↗</a></div>
+    <h4 class="label sub">{T[l].devH}</h4>
+    <ul class="sealed">{T[l].sealed.map(([n, d]) => <li><b>{n}</b><span>{d}</span></li>)}</ul>
   </div>
 ))}
-</section>
+</div></section>
 
-<section id="c-contact">
+<section class="blk" id="c-contact"><div class="wrap">
 {langs.map((l) => (
   <div class="l" lang={l}>
-    <h2 class="t">{T[l].contact}</h2>
-    <div class="prose"><p>{T[l].write}</p></div>
-    <p><a class="email" href="mailto:matteo.marrale.1998@gmail.com">matteo.marrale.1998@gmail.com</a></p>
-    <div class="btns"><button class="btn red" type="button" data-copy>{T[l].copy}</button><a class="btn" href="https://www.linkedin.com/in/matteomarrale/" target="_blank" rel="me noopener">LinkedIn ↗</a></div>
+    <h2>{T[l].contact}</h2>
+    <a class="mail" href="mailto:matteo.marrale.1998@gmail.com">matteo.marrale.1998@gmail.com</a>
+    <div class="btns">
+      <button class="btn fill" type="button" data-copy>{T[l].copy}</button>
+      <a class="btn" href="https://www.linkedin.com/in/matteomarrale/" target="_blank" rel="me noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/matteomarrale" target="_blank" rel="me noopener">GitHub ↗</a>
+      <a class="btn" href="https://matteomarrale.itch.io" target="_blank" rel="me noopener">Itch.io ↗</a>
+      <a class="btn" href="/cv/MatteoMarrale_CV_IT.pdf" target="_blank" rel="noopener" hreflang="it">CV IT (PDF)</a>
+      <a class="btn" href="/cv/MatteoMarrale_CV_EN.pdf" target="_blank" rel="noopener" hreflang="en">CV EN (PDF)</a>
+    </div>
     <p class="toast" role="status" aria-live="polite"></p>
-    <div class="btns"><a class="btn" href="https://github.com/matteomarrale" target="_blank" rel="me noopener">GitHub ↗</a><a class="btn" href="https://matteomarrale.itch.io" target="_blank" rel="me noopener">Itch.io ↗</a></div>
-    <div class="btns">{cvBtns.map((c) => <a class="btn" href={c.href} target="_blank" rel="noopener" hreflang={c.hl}>{c.label}</a>)}</div>
   </div>
 ))}
-</section>
+</div></section>
 </Base>
