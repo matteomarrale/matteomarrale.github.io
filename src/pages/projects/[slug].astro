@@ -1,5 +1,6 @@
 ---
 // Una pagina per progetto (caso di studio): fatti, contesto, cosa ho fatto, link. Testi da src/data/projects.ts.
+// Direzione A (approvata da Matteo il 28/10; struttura di Claude): dati a destra come i campi di un ticket, screenshot come allegati, nessun pulsante verde in fondo.
 import Base from '../../layouts/Base.astro';
 import { projects, type Lang } from '../../data/projects';
 
@@ -9,9 +10,11 @@ export function getStaticPaths() {
 const { p, next } = Astro.props;
 const langs: Lang[] = ['en', 'it'];
 const UI = {
-  en: { all: '← All projects', ctx: 'Context', did: 'What I did', next: 'Next project', grp: p.group === 'academy' ? 'Academy project · Digital Bros Game Academy' : 'Personal project' },
-  it: { all: '← Tutti i progetti', ctx: 'Contesto', did: 'Cosa ho fatto', next: 'Progetto successivo', grp: p.group === 'academy' ? 'Progetto accademico · Digital Bros Game Academy' : 'Progetto personale' },
+  en: { all: 'All projects', ctx: 'Context', did: 'What I did', next: 'Next project', grp: p.group === 'academy' ? 'Academy project · Digital Bros Game Academy' : 'Personal project' },
+  it: { all: 'Tutti i progetti', ctx: 'Contesto', did: 'Cosa ho fatto', next: 'Progetto successivo', grp: p.group === 'academy' ? 'Progetto accademico · Digital Bros Game Academy' : 'Progetto personale' },
 };
+// segnaposto delle immagini: si vedono solo con ?dev=1 finché Matteo non fornisce gli screenshot
+const shots = (l: Lang) => (p[l].dev ?? []).filter((d) => /^\[(IMG|VIDEO)/.test(d));
 ---
 <Base title={`${p.title} — Matteo Marrale`} path={`/projects/${p.slug}/`} description={p.en.context}>
 <article class="wrap page">
@@ -20,22 +23,26 @@ const UI = {
   return (
   <div class="l" lang={l}>
     <p class="crumb"><a href="/#c-projects">{UI[l].all}</a></p>
-    <span class="label acc">{UI[l].grp}</span>
+    <p class="kicker">{UI[l].grp}</p>
     <h1>{p.title}</h1>
-    <dl class="facts">{t.facts.map(([k, v]) => <div><dt>{k}</dt><dd set:html={v} /></div>)}</dl>
-    {t.dev?.map((d) => <div class="ph" data-dev>{d}</div>)}
-    <div class="prose">
-      <h2>{UI[l].ctx}</h2>
-      <p>{t.context}</p>
-      <h2>{UI[l].did}</h2>
+    <div class="case">
+      <div class="case-main">
+        {shots(l).length > 0 && <div class="shots" data-dev>{shots(l).map((d, i) => <div class={i === 0 ? 'att big' : 'att'}>{d}</div>)}</div>}
+        <div class="prose">
+          <h2>{UI[l].ctx}</h2>
+          <p>{t.context}</p>
+          <h2>{UI[l].did}</h2>
+        </div>
+        {t.loop && <ol class="loop" aria-label="Core loop">{t.loop.map((s, i) => <li class={i === t.loop!.length - 1 ? 'end' : undefined}>{s}</li>)}</ol>}
+        <div class="prose"><ul>{t.did.map((d) => <li set:html={d} />)}</ul></div>
+        {t.links && <ul class="files">{t.links.map((k) => <li><a href={k.href} target="_blank" rel="noopener">{k.label}</a></li>)}</ul>}
+      </div>
+      <dl class="fields facts">{t.facts.map(([k, v]) => <div><dt>{k}</dt><dd set:html={v} /></div>)}</dl>
     </div>
-    {t.loop && <div class="loop" aria-label="Core loop">{t.loop.map((s, i) => <>{i > 0 && <i>→</i>}<span class={i === t.loop!.length - 1 ? 'end' : undefined}>{s}</span></>)}</div>}
-    <div class="prose"><ul>{t.did.map((d) => <li set:html={d} />)}</ul></div>
-    {t.links && <div class="btns">{t.links.map((k) => <a class="btn" href={k.href} target="_blank" rel="noopener">{k.label}</a>)}</div>}
   </div>);
 })}
 </article>
 <nav class="wrap next" aria-label="Projects">
-{langs.map((l) => <div class="l btns" lang={l}><a class="btn" href="/#c-projects">{UI[l].all}</a><a class="btn fill" href={`/projects/${next.slug}/`}>{UI[l].next}: {next.title} →</a></div>)}
+{langs.map((l) => <div class="l" lang={l}><a href="/#c-projects">{UI[l].all}</a><a class="nx" href={`/projects/${next.slug}/`}><span>{UI[l].next}</span>{next.title}</a></div>)}
 </nav>
 </Base>

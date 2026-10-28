@@ -1,154 +1,198 @@
-/* Stile del portfolio: variante 1 «scuro + accento» scelta da Matteo il 27/10 (struttura da portfolio QA + estetica pulita; font DEC-021).
-   Font ospitati sul sito (public/fonts/, crediti in fonts/CREDITI.txt): sottoinsiemi latin e latin-ext di Google Fonts. */
-@font-face{font-family:'EB Garamond'; font-style:italic; font-weight:400; font-display:swap; src:url(/fonts/eb-garamond-italic-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'EB Garamond'; font-style:italic; font-weight:400; font-display:swap; src:url(/fonts/eb-garamond-italic-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'EB Garamond'; font-style:normal; font-weight:400 700; font-display:swap; src:url(/fonts/eb-garamond-normal-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'EB Garamond'; font-style:normal; font-weight:400 700; font-display:swap; src:url(/fonts/eb-garamond-normal-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'IM Fell English'; font-style:italic; font-weight:400; font-display:swap; src:url(/fonts/im-fell-english-italic-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'IM Fell English'; font-style:normal; font-weight:400; font-display:swap; src:url(/fonts/im-fell-english-normal-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+/* Stile del portfolio: direzione A «registro di lavoro QA», approvata da Matteo il 28/10/2026 (CSS, disposizione e misure di Claude).
+   Colori: gli stessi del 27/10, scelti da Matteo. Font ospitati sul sito (public/fonts/, crediti in fonts/CREDITI.txt):
+   Jacquard 24 solo per il nome, Public Sans per tutto il resto.
+   Principi: niente maiuscole spaziate, niente card; righe e campi come in un bug tracker; il verde solo per l'azione principale e la riga attiva. */
+@font-face{font-family:'Public Sans'; font-style:normal; font-weight:400 700; font-display:swap; src:url(/fonts/public-sans-normal-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Public Sans'; font-style:normal; font-weight:400 700; font-display:swap; src:url(/fonts/public-sans-normal-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:'Jacquard 24'; font-style:normal; font-weight:400; font-display:swap; src:url(/fonts/jacquard-24-normal-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Jacquard 24'; font-style:normal; font-weight:400; font-display:swap; src:url(/fonts/jacquard-24-normal-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-/* Fallback per Jacquard 24 (pixel blackletter condensato): Georgia ridotta, così il layout non salta mentre il font arriva. */
 @font-face{font-family:'Jacquard Fallback'; src:local('Georgia'), local('Times New Roman'); size-adjust:90%; ascent-override:92%; descent-override:22%; line-gap-override:0%}
 :root{
   color-scheme: dark;
-  /* colori: fondo scuro, superfici, testo; accento verde scelto da Matteo il 27/10 (contrasto 6,3:1 sulle card) */
   --bg:#0E0E0E; --surface:#1A1A1A; --text:#F2F2F2; --muted:#B3B3B3; --line:#3A3A3A; --accent:#4CAF50; --on-accent:#0E0E0E;
+  --soft:#D9D9D9; /* testo secondario lungo, tra --text e --muted */
   --f-black:'Jacquard 24','Jacquard Fallback',Georgia,serif;
-  --f-text:'EB Garamond',Garamond,Georgia,serif;
-  --f-head:'IM Fell English',Georgia,serif;
+  --f-text:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:4px; /* un solo arrotondamento, piccolo */
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-img{max-width:100%}
+img{max-width:100%; height:auto; display:block}
 .no-js .cl-menu,.no-js [data-copy],.no-js #clLang{display:none}
-/* testi in due lingue nello stesso HTML: si vede solo quella di <html lang> */
 html[lang="it"] .l[lang="en"],html[lang="en"] .l[lang="it"]{display:none}
-/* segnaposto ([DA FORNIRE], riquadri IMG/VIDEO): solo con ?dev=1 (DEC-017) */
 html:not(.dev) [data-dev]{display:none!important}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *{transition:none!important} }
-body{margin:0; background:var(--bg); color:var(--text); font:18px/1.55 var(--f-text)}
-a{color:inherit}
+body{margin:0; background:var(--bg); color:var(--text); font:17px/1.55 var(--f-text)}
+a{color:inherit; text-underline-offset:3px}
 button{font:inherit; color:inherit; cursor:pointer}
 :focus-visible{outline:3px solid var(--accent); outline-offset:3px}
-.skip-link{position:absolute; left:16px; top:-60px; z-index:50; padding:10px 14px; background:var(--accent); color:var(--on-accent); border-radius:6px; font:600 16px var(--f-text); text-decoration:none}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.skip-link{position:absolute; left:16px; top:-60px; z-index:50; padding:10px 14px; background:var(--accent); color:var(--on-accent); border-radius:var(--r); font-weight:700; text-decoration:none}
 .skip-link:focus{top:16px}
-.wrap{max-width:1040px; margin:0 auto; padding:0 20px}
-.label{display:block; font:600 13px/1.4 var(--f-text); letter-spacing:.16em; text-transform:uppercase; color:var(--muted)}
-.label.acc{color:var(--accent)}
+.wrap{max-width:1120px; margin:0 auto; padding:0 24px}
 
 /* ---------- barra in alto ---------- */
 .cl-top{position:sticky; top:0; z-index:20; background:var(--bg); border-bottom:1px solid var(--line)}
-.cl-top .wrap{display:flex; flex-wrap:wrap; align-items:center; gap:10px 24px; padding-top:14px; padding-bottom:14px}
-.cl-top .name{font:400 26px/1 var(--f-black); text-decoration:none; margin-right:auto}
+.cl-top .wrap{display:flex; flex-wrap:wrap; align-items:center; gap:10px 28px; min-height:60px}
+.cl-top .name{font:400 24px/1 var(--f-black); text-decoration:none; margin-right:auto}
 .cl-panel{display:flex; flex-wrap:wrap; align-items:center; gap:8px 24px}
-.cl-top nav{display:flex; flex-wrap:wrap; gap:4px 20px}
-.cl-top nav a{text-decoration:none; font:600 13px/1 var(--f-text); letter-spacing:.14em; text-transform:uppercase; color:var(--muted); padding:14px 0}
+.cl-top nav{display:flex; flex-wrap:wrap; gap:4px 24px}
+.cl-top nav a{text-decoration:none; font-size:15px; color:var(--muted); padding:18px 0}
 @media (hover:hover){ .cl-top nav a:hover{color:var(--text)} }
-#clLang,.cl-menu{min-height:40px; padding:0 14px; border:1px solid var(--line); border-radius:999px; background:transparent; font:600 13px var(--f-text); letter-spacing:.1em}
+#clLang,.cl-menu{min-height:36px; padding:0 10px; border:1px solid var(--line); border-radius:var(--r); background:transparent; font-size:14px; font-weight:600}
 .cl-menu{display:none}
 
-/* ---------- blocchi della home ---------- */
+/* ---------- home ---------- */
 main{display:block}
 main:focus{outline:none}
-[id]{scroll-margin-top:calc(var(--cl-top-h,64px) + 16px)}
-.hero{padding-top:64px; padding-bottom:48px}
-.hero-grid{display:grid; grid-template-columns:1fr 280px; gap:40px; align-items:start; padding-bottom:36px}
-.hero h1{margin:14px 0 18px; font:400 clamp(64px,11vw,132px)/.88 var(--f-black)}
-.hero p{max-width:36em; margin:0 0 14px}
-.hero .lead{font-size:22px; margin-bottom:18px}
-.hero .btns{margin-top:22px}
-.photo{width:280px; height:280px; object-fit:cover; border-radius:12px; border:1px solid var(--line); margin-top:34px}
-.badges{display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:0; list-style:none}
-.badges li{padding:10px 14px; border:1px solid var(--line); border-radius:8px; background:var(--surface); font-size:16px; line-height:1.3}
-.badges b,.skills dt{display:block; font:600 12px var(--f-text); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
-.skills{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px 24px; margin:28px 0 0; padding:18px 0 0; border-top:1px solid var(--line)}
-.skills dd{margin:2px 0 0; font-size:16px; line-height:1.45}
-section.blk{padding:56px 0; border-top:1px solid var(--line)}
-section.blk h2{margin:8px 0 28px; font:400 clamp(34px,4.5vw,48px)/1.1 var(--f-head)}
-section.blk .sub{margin:44px 0 16px}
-.btn{display:inline-flex; align-items:center; min-height:48px; padding:0 22px; border-radius:6px; border:2px solid var(--line); background:transparent; color:var(--text); font:600 14px var(--f-text); letter-spacing:.12em; text-transform:uppercase; text-decoration:none; transition:border-color .15s ease}
-.btn.fill{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
-@media (hover:hover){ .btn:not(.fill):hover{border-color:var(--accent)} }
-.btns{display:flex; flex-wrap:wrap; gap:12px}
+[id]{scroll-margin-top:calc(var(--cl-top-h,60px) + 16px)}
+.hero{display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:56px; padding:72px 0 64px}
+.hero h1{margin:0 0 28px; font:400 clamp(72px,10vw,128px)/.86 var(--f-black)}
+.hero .role{margin:0 0 6px; font-weight:600}
+.hero .lead{font-size:21px; line-height:1.45; max-width:30em; margin:0 0 16px}
+.hero p{max-width:36em; margin:0 0 14px; color:var(--soft)}
+.hero .role,.hero .lead{color:var(--text)}
+.cta{display:inline-flex; align-items:center; min-height:46px; padding:0 20px; border:0; border-radius:var(--r); background:var(--accent); color:var(--on-accent); font-weight:700; text-decoration:none}
+.hero .cta{margin-top:12px}
+.sheet{align-self:start; border:1px solid var(--line); border-radius:var(--r); overflow:hidden}
+.sheet img{width:100%; aspect-ratio:1; object-fit:cover; border-bottom:1px solid var(--line)}
+.sheet dl,.fields{margin:0}
+.sheet dl div,.fields div{display:grid; grid-template-columns:108px minmax(0,1fr); gap:12px; padding:10px 14px; border-top:1px solid var(--line)}
+.sheet dl div:first-child,.fields div:first-child{border-top:0}
+.sheet dt,.fields dt{color:var(--muted); font-size:14px}
+.sheet dd,.fields dd{margin:0; font-size:15px; font-weight:600; overflow-wrap:anywhere}
+.skills{display:grid; grid-template-columns:repeat(4,1fr); margin:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.skills div{padding:18px 20px 20px 0}
+.skills div+div{padding-left:20px; border-left:1px solid var(--line)}
+.skills dt{font-weight:700; margin-bottom:6px}
+.skills dd{margin:0; font-size:15px; color:var(--soft)}
 
-/* card dei progetti */
-.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:18px; padding:0; margin:0; list-style:none}
-.card{display:flex; flex-direction:column; gap:10px; height:100%; padding:22px; border:1px solid var(--line); border-radius:10px; background:var(--surface); text-decoration:none; transition:transform .15s ease, border-color .15s ease}
-@media (hover:hover){ .card:hover{transform:translateY(-3px); border-color:var(--accent)} }
-.card .ttl{margin:0; font:400 27px/1.15 var(--f-head)}
-.card .role{margin:0; color:var(--muted); font-size:16px}
-.tags{display:flex; flex-wrap:wrap; gap:6px; margin:auto 0 0; padding:6px 0 0; list-style:none}
-.tags li{padding:3px 10px; border-radius:999px; font:600 13px/1.6 var(--f-text); border:1px solid var(--accent); color:var(--accent)}
-.card .more{font:600 13px var(--f-text); letter-spacing:.12em; text-transform:uppercase; color:var(--accent)}
-.sealed{list-style:none; margin:18px 0 0; padding:0; display:grid; gap:10px}
-.sealed li{padding:14px 18px; border:1px dashed var(--line); border-radius:10px}
-.sealed b{display:block; font:400 22px/1.2 var(--f-head)}
-.sealed span{color:var(--muted); font-size:16px}
+section.blk{padding:88px 0 0}
+section.blk h2,.prose h2{margin:0 0 8px; font:700 34px/1.15 var(--f-text); letter-spacing:-.01em}
+.intro{margin:0 0 32px; color:var(--muted); max-width:44em}
 
-/* Come faccio QA Testing: elenco + bug report d'esempio */
-.two{display:grid; grid-template-columns:1fr 1.3fr; gap:36px; align-items:start}
-.two ul{margin:0; padding-left:1.1em}
-.two li{margin:0 0 10px}
-.bug{border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--surface)}
-.bug-title{margin:0; padding:14px 18px; border-bottom:1px solid var(--line); font:700 18px/1.35 var(--f-text)}
-.bug-id{display:inline-block; margin-right:8px; padding:0 8px; border-radius:6px; background:var(--accent); color:var(--on-accent); font-size:14px}
-.bug-meta{display:grid; grid-template-columns:repeat(3,1fr); gap:12px 18px; margin:0; padding:14px 18px; border-bottom:1px solid var(--line)}
-.bug-meta div{min-width:0}
-.bug-meta dt,.bug-body h4{font:600 12px var(--f-text); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
-.bug-meta dd{margin:0; font-weight:700; font-size:16px}
-.bug-body{padding:6px 18px 16px}
-.bug-body h4{margin:12px 0 2px}
-.bug-body p,.bug-body ol{margin:0}
-.bug-body ol{padding-left:1.3em}
-.src{margin:10px 0 0; font-size:15px; color:var(--muted)}
+/* bug report: il pezzo principale */
+.ticket{border:1px solid var(--line); border-radius:var(--r); background:var(--surface)}
+.ticket-head{display:flex; gap:16px; align-items:baseline; padding:20px 24px; border-bottom:1px solid var(--line)}
+.ticket-head .id{color:var(--muted); font-weight:700}
+.ticket-head h3{margin:0; font:700 22px/1.3 var(--f-text)}
+.ticket-grid{display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+.ticket-body{padding:8px 24px 24px}
+.ticket-body h4{margin:18px 0 4px; font-size:15px; font-weight:600; color:var(--muted)}
+.ticket-body p,.ticket-body ol{margin:0}
+.ticket-body ol{padding-left:1.3em}
+.ticket-meta{padding:12px 10px 12px; border-left:1px solid var(--line)}
+.qa{margin:36px 0 0; padding:0; list-style:none; display:grid; grid-template-columns:repeat(2,1fr); gap:0 40px}
+.qa li{padding:14px 0; border-top:1px solid var(--line); font-size:16px; color:var(--soft)}
+.qa a{display:block; font-weight:700; color:var(--text)}
+
+/* progetti: righe di registro */
+.grp{margin:48px 0 12px; font:700 20px/1.3 var(--f-text)}
+.grp + .intro{margin-top:-4px; margin-bottom:20px}
+.log{margin:0; padding:0; list-style:none; border-top:1px solid var(--line)}
+.row{display:grid; grid-template-columns:200px minmax(0,1fr) 220px; gap:28px; align-items:start; padding:22px 0; border-bottom:1px solid var(--line); text-decoration:none; position:relative}
+.row::before{content:''; position:absolute; left:-24px; top:22px; bottom:22px; width:3px; background:var(--accent); opacity:0; transition:opacity .12s}
+.row:focus-visible{outline-offset:-3px}
+.row:hover::before,.row:focus-visible::before{opacity:1}
+/* finché non ci sono gli screenshot (segnaposto nascosti fuori da ?dev=1) la riga ha due colonne */
+html:not(.dev) .row{grid-template-columns:minmax(0,1fr) 220px}
+.att{aspect-ratio:16/9; display:grid; place-items:center; padding:8px; border:1px dashed var(--line); border-radius:var(--r); color:var(--muted); font-size:12px; text-align:center; line-height:1.3}
+.row h4{margin:0 0 4px; font:700 22px/1.2 var(--f-text)}
+.row p{margin:0; font-size:15px; color:var(--soft); max-width:42em}
+.row .when{color:var(--muted); font-size:14px; margin-bottom:8px}
+.row .who{color:var(--muted); font-size:14px; margin-bottom:4px}
+.tags{margin:0; padding:0; list-style:none; font-size:14px}
+.tags li{padding:3px 0; border-bottom:1px solid var(--line)}
+.tags li:last-child{border:0}
+.row .go{display:block; margin-top:10px; font-size:14px; font-weight:700; text-decoration:underline; text-underline-offset:3px}
+.sealed{margin:0; padding:0; list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:28px}
+.sealed li{padding-top:14px; border-top:1px dashed var(--line); font-size:15px; color:var(--soft)}
+.sealed b{display:block; color:var(--text); font-size:18px; margin-bottom:4px}
 
 /* contatti */
-.mail{display:inline-block; margin:0 0 22px; font:400 clamp(24px,4vw,40px)/1.2 var(--f-head); word-break:break-all}
-.toast{min-height:1.5em; margin:10px 0 0; font:600 15px var(--f-text); color:var(--accent)}
+.contact{padding-bottom:104px}
+.mail{display:inline-block; margin:8px 0 20px; font:700 clamp(22px,3.6vw,40px)/1.2 var(--f-text); word-break:break-all}
+.links{display:flex; flex-wrap:wrap; align-items:center; gap:12px 28px; font-weight:600}
+.toast{min-height:1.5em; margin:12px 0 0; font-weight:600; color:var(--accent)}
 
 /* ---------- pagina di un progetto ---------- */
-.page{padding-top:48px; padding-bottom:32px}
-.crumb{margin:0 0 18px; font:600 13px var(--f-text); letter-spacing:.12em; text-transform:uppercase}
-.crumb a{color:var(--muted); text-decoration:none}
-.page h1{margin:10px 0 24px; font:400 clamp(40px,6vw,64px)/1.05 var(--f-head)}
-.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px 24px; margin:0 0 32px; padding:18px 20px; border:1px solid var(--line); border-radius:10px; background:var(--surface)}
-.facts div{min-width:0}
-.facts dt{font:600 12px var(--f-text); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
-.facts dd{margin:2px 0 0; font-weight:700; overflow-wrap:anywhere}
-.prose{max-width:62ch}
-.prose h2{margin:32px 0 8px; font:400 30px/1.2 var(--f-head)}
-.prose p{margin:0 0 12px}
-.prose ul{margin:0 0 12px; padding-left:1.2em}
-.prose li{margin:0 0 8px}
-.loop{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:6px 0 14px; font:600 16px var(--f-text)}
-.loop span{padding:6px 12px; border:1px solid var(--line); border-radius:999px}
-.loop span.end{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
-.loop i{font-style:normal; color:var(--muted)}
-.ph{display:grid; place-items:center; text-align:center; padding:12px; margin:8px 0; border:2px dashed var(--line); border-radius:10px; color:var(--muted); font-size:14px}
-.next{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; padding-top:28px; padding-bottom:56px; border-top:1px solid var(--line)}
+.page{padding-top:40px; padding-bottom:40px}
+.crumb{margin:0 0 32px; font-size:15px}
+.crumb a{color:var(--muted)}
+.kicker{margin:0 0 6px; color:var(--muted)}
+.page h1{margin:0 0 32px; font:700 clamp(40px,6vw,64px)/1.05 var(--f-text); letter-spacing:-.02em}
+.case{display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:48px; align-items:start}
+.facts{border:1px solid var(--line); border-radius:var(--r); position:sticky; top:calc(var(--cl-top-h,60px) + 24px)}
+.shots{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:0 0 40px}
+.shots .att{font-size:13px}
+.shots .big{grid-column:1/-1; font-size:15px}
+.prose{max-width:40em}
+.prose h2{font-size:26px; margin:36px 0 8px}
+.prose h2:first-child{margin-top:0}
+.prose p{margin:0 0 12px; color:var(--soft)}
+.prose ul{margin:0 0 12px; padding-left:1.2em; color:var(--soft)}
+.prose li{margin:0 0 10px}
+.loop{display:flex; flex-wrap:wrap; gap:0; margin:8px 0 20px; padding:0; list-style:none; font-weight:600; font-size:15px}
+.loop li{padding:8px 14px; border:1px solid var(--line); margin-left:-1px}
+.loop li:first-child{border-radius:var(--r) 0 0 var(--r); margin-left:0}
+.loop li.end{border-color:var(--accent); background:var(--accent); color:var(--on-accent); border-radius:0 var(--r) var(--r) 0}
+.files{margin:24px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); max-width:40em}
+.files li{padding:12px 0; border-bottom:1px solid var(--line); font-weight:600}
+.next{padding-bottom:72px}
+.next .l{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:end; gap:16px; padding-top:24px; border-top:1px solid var(--line)}
+.next a{color:var(--muted)}
+.next .nx{text-align:right; text-decoration:none; color:var(--text); font-weight:700; font-size:22px}
+.next .nx span{display:block; color:var(--muted); font-weight:400; font-size:14px}
+@media (hover:hover){ .next .nx:hover{text-decoration:underline} }
 
-/* ---------- schermi piccoli ---------- */
+/* ---------- schermi medi e piccoli ---------- */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr; gap:36px; padding-top:44px}
+  .sheet{display:grid; grid-template-columns:140px 1fr}
+  .sheet img{height:100%; border-bottom:0; border-right:1px solid var(--line)}
+  .skills{grid-template-columns:1fr 1fr}
+  .skills div:nth-child(3){padding-left:0; border-left:0}
+  .skills div:nth-child(n+3){border-top:1px solid var(--line)}
+  .ticket-grid{grid-template-columns:1fr}
+  .ticket-meta{border-left:0; border-top:1px solid var(--line)}
+  .row{grid-template-columns:150px minmax(0,1fr)}
+  .row > div:last-child{grid-column:2}
+  html:not(.dev) .row{grid-template-columns:minmax(0,1fr)}
+  html:not(.dev) .row > div:last-child{grid-column:auto}
+  .case{grid-template-columns:1fr; gap:32px}
+  .facts{position:static; order:-1}
+}
 @media (max-width:760px){
-  .hero{padding-top:40px; padding-bottom:32px}
-  .hero-grid,.two{grid-template-columns:1fr}
-  .photo{width:180px; height:180px; margin-top:0; order:-1}
-  .bug-meta{grid-template-columns:1fr 1fr}
   .cl-menu{display:inline-flex; align-items:center}
-  .cl-panel{display:none; flex-basis:100%; flex-direction:column; align-items:stretch; gap:8px; padding:4px 0 8px}
+  .cl-panel{display:none; flex-basis:100%; flex-direction:column; align-items:stretch; gap:8px; padding:0 0 12px}
   .cl-top.open .cl-panel{display:flex}
   .cl-top nav{flex-direction:column; gap:0}
   .cl-top nav a{padding:12px 0}
   #clLang{align-self:flex-start}
-  /* senza JavaScript il Menu non si apre: le sezioni restano visibili */
   .no-js .cl-panel{display:flex}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .hero{padding-top:36px; padding-bottom:40px}
+  .sheet{grid-template-columns:1fr}
+  .sheet img{border-right:0; border-bottom:1px solid var(--line); aspect-ratio:16/10}
+  .skills,.qa,.sealed,.shots{grid-template-columns:1fr}
+  .skills div,.skills div+div{padding-left:0; border-left:0}
+  .skills div+div{border-top:1px solid var(--line)}
+  .ticket-head{flex-direction:column; gap:4px; padding:16px}
+  .ticket-body{padding:4px 16px 18px}
+  .row{grid-template-columns:1fr; gap:12px}
+  .row > div:last-child{grid-column:auto}
+  .row::before{left:-16px}
+  section.blk{padding-top:64px}
+  .next .nx{text-align:left}
 }
 /* stampa: nero su bianco, senza barra e pulsanti */
 @media print{
  body{background:#FFFFFF!important; color:#000000!important}
- .cl-top,.btns,.skip-link,.next,.tags{display:none!important}
- .label,.role,.src,.facts dt,.bug-meta dt,.bug-body h4{color:#333333!important}
- .card,.bug,.facts,.badges li{background:#FFFFFF!important; border-color:#999999!important}
+ .cl-top,.links,.skip-link,.next,.att,.shots{display:none!important}
+ .hero p,.intro,.row p,.prose p,.prose ul,.sheet dt,.fields dt,.ticket-body h4,.qa li,.sealed li{color:#333333!important}
+ .ticket,.sheet,.facts{background:#FFFFFF!important; border-color:#999999!important}
  a{color:#000000}
 }

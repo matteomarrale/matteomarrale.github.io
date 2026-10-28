@@ -29,7 +29,7 @@ const T = {
       ['catnhell', "Cat 'n' Hell! (personal project)", 'playtested the prototype and wrote a list of bugs and fixes toward the 1.0 demo.'],
     ],
     bugSrc: 'From my original Cosmic Chaos bug report (Feb 2026), rewritten in a professional bug-tracker format.',
-    projectsH: 'Projects', academyH: 'Academy projects · Digital Bros Game Academy', more: 'Case study →',
+    projectsH: 'Projects', academyH: 'Academy projects · Digital Bros Game Academy', more: 'Case study', aboutH: 'About me',
     personalH: 'Personal projects', personalP: 'Projects I develop outside the academy (I use Claude Code for programming).', devH: 'In development',
     sealed: [
       ['Fighting Ground', "Hand-to-hand combat inspired by Sifu and a hex world map inspired by For The King; new moves are stolen from enemies' cyberdecks. Unreal Engine · combat prototype · working title."],
@@ -57,7 +57,7 @@ const T = {
       ['catnhell', "Cat 'n' Hell! (progetto personale)", 'playtest del prototipo e lista di bug e correzioni verso la demo 1.0.'],
     ],
     bugSrc: 'Dal mio bug report originale di Cosmic Chaos (feb 2026), riscritto nel formato professionale di un bug tracker.',
-    projectsH: 'Progetti', academyH: 'Progetti accademici · Digital Bros Game Academy', more: 'Caso di studio →',
+    projectsH: 'Progetti', academyH: 'Progetti accademici · Digital Bros Game Academy', more: 'Caso di studio', aboutH: 'Chi sono',
     personalH: 'Progetti personali', personalP: "Progetti che sviluppo fuori dall'accademia (uso Claude Code per la programmazione).", devH: 'In sviluppo',
     sealed: [
       ['Fighting Ground', 'Combattimento corpo a corpo ispirato a Sifu e mappa del mondo a esagoni ispirata a For The King; le nuove mosse si rubano dai cyberdeck dei nemici. Unreal Engine · prototipo del combattimento · titolo provvisorio.'],
@@ -114,21 +114,25 @@ const jsonLd = {
 <Base title={`Matteo Marrale — ${role}`} path="/" jsonLd={jsonLd}
   description="Portfolio of Matteo Marrale, Junior QA Tester and Game Designer training at Digital Bros Game Academy in Milan: five academy projects and personal projects.">
 
-<div class="wrap hero" id="c-about">
+{/* Direzione A (approvata da Matteo il 28/10; struttura di Claude): stessi testi, nuova struttura. Righe di registro al posto delle card, bug report a tutta larghezza. */}
+<div class="wrap" id="c-about">
 {langs.map((l) => (
   <div class="l" lang={l}>
-    <div class="hero-grid">
+    <div class="hero">
       <div>
-        <span class="label acc">Junior QA Tester · Game Designer</span>
         <h1>Matteo <br>Marrale</h1>
+        <h2 class="sr">{T[l].aboutH}</h2>
+        <p class="role">Junior QA Tester · Game Designer</p>
         <p class="lead">{T[l].lead}</p>
         <p set:html={T[l].study} />
         <p>{T[l].before}</p>
-        <div class="btns"><a class="btn fill" href={T[l].cv} target="_blank" rel="noopener" hreflang={l}>{T[l].cvBtn}</a></div>
+        <a class="cta" href={T[l].cv} target="_blank" rel="noopener" hreflang={l}>{T[l].cvBtn}</a>
       </div>
-      <img class="photo" src="/foto-profilo.jpg" width="480" height="480" alt={T[l].alt}>
+      <aside class="sheet">
+        <img src="/foto-profilo.jpg" width="480" height="480" alt={T[l].alt}>
+        <dl>{T[l].badges.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+      </aside>
     </div>
-    <ul class="badges">{T[l].badges.map(([k, v]) => <li><b>{k}</b>{v}</li>)}</ul>
     <dl class="skills">{T[l].skills.map(([k, v]) => <div><dt set:html={k} /><dd set:html={v} /></div>)}</dl>
   </div>
 ))}
@@ -138,27 +142,24 @@ const jsonLd = {
 {langs.map((l) => (
   <div class="l" lang={l}>
     <h2>{T[l].testing}</h2>
-    <div class="two">
-      <ul>{T[l].qa.map(([slug, name, txt]) => <li><a href={`/projects/${slug}/`}><b>{name}</b></a> — {txt}</li>)}</ul>
-      <div>
-        <h3 class="label">{T[l].bugH}</h3>
-        <div class="bug">
-          <p class="bug-title"><span class="bug-id">#1</span>{BUG[l].title}</p>
-          <dl class="bug-meta">{BUG[l].meta.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
-          <div class="bug-body">
-            <h4>{BUG[l].stepsH}</h4>
-            <ol>{BUG[l].steps.map((x) => <li>{x}</li>)}</ol>
-            <h4>{BUG[l].expectedH}</h4>
-            <p>{BUG[l].expected}</p>
-            <h4>{BUG[l].actualH}</h4>
-            <p>{BUG[l].actual}</p>
-            <h4>{BUG[l].workaroundH}</h4>
-            <p>{BUG[l].workaround}</p>
-          </div>
+    <p class="intro">{T[l].bugSrc}</p>
+    <article class="ticket" aria-label={T[l].bugH}>
+      <div class="ticket-head"><span class="id">#1</span><h3>{BUG[l].title}</h3></div>
+      <div class="ticket-grid">
+        <div class="ticket-body">
+          <h4>{BUG[l].stepsH}</h4>
+          <ol>{BUG[l].steps.map((x) => <li>{x}</li>)}</ol>
+          <h4>{BUG[l].expectedH}</h4>
+          <p>{BUG[l].expected}</p>
+          <h4>{BUG[l].actualH}</h4>
+          <p>{BUG[l].actual}</p>
+          <h4>{BUG[l].workaroundH}</h4>
+          <p>{BUG[l].workaround}</p>
         </div>
-        <p class="src">{T[l].bugSrc}</p>
+        <dl class="fields ticket-meta">{BUG[l].meta.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
       </div>
-    </div>
+    </article>
+    <ul class="qa">{T[l].qa.map(([slug, name, txt]) => <li><a href={`/projects/${slug}/`}>{name}</a>{txt}</li>)}</ul>
   </div>
 ))}
 </div></section>
@@ -166,50 +167,47 @@ const jsonLd = {
 <section class="blk" id="c-projects"><div class="wrap">
 {langs.map((l) => (
   <div class="l" lang={l}>
-    <span class="label">{T[l].academyH}</span>
     <h2>{T[l].projectsH}</h2>
-    <ul class="grid">
-      {academy.map((p) => (
-        <li><a class="card" href={`/projects/${p.slug}/`}>
-          <span class="label">{p[l].card.meta}</span>
-          <h3 class="ttl">{p.title}</h3>
-          <p class="role" set:html={p[l].card.line} />
-          {p[l].card.tags.length > 0 && <ul class="tags">{p[l].card.tags.map((t) => <li>{t}</li>)}</ul>}
-          <span class="more">{T[l].more}</span>
-        </a></li>
-      ))}
-    </ul>
-    <h3 class="label sub">{T[l].personalH}</h3>
-    <p>{T[l].personalP}</p>
-    <ul class="grid">
-      {personal.map((p) => (
-        <li><a class="card" href={`/projects/${p.slug}/`}>
-          <span class="label">{p[l].card.meta}</span>
-          <h4 class="ttl">{p.title}</h4>
-          <p class="role" set:html={p[l].card.line} />
-          {p[l].card.tags.length > 0 && <ul class="tags">{p[l].card.tags.map((t) => <li>{t}</li>)}</ul>}
-          <span class="more">{T[l].more}</span>
-        </a></li>
-      ))}
-    </ul>
-    <h4 class="label sub">{T[l].devH}</h4>
-    <ul class="sealed">{T[l].sealed.map(([n, d]) => <li><b>{n}</b><span>{d}</span></li>)}</ul>
+    {[[T[l].academyH, academy, ''], [T[l].personalH, personal, T[l].personalP]].map(([h, list, p]) => (
+      <>
+        <h3 class="grp">{h}</h3>
+        {p && <p class="intro">{p}</p>}
+        <ul class="log">
+          {(list as typeof projects).map((pr) => (
+            <li><a class="row" href={`/projects/${pr.slug}/`}>
+              <div class="att" data-dev>{pr[l].dev?.[0]}</div>
+              <div>
+                <p class="when">{pr[l].card.meta}</p>
+                <h4>{pr.title}</h4>
+                <p>{pr[l].context}</p>
+                <span class="go">{T[l].more}</span>
+              </div>
+              <div>
+                <p class="who" set:html={pr[l].card.line} />
+                {pr[l].card.tags.length > 0 && <ul class="tags">{pr[l].card.tags.map((t) => <li>{t}</li>)}</ul>}
+              </div>
+            </a></li>
+          ))}
+        </ul>
+      </>
+    ))}
+    <h3 class="grp">{T[l].devH}</h3>
+    <ul class="sealed">{T[l].sealed.map(([n, d]) => <li><b>{n}</b>{d}</li>)}</ul>
   </div>
 ))}
 </div></section>
 
-<section class="blk" id="c-contact"><div class="wrap">
+<section class="blk contact" id="c-contact"><div class="wrap">
 {langs.map((l) => (
   <div class="l" lang={l}>
     <h2>{T[l].contact}</h2>
     <a class="mail" href="mailto:matteo.marrale.1998@gmail.com">matteo.marrale.1998@gmail.com</a>
-    <div class="btns">
-      <button class="btn fill" type="button" data-copy>{T[l].copy}</button>
-      <a class="btn" href="https://www.linkedin.com/in/matteomarrale/" target="_blank" rel="me noopener">LinkedIn ↗</a>
-      <a class="btn" href="https://github.com/matteomarrale" target="_blank" rel="me noopener">GitHub ↗</a>
-      <a class="btn" href="https://matteomarrale.itch.io" target="_blank" rel="me noopener">Itch.io ↗</a>
-      <a class="btn" href="/cv/MatteoMarrale_CV_IT.pdf" target="_blank" rel="noopener" hreflang="it">CV IT (PDF)</a>
-      <a class="btn" href="/cv/MatteoMarrale_CV_EN.pdf" target="_blank" rel="noopener" hreflang="en">CV EN (PDF)</a>
+    <div class="links">
+      <button class="cta" type="button" data-copy>{T[l].copy}</button>
+      <a href="https://www.linkedin.com/in/matteomarrale/" target="_blank" rel="me noopener">LinkedIn</a>
+      <a href="https://github.com/matteomarrale" target="_blank" rel="me noopener">GitHub</a>
+      <a href="https://matteomarrale.itch.io" target="_blank" rel="me noopener">Itch.io</a>
+      <a href={T[l].cv} target="_blank" rel="noopener" hreflang={l}>{T[l].cvBtn}</a>
     </div>
     <p class="toast" role="status" aria-live="polite"></p>
   </div>
