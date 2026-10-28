@@ -6,16 +6,18 @@
 <title>Page not found — Matteo Marrale</title>
 <meta name="robots" content="noindex">
 <style>
-/* font sul sito, percorso assoluto: questa pagina risponde a qualsiasi indirizzo */
+/* stile A come il resto del sito (src/styles/site.css, 28/10): stessi colori, Jacquard per il nome, Public Sans per il testo, verde solo per l'azione.
+   Font sul sito, percorso assoluto: questa pagina risponde a qualsiasi indirizzo */
 @font-face{font-family:'Jacquard 24'; font-weight:400; font-display:swap; src:url(/fonts/jacquard-24-normal-latin.woff2) format('woff2')}
-@font-face{font-family:'EB Garamond'; font-weight:400 700; font-display:swap; src:url(/fonts/eb-garamond-normal-latin.woff2) format('woff2')}
+@font-face{font-family:'Public Sans'; font-weight:400 700; font-display:swap; src:url(/fonts/public-sans-normal-latin.woff2) format('woff2')}
 :root{color-scheme:dark}
-body{margin:0; min-height:100vh; display:grid; place-items:center; padding:24px 16px; box-sizing:border-box; background:#000000; color:#FFFFFF; font:18px/1.55 'EB Garamond',Garamond,Georgia,serif}
+body{margin:0; min-height:100vh; display:grid; place-items:center; padding:24px 16px; box-sizing:border-box; background:#0E0E0E; color:#F2F2F2; font:17px/1.55 'Public Sans',system-ui,sans-serif}
 main{max-width:560px}
-h1{margin:0 0 12px; font:400 clamp(48px,12vw,88px)/.95 'Jacquard 24',Georgia,serif}
-p{margin:0 0 10px}
-a{display:inline-flex; align-items:center; min-height:46px; margin-top:10px; padding:0 18px; border:3px solid #999999; color:#FFFFFF; font-weight:600; text-decoration:none}
-a:focus-visible{outline:3px solid #FFFFFF; outline-offset:3px}
+h1{margin:0 0 16px; font:400 clamp(48px,12vw,88px)/.9 'Jacquard 24',Georgia,serif}
+p{margin:0 0 6px}
+p[lang="it"]{color:#B3B3B3}
+a{display:inline-flex; align-items:center; min-height:46px; margin-top:18px; padding:0 20px; border-radius:4px; background:#4CAF50; color:#0E0E0E; font-weight:700; text-decoration:none}
+a:focus-visible{outline:3px solid #4CAF50; outline-offset:3px}
 </style>
 </head>
 <body>
