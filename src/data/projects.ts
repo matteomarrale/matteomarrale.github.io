@@ -29,7 +29,7 @@ export const projects: Project[] = [
     en: {
       card: { meta: 'Feb 2026 · Unity', line: 'Game &amp; Level Designer, Testing &amp; Balancing', tags: ['Testing', 'Bug reports', 'Balancing'] },
       role: 'Game &amp; Level Designer, Testing &amp; Balancing', when: 'Feb 2026',
-      facts: [['Role', 'Game &amp; Level Designer, Testing &amp; Balancing'], ['When', 'Feb 2026'], ['Engine', 'Unity'], ['Format', '“Shuffle”: a new team every 5 days']],
+      facts: [['Role', 'Game &amp; Level Designer, Testing &amp; Balancing'], ['When', 'Feb 2026'], ['Engine', 'Unity'], ['Format', '"Shuffle": a new team every 5 days']],
       context: 'Space Invaders with a twist. "Shuffle" format: the project moved to a different team every 5 days.',
       did: [
         'Co-wrote the GDD with the team; designed the twist and the enemy spawn and movement patterns',
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     it: {
       card: { meta: 'feb 2026 · Unity', line: 'Game &amp; Level Designer, Testing &amp; Balancing', tags: ['Testing', 'Bug report', 'Balancing'] },
       role: 'Game &amp; Level Designer, Testing &amp; Balancing', when: 'feb 2026',
-      facts: [['Ruolo', 'Game &amp; Level Designer, Testing &amp; Balancing'], ['Periodo', 'feb 2026'], ['Motore', 'Unity'], ['Formato', '“Shuffle”: team diversi ogni 5 giorni']],
+      facts: [['Ruolo', 'Game &amp; Level Designer, Testing &amp; Balancing'], ['Periodo', 'feb 2026'], ['Motore', 'Unity'], ['Formato', '"Shuffle": team diversi ogni 5 giorni']],
       context: 'Space Invaders con un twist. Formato "Shuffle": il progetto passava a un altro team ogni 5 giorni.',
       did: [
         'Co-stesura del GDD con il team; design del twist e dei pattern di spawn e movimento dei nemici',

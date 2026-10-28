@@ -1,6 +1,6 @@
 ---
 // Home (variante 1 «scuro + accento», 27/10): presentazione e Chi sono insieme, Come faccio QA Testing, Progetti, Contatti.
-// Testi: testo di Chi sono scritto da Matteo il 27/10 (IT; EN tradotto da Claude, approvato da Matteo il 27/10), CV master e About LinkedIn del 27/10.
+// Testi: testo di Chi sono scritto da Matteo il 27/10 (IT; EN tradotto da Claude, approvato da Matteo il 27/10), CV master e About LinkedIn del 27/10. Frase d'apertura (lead) riscritta da Matteo il 28/10; EN del lead tradotto da Claude il 28/10.
 // Il bug report è un riassunto del file «Bugs Report» di Cosmic Chaos (feb 2026) sul drive dell'accademia, letto e basta (DEC-039 punto 4).
 import Base from '../layouts/Base.astro';
 import { projects, type Lang } from '../data/projects';
@@ -11,7 +11,7 @@ const personal = projects.filter((p) => p.group === 'personal');
 const T = {
   en: {
     cv: '/cv/MatteoMarrale_CV_EN.pdf', cvBtn: 'Download CV', alt: 'Matteo Marrale in a selfie with a black-and-white cat',
-    lead: "I'm a Junior QA Tester with a Game Designer background, looking for work in video game QA, in Italy or remote.",
+    lead: "I'm a Junior QA Tester with Game Designer training.",
     study: "I completed the first year of Strategic Writing &amp; Screenwriting at AIV, and I'm now training as a Game Designer at Digital Bros Game Academy in Milan (October 2025 – summer 2027), where from November 2026 I'm also taking the QA Testing course.",
     before: 'Before the academy I spent two years as an airport security officer at Malpensa (I-SEC): a job that got me used to following strict procedures and noticing details.',
     badges: [['Education', 'Digital Bros Game Academy · 2025–2027'], ['Course', 'DBGA QA Testing · from Nov 2026'], ['Languages', 'Italian · English B1'], ['Engines', 'Unity · Unreal Engine']],
@@ -39,7 +39,7 @@ const T = {
   },
   it: {
     cv: '/cv/MatteoMarrale_CV_IT.pdf', cvBtn: 'Scarica il CV', alt: 'Matteo Marrale in un selfie con un gatto bianco e nero',
-    lead: 'Sono un Junior QA Tester con un percorso da Game Designer e cerco lavoro nel campo del QA dei videogiochi, in Italia o da remoto.',
+    lead: 'Sono un Junior QA Tester con un percorso formativo da Game Designer.',
     study: "Ho completato il primo anno di Strategic Writing &amp; Screenwriting all'AIV e oggi mi formo alla Digital Bros Game Academy di Milano (ottobre 2025 – estate 2027) come Game Designer, dove da novembre 2026 seguo anche il corso QA Testing.",
     before: "Prima dell'accademia ho lavorato due anni come guardia di sicurezza aeroportuale a Malpensa (I-SEC): un lavoro che mi ha abituato a seguire procedure rigorose e a notare i dettagli.",
     badges: [['Formazione', 'Digital Bros Game Academy · 2025–2027'], ['Corso', 'QA Testing DBGA · da nov 2026'], ['Lingue', 'Italiano · Inglese B1'], ['Motori', 'Unity · Unreal Engine']],
@@ -69,7 +69,7 @@ const T = {
 // Bug report in italiano e inglese (approvato da Matteo il 27/10). Fatti dal file originale; gravità, frequenza e build date da Matteo.
 const BUG = {
   en: {
-    title: '[Gameplay] Enemy formation does not spawn after pressing “Retry”',
+    title: '[Gameplay] Enemy formation does not spawn after pressing "Retry"',
     meta: [
       ['Project', 'Cosmic Chaos (Unity)'],
       ['Severity', 'Major'],
@@ -79,13 +79,13 @@ const BUG = {
       ['Reported by', 'Matteo Marrale · Feb 2026'],
     ],
     stepsH: 'Steps to reproduce', expectedH: 'Expected result', actualH: 'Actual result', workaroundH: 'Workaround',
-    steps: ['Launch the game and press “Play” from the main menu.', 'Lose an attempt.', 'Press “Retry”.'],
+    steps: ['Launch the game and press "Play" from the main menu.', 'Lose an attempt.', 'Press "Retry".'],
     expected: 'The enemy formation spawns at the start of the new attempt.',
     actual: 'No enemy formation spawns.',
-    workaround: 'Close and reopen the game. Returning to the main menu and pressing “Play” does not fix it.',
+    workaround: 'Close and reopen the game. Returning to the main menu and pressing "Play" does not fix it.',
   },
   it: {
-    title: '[Gameplay] La formazione nemica non compare dopo aver premuto «Retry»',
+    title: '[Gameplay] La formazione nemica non compare dopo aver premuto "Retry"',
     meta: [
       ['Progetto', 'Cosmic Chaos (Unity)'],
       ['Gravità', 'Alta (Major)'],
@@ -95,10 +95,10 @@ const BUG = {
       ['Segnalato da', 'Matteo Marrale · feb 2026'],
     ],
     stepsH: 'Passi per riprodurre', expectedH: 'Risultato atteso', actualH: 'Risultato ottenuto', workaroundH: 'Soluzione temporanea',
-    steps: ['Avvia il gioco e premi «Play» dal menu principale.', 'Perdi un tentativo.', 'Premi «Retry».'],
+    steps: ['Avvia il gioco e premi "Play" dal menu principale.', 'Perdi un tentativo.', 'Premi "Retry".'],
     expected: "All'inizio del nuovo tentativo compare la formazione nemica.",
     actual: 'Non compare nessuna formazione nemica.',
-    workaround: 'Chiudi e riapri il gioco. Tornare al menu principale e premere «Play» non risolve.',
+    workaround: 'Chiudi e riapri il gioco. Tornare al menu principale e premere "Play" non risolve.',
   },
 };
 const langs: Lang[] = ['en', 'it'];
@@ -122,7 +122,7 @@ const jsonLd = {
       <div>
         <h1>Matteo <br>Marrale</h1>
         <h2 class="sr">{T[l].aboutH}</h2>
-        <p class="role">Junior QA Tester · Game Designer</p>
+        <p class="role">Junior QA Tester | Game Designer</p>
         <p class="lead">{T[l].lead}</p>
         <p set:html={T[l].study} />
         <p>{T[l].before}</p>
