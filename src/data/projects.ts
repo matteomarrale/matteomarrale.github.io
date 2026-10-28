@@ -85,7 +85,7 @@ export const projects: Project[] = [
     en: {
       card: { meta: 'Nov–Dec 2025 · Unity', line: 'Game &amp; Level Designer · team of 8', tags: ['Internal test', '17 changes'] },
       role: 'Game &amp; Level Designer', when: 'Nov–Dec 2025',
-      facts: [['Role', 'Game &amp; Level Designer'], ['When', 'Nov–Dec 2025'], ['Engine', 'Unity · first Unity project'], ['Team', '8']],
+      facts: [['Role', 'Game &amp; Level Designer'], ['When', 'Nov–Dec 2025'], ['Engine', 'Unity · first Unity project'], ['Team', '8'], ['Genre', 'Top-Down arcade inspired by the classic Snake']],
       context: 'Top-down arcade game set in Sumerian mythology: 3 levels, scoring and power-ups.',
       did: [
         'Game and level design of one of the 3 levels; co-designed the score system, items (Beer, Speed Potion) and NPC rules',
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     it: {
       card: { meta: 'nov–dic 2025 · Unity', line: 'Game &amp; Level Designer · team di 8', tags: ['Test interno', '17 modifiche'] },
       role: 'Game &amp; Level Designer', when: 'nov–dic 2025',
-      facts: [['Ruolo', 'Game &amp; Level Designer'], ['Periodo', 'nov–dic 2025'], ['Motore', 'Unity · primo progetto Unity'], ['Team', '8']],
+      facts: [['Ruolo', 'Game &amp; Level Designer'], ['Periodo', 'nov–dic 2025'], ['Motore', 'Unity · primo progetto Unity'], ['Team', '8'], ['Genere', 'Arcade Top-Down ispirato al classico Snake']],
       context: 'Arcade top-down ambientato nella mitologia sumera: 3 livelli, punteggio e power-up.',
       did: [
         'Game e level design di uno dei 3 livelli; co-design del sistema di punteggio, degli item (Beer, Speed Potion) e delle regole degli NPC',
