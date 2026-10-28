@@ -85,7 +85,7 @@ export const projects: Project[] = [
     en: {
       card: { meta: 'Nov–Dec 2025 · Unity', line: 'Game &amp; Level Designer · team of 8', tags: ['Internal test', '17 changes'] },
       role: 'Game &amp; Level Designer', when: 'Nov–Dec 2025',
-      facts: [['Role', 'Game &amp; Level Designer'], ['When', 'Nov–Dec 2025'], ['Engine', 'Unity · first Unity project'], ['Team', '8'], ['Genre', 'Top-Down arcade inspired by the classic Snake']],
+      facts: [['Role', 'Game &amp; Level Designer'], ['When', 'Nov–Dec 2025'], ['Engine', 'Unity · first Unity project'], ['Team', '8'], ['Genre', 'Top-down arcade inspired by the classic Snake']],
       context: 'Top-down arcade game set in Sumerian mythology: 3 levels, scoring and power-ups.',
       did: [
         'Game and level design of one of the 3 levels; co-designed the score system, items (Beer, Speed Potion) and NPC rules',
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     it: {
       card: { meta: 'nov–dic 2025 · Unity', line: 'Game &amp; Level Designer · team di 8', tags: ['Test interno', '17 modifiche'] },
       role: 'Game &amp; Level Designer', when: 'nov–dic 2025',
-      facts: [['Ruolo', 'Game &amp; Level Designer'], ['Periodo', 'nov–dic 2025'], ['Motore', 'Unity · primo progetto Unity'], ['Team', '8'], ['Genere', 'Arcade Top-Down ispirato al classico Snake']],
+      facts: [['Ruolo', 'Game &amp; Level Designer'], ['Periodo', 'nov–dic 2025'], ['Motore', 'Unity · primo progetto Unity'], ['Team', '8'], ['Genere', 'Arcade top-down ispirato al classico Snake']],
       context: 'Arcade top-down ambientato nella mitologia sumera: 3 livelli, punteggio e power-up.',
       did: [
         'Game e level design di uno dei 3 livelli; co-design del sistema di punteggio, degli item (Beer, Speed Potion) e delle regole degli NPC',
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     en: {
       card: { meta: 'Jan 2026 · Unity', line: 'Game &amp; Level Designer', tags: ['Game jam', '5 days'] },
       role: 'Game &amp; Level Designer', when: 'Jan 2026',
-      facts: [['Role', 'Game &amp; Level Designer'], ['When', 'Jan 2026'], ['Engine', 'Unity'], ['Format', '1-week game jam']],
+      facts: [['Role', 'Game &amp; Level Designer'], ['When', 'Jan 2026'], ['Engine', 'Unity'], ['Format', '5-day game jam']],
       context: 'Theme "origin of music": side camera, 26-second runs, at least one mandatory diversifier.',
       did: ['From brainstorm to playable prototype in 5 days, cutting features to fit a 26-second experience'],
       dev: ['[IMG 16:9 · prototype]', '[DA FORNIRE: link build / docs]'],
@@ -151,7 +151,7 @@ export const projects: Project[] = [
     it: {
       card: { meta: 'gen 2026 · Unity', line: 'Game &amp; Level Designer', tags: ['Game jam', '5 giorni'] },
       role: 'Game &amp; Level Designer', when: 'gen 2026',
-      facts: [['Ruolo', 'Game &amp; Level Designer'], ['Periodo', 'gen 2026'], ['Motore', 'Unity'], ['Formato', 'Game jam di 1 settimana']],
+      facts: [['Ruolo', 'Game &amp; Level Designer'], ['Periodo', 'gen 2026'], ['Motore', 'Unity'], ['Formato', 'Game jam di 5 giorni']],
       context: 'Tema "origine della musica": camera laterale, run di 26 secondi, almeno un diversifier obbligatorio.',
       did: ['Dal brainstorming al prototipo giocabile in 5 giorni, tagliando feature per far stare tutto in 26 secondi'],
       dev: ['[IMG 16:9 · prototipo]', '[DA FORNIRE: link build / documenti]'],
@@ -189,7 +189,7 @@ export const projects: Project[] = [
     en: {
       card: { meta: 'Personal project · Unity (URP) · PC', line: 'First-person turn-based dungeon crawler', tags: [] },
       role: 'First-person turn-based dungeon crawler · Unity · playable prototype', when: '',
-      facts: [['Role', 'Solo personal project'], ['Status', 'Playable prototype'], ['Engine', 'Unity (URP)'], ['Platform', 'PC'], ['Genre', 'First-person turn-based dungeon crawler, permadeath']],
+      facts: [['Role', 'Personal project'], ['Status', 'Playable prototype'], ['Engine', 'Unity (URP)'], ['Platform', 'PC'], ['Genre', 'First-person turn-based dungeon crawler, permadeath']],
       context: 'A first-person, turn-based dungeon crawler with permadeath, developed in Unity. You beat each enemy by using your items and the room around you. When you die, you start over: all you keep between runs is a journal you draw and write in yourself.',
       did: ['Game design and development: Matteo Marrale (programming with Claude Code)'],
       dev: ['[IMG 16:9 · Other Side gameplay]', '[DA FORNIRE: link build / docs]'],
